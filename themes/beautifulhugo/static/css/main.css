@@ -46,7 +46,7 @@ p a {
 }
 
 h1,h2,h3,h4,h5,h6 {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'GT Maru Medium';
   font-weight: 800;
 }
 a {
@@ -91,7 +91,7 @@ hr.small {
 }
 
 .main-explain-area {
-  font-family: 'Inter', sans-serif;
+  font-family: 'GT Maru Medium';
   padding: 15px inherit;
 }
 
@@ -100,7 +100,7 @@ hr.small {
 }
 
 div.panel-body a.list-group-item {
-  font-family: 'Inter', sans-serif;
+  font-family: 'GT Maru Medium';
   font-weight: 800;
   border-radius: 0;
   border: none;
@@ -158,7 +158,7 @@ figure:not(.dark) img, img.white {
 .navbar-custom {
   background: rgb(255, 234, 215);
   border-bottom: 1px solid #EAEAEA;
-  font-family: 'Inter', sans-serif;
+  font-family: 'GT Maru Medium';
 }
 @media (prefers-color-scheme: dark) {
   .navbar-custom {
@@ -367,7 +367,7 @@ footer .list-inline {
   padding: 0;
 }
 footer .copyright {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'GT Maru Medium';
   text-align: center;
   margin-bottom: 0;
 }
@@ -457,7 +457,7 @@ footer .theme-by {
   text-decoration: none;
 }
 .post-preview .post-entry {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'GT Maru Medium';
 }
 .post-entry-container {
   display: inline-block;
@@ -496,7 +496,7 @@ footer .theme-by {
 /* --- Tags --- */
 
 .blog-tags {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'GT Maru Medium';
   color: #999;
   font-size: 15px;
   margin-bottom: 30px;
@@ -601,7 +601,7 @@ footer .theme-by {
   font-size: 27px;
   line-height: 1.1;
   display: block;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'GT Maru Medium';
   font-weight: 300;
   margin: 10px 0 0;
 }
@@ -626,7 +626,7 @@ footer .theme-by {
   padding: 5px 10px;
   font-size: 11px;
   color: #EEE;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'GT Maru Medium';
   right: 0;
   bottom: 0;
   display: none;
@@ -702,7 +702,7 @@ footer .theme-by {
 /* --- Pager --- */
 
 .pager li a {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'GT Maru Medium';
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 800;
@@ -836,7 +836,7 @@ div.splitbox div.right {
 
 /* Delayed Disqus */
 .disqus-comments button {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'GT Maru Medium';
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 800;
