@@ -1,64 +1,35 @@
-baseurl = "https://blog.sigstore.dev"
+archetypeDir           = "archetypes"
+author                 = "admin"
+baseUrl                = "http://localhost:1313"
+buildDrafts            = false
+relativeURLs           = true
+canonifyUrls           = true
+contentDir             = "content"
+languageCode           = "en-us"
+layoutDir              = "layouts"
+publishDir             = "public"
+theme                  = "pixyll"
+title                  = "Sigstore Blog"
+enableEmoji            = true
 DefaultContentLanguage = "en"
-title = "Sigstore Blog"
-theme = "beautifulhugo"
-pygmentsStyle = "trac"
-pygmentsUseClasses = true
-pygmentsCodeFences = true
-pygmentsCodefencesGuessSyntax = true
-#pygmentsUseClassic = true
-#pygmentOptions = "linenos=inline"
-#disqusShortname = "XXX"
-#googleAnalytics = "XXX"
+#disqusShortname        = ""
 
-[Params]
-#  homeTitle = "Beautiful Hugo Theme" # Set a different text for the header on the home page
-  subtitle = "News and updates from Sigstore, the modern way to sign, verify and protect software."
-  mainSections = ["post","posts"]
-  logo = "img/avatar-icon.png" # Expecting square dimensions
-  favicon = "img/favicon.ico"
-  dateFormat = "January 2, 2006"
-  commit = false
-  rss = true
-  comments = true
-  readingTime = true
-  wordCount = true
-  useHLJS = true
-  socialShare = false
-  delayDisqus = true
-  showRelatedPosts = true
-  hideAuthor = false
-  goatcounterid = "sigstoreblogstage"
-#  gcse = "012345678901234567890:abcdefghijk" # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
+[Languages]
+[Languages.en]
+weight = 1
 
-#[[Params.bigimg]]
-#  src = "img/triangle.jpg"
-#  desc = "Triangle"
-#[[Params.bigimg]]
-#  src = "img/sphere.jpg"
-#  desc = "Sphere"
-#  # position: see values of CSS background-position.
-#  position = "center top"
-#[[Params.bigimg]]
-#  src = "img/hexagon.jpg"
-#  desc = "Hexagon"
+[blackfriday]
+angledQuotes = true
+hrefTargetBlank = true
 
-#[Author]
-#  # Set only your "username" for default hosts and full URLs otherwise (e.g., "https://MyGitLab.org/username")
-#  name = "Sigstore"
-#  website = "https://sigstore.dev"
-
-[taxonomies]
-  tag = "tags"
+[indexes]
   category = "categories"
-  author = "authors"
+  tag = "tags"
 
-[[menu.main]]
-    name = "About"
-    url = "page/about/"
-    weight = 1
-
-[[menu.main]]
-    name = "Tags"
-    url = "tags"
-    weight = 2
+[params]
+  mainSections = ["post"]
+  search_engine = false
+  #google_analytics_id = ""
+  twitter_username = "projectsigstore"
+  paginate = 5
+  goatcounterid = "sigstoreblogstage"

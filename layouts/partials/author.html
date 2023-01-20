@@ -1,7 +1,0 @@
-{{ $author := index .Site.Content.authors (.Params.author | default "sigstore") }}
-{{- if $author -}}
-    <div class="meta_item">
-        {{ partial "svg/author.svg" (dict "class" "meta_icon") -}}
-        <span class="meta_text">{{ $author.name }}</span>
-    </div>
-{{- end -}}
