@@ -1,6 +1,6 @@
 archetypeDir           = "archetypes"
-author                 = "admin"
-baseUrl                = "http://localhost:1313"
+author                 = "sigstore"
+baseUrl                = "https://blog.sigstore.dev"
 buildDrafts            = false
 relativeURLs           = true
 canonifyUrls           = true
@@ -12,7 +12,6 @@ theme                  = "pixyll"
 title                  = "Sigstore Blog"
 enableEmoji            = true
 DefaultContentLanguage = "en"
-#disqusShortname        = ""
 
 [Languages]
 [Languages.en]
@@ -29,7 +28,6 @@ hrefTargetBlank = true
 [params]
   mainSections = ["post"]
   search_engine = false
-  #google_analytics_id = ""
   twitter_username = "projectsigstore"
   paginate = 5
   goatcounterid = "sigstoreblogstage"
