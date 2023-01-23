@@ -1,6 +1,6 @@
 +++
 title = "Why you can’t use Sigstore without Sigstore"
-date = "2023-01-14"
+date = "2023-01-06"
 tags = ["sigstore","python"]
 draft = false
 author = "Zachary Newman"
