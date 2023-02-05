@@ -15,7 +15,7 @@ The Java community has always taken a mature approach to security. So it should 
 
 For an overview of signing, including the evolution from PGP to Sigstore, this talk by Hervé Boutemy is highly recommended:
 
-{{< youtube id="gFRt4fC7cMU" >}}
+{{< youtube gFRt4fC7cMU >}}
 
 In short, many in the Java ecosystem are looking to Sigstore as a replacement for PGP signing with these particular benefits in mind:
 
@@ -35,9 +35,9 @@ The OSSRH Service is the primary public repository for Java artifacts. It is an 
 
 Maven Central currently requires and uses PGP for signing artifacts. Each artifact must be accompanied by a detached PGP signature file. Work is underway to use Sigstore as a replacement for PGP in Maven Central. The work has been broken down into multiple stages.
 
-*Stage 0 [complete]*- Maven Central historically has required a PGP signature for all uploaded artifacts. That requirement is being dropped for Sigstore signature artifacts.
+**Stage 0 [complete]**- Maven Central historically has required a PGP signature for all uploaded artifacts. That requirement is being dropped for Sigstore signature artifacts.
 
-*Stage 1* — Include Sigstore signature verification in Maven Central repository pre-release checks.
+**Stage 1** — Include Sigstore signature verification in Maven Central repository pre-release checks.
 
 Supported workflows will be:
 
@@ -47,7 +47,7 @@ Supported workflows will be:
 
 In all workflows, all provided cryptographic signatures will be verified.
 
-*Stage 2 & Beyond* — Verification & more!
+**Stage 2 & Beyond** — Verification & more!
 
 Thank you Damian Bradicich (Sonatype) and Joel Orlina (Sonatype) for your work enabling Sigstore support on Central.
 
