@@ -3,7 +3,7 @@ title = "Signatus, ergo securus? Who can sign what with TUF and Sigstore"
 date = "2022-12-13"
 tags = ["sigstore","software supply chain","identity","tuf","intoto"]
 draft = false
-author = ["Zachary Newman", "Marina Moore"]
+author = "Zachary Newman, Marina Moore"
 type = "post"
 +++
 
