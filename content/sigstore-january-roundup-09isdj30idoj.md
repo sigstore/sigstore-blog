@@ -1,5 +1,5 @@
 +++
-title = "Sigstore Janaury Roundup"
+title = "Sigstore January Roundup"
 date = "2023-02-01"
 tags = ["sigstore","security","software supply chain","supply chain security","update"]
 draft = false
