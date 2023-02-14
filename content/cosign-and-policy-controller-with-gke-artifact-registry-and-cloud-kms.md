@@ -1,6 +1,6 @@
 +++
-title = "Sigstore’s `cosign` and `policy-controller` with GKE, Artifact Registry and KMS"
-date = "2023-01-27"
+title = "Sigstore’s cosign and policy-controller with GKE, Artifact Registry and KMS"
+date = "2023-02-10"
 tags = ["sigstore","security","kubernetes", "kms"]
 draft = false
 author = "Mathieu Benoit"
