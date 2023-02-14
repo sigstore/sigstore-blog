@@ -1,5 +1,5 @@
 +++
-title = "Sigstore: Bring-your-own sTUF with TUF"
+title = "Adopting Sigstore Incrementally"
 date = "2022-08-02"
 tags = ["sigstore","security","Open Source","Supply Chain"]
 draft = false
