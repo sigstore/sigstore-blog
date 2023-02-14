@@ -1,3 +1,4 @@
++++
 title = "Sigstore project update — September 2021"
 date = "2021-10-01"
 tags = ["sigstore","security","devsecops"]

@@ -3,7 +3,7 @@ title = "'Sigstore: Software Signing For Everybody' has been published in the pr
 date = "2022-11-17"
 tags = ["sigstore","research paper","computer security","software supply chain"]
 draft = false
-author = ["Zachary Newman","John Speed Meyers", "Santiago Torres-Arias"]
+author = "Zachary Newman, John Speed Meyers, Santiago Torres-Arias"
 type = "post"
 +++
 
