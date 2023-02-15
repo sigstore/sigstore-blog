@@ -6,6 +6,4 @@ slug = "about"
 
 +++
 
-sigstore: A new standard for signing, verifying and protecting software
-
 Learn more about the project at [sigstore.dev](https://www.sigstore.dev/).
