@@ -6,4 +6,4 @@ slug = "about"
 
 +++
 
-Few words about project.
+Learn more about the project at [sigstore.dev](https://www.sigstore.dev/).
