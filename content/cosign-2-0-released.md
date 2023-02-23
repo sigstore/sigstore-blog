@@ -1,7 +1,7 @@
 +++
 title = "Cosign 2.0 Released!"
 date = "2023-02-23"
-tags = ["sigstore","cosign","security","Open Source"]
+tags = ["sigstore","cosign","security","opensource"]
 draft = false
 author = "Hayden Blauzvern"
 type = "post"
