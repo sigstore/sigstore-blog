@@ -1,7 +1,7 @@
 +++
 title = "Sigstore November Roundup"
 date = "2022-11-10"
-tags = ["sigstore","python","sigstorecon","ga","Rekor"]
+tags = ["sigstore","python","sigstorecon","ga","rekor"]
 draft = false
 author = "sigstore"
 type = "post"

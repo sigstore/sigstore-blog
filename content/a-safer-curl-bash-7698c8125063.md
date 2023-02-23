@@ -1,7 +1,7 @@
 +++
 title = "A Safer curl | bash ?"
 date = "2021-05-01"
-tags = ["sigstore","infosec","golang","Supply chain"]
+tags = ["sigstore","infosec","golang","softwaresupplychain"]
 draft = false
 author = "Dan Lorenc"
 type = "post"

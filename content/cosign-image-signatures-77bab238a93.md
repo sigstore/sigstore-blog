@@ -1,7 +1,7 @@
 +++
 title = "Cosign Image Signatures"
 date = "2021-05-13"
-tags = ["sigstore","infosec","kubernetes","Security"]
+tags = ["sigstore","infosec","kubernetes","security"]
 draft = false
 author = "Dan Lorenc"
 type = "post"

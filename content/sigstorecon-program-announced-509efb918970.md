@@ -2,7 +2,7 @@
 
 title = "SigstoreCon Program Announced"
 date = "2022-09-14"
-tags = ["sigstore","kubecon","secure software","supply chain security"]
+tags = ["sigstore","kubecon","securesoftware","supplychainsecurity"]
 draft = false
 author = "Tracy Miranda"
 type = "post"

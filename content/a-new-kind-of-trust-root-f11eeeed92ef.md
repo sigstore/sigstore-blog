@@ -1,7 +1,7 @@
 +++
 title = "A New Kind of Trust Root"
 date = "2021-06-08"
-tags = ["sigstore","Infosec","security","Kubernetes"]
+tags = ["sigstore","infosec","security","kubernetes"]
 draft = false
 author = "Dan Lorenc"
 type = "post"

@@ -2,7 +2,7 @@
 
 title = "Contribute to Sigstore during Hacktoberfest 2022!"
 date = "2022-09-30"
-tags = ["sigstore","Hacktoberfest","sigstorecon","releases","Secure supply chain"]
+tags = ["sigstore","hacktoberfest","sigstorecon","releases","securesupplychain"]
 draft = false
 author = "Sigstore"
 type = "post"

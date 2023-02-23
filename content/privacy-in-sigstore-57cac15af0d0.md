@@ -2,7 +2,7 @@
 
 title = "Privacy in Sigstore"
 date = "2022-05-28"
-tags = ["sigstore","privacy","Software Supply Chain","supply chain security"]
+tags = ["sigstore","privacy","softwaresupplychain","supplychainsecurity"]
 draft = false
 author = "Zachary Newman"
 type = "post"

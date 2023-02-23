@@ -1,7 +1,7 @@
 +++
 title = "Sigstore Proves That Effective Supply Chain Security Doesn’t Have to Hurt"
 date = "2022-10-22"
-tags = ["sigstore","Supply chain security","case study"]
+tags = ["sigstore","supplychainsecurity","casestudy"]
 draft = false
 author = "Sigstore"
 type = "post"

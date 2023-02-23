@@ -2,7 +2,7 @@
 
 title = "Sigstore October Roundup"
 date = "2022-10-12"
-tags = ["sigstore","Hacktoberfest","sigstorecon","releases","Secure supply chain"]
+tags = ["sigstore","hacktoberfest","sigstorecon","releases","securesupplychain"]
 draft = false
 author = "Sigstore"
 type = "post"

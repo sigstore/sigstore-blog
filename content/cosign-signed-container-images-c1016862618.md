@@ -1,7 +1,7 @@
 +++
 title = "Cosign — Signed Container Images"
 date = "2021-05-11"
-tags = ["sigstore","golang","kubernetes","Security"]
+tags = ["sigstore","golang","kubernetes","security"]
 draft = false
 author = "Dan Lorenc"
 type = "post"

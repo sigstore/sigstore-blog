@@ -1,7 +1,7 @@
 +++
 title = "Sigstore December Roundup"
 date = "2022-12-23"
-tags = ["sigstore","security","software supply chain","supply chain security","npm"]
+tags = ["sigstore","security","softwaresupplychain","supplychainsecurity","npm"]
 draft = false
 author = "Sigstore"
 type = "post"

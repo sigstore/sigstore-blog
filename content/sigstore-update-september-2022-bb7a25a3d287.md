@@ -2,7 +2,7 @@
 
 title = "Sigstore Update — September 2022"
 date = "2022-09-08"
-tags = ["sigstore","Java Script","software security","Software supply chain","kubecon"]
+tags = ["sigstore","javascript","softwaresecurity","softwaresupplychain","kubecon"]
 draft = false
 author = "Tracy Miranda"
 type = "post"

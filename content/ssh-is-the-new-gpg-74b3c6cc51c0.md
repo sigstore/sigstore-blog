@@ -1,7 +1,7 @@
 +++
 title = "SSH is the new GPG"
 date = "2021-01-25"
-tags = ["sigstore","GitHub","open source","Security"]
+tags = ["sigstore","github","opensource","security"]
 draft = false
 author = "Dan Lorenc"
 type = "post"

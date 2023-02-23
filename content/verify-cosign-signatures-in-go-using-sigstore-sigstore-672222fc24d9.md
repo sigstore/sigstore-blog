@@ -2,7 +2,7 @@
 
 title = "Verify cosign signatures in go using sigstore/sigstore"
 date = "2022-08-09"
-tags = ["sigstore","go","golang","cosign","Edgeless Systems"]
+tags = ["sigstore","go","golang","cosign","edgelesssystems"]
 draft = false
 author = "Fabian Kammel"
 type = "post"

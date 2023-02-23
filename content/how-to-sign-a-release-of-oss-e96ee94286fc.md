@@ -1,7 +1,7 @@
 +++
 title = "How to Sign a Release of OSS"
 date = "2021-05-17"
-tags = ["sigstore","infosec","kubernetes","Security"]
+tags = ["sigstore","infosec","kubernetes","security"]
 draft = false
 author = "Dan Lorenc"
 type = "post"

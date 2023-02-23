@@ -1,7 +1,7 @@
 +++
 title = "Sigstore: Bring-your-own sTUF with TUF"
 date = "2022-01-19"
-tags = ["sigstore","security","Open Source","Supply Chain"]
+tags = ["sigstore","security","opensource","softwaresupplychain"]
 draft = false
 author = "Hayden Blauzvern, Asra Ali"
 type = "post"

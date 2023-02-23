@@ -1,7 +1,7 @@
 +++
 title = "Adopting Sigstore Incrementally"
 date = "2022-08-02"
-tags = ["sigstore","security","Open Source","Supply Chain"]
+tags = ["sigstore","security","opensource","softwaresupplychain"]
 draft = false
 author = "Hayden Blauzvern"
 type = "post"

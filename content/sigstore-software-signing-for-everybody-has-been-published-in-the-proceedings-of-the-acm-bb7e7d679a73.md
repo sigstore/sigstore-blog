@@ -1,7 +1,7 @@
 +++
 title = "'Sigstore: Software Signing For Everybody' has been published in the proceedings of the ACM Computer and Communications Security Conference"
 date = "2022-11-17"
-tags = ["sigstore","research paper","computer security","software supply chain"]
+tags = ["sigstore","researchpaper","computersecurity","softwaresupplychain"]
 draft = false
 author = "Zachary Newman, John Speed Meyers, Santiago Torres-Arias"
 type = "post"

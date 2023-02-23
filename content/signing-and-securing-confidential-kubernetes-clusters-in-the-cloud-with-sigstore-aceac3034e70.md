@@ -2,7 +2,7 @@
 
 title = "Signing and Securing Confidential Kubernetes Clusters in the Cloud with Sigstore"
 date = "2022-08-11"
-tags = ["sigstore","Confidential Computing","Software Supply Chain","K8s","Kubernetes"]
+tags = ["sigstore","confidentialcomputing","softwaresupplychain","kubernetes"]
 draft = false
 author = "Fabian Kammel"
 type = "post"

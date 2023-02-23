@@ -1,7 +1,7 @@
 +++
 title = "Security by Default: How Verizon New Business Incubation Uses Sigstore to Demonstrate Provenance and Improve Customer Confidence"
 date = "2022-11-10"
-tags = ["sigstore","slsa","supply chain security","open source","5g"]
+tags = ["sigstore","slsa","supplychainsecurity","opensource","5g"]
 draft = false
 author = "sigstore"
 type = "post"

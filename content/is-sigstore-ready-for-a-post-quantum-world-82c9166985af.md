@@ -2,7 +2,7 @@
 
 title = "Is Sigstore Ready for a Post-Quantum World?"
 date = "2022-07-17"
-tags = ["sigstore","nist","Post-Quantum Cryptography"]
+tags = ["sigstore","nist","postquantumcryptography"]
 draft = false
 author = "Zachary Newman"
 type = "post"
