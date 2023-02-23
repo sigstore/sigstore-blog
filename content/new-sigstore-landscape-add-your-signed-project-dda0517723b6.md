@@ -1,7 +1,7 @@
 +++
 title = "New Sigstore Landscape: Add your signed project"
 date = "2022-11-30"
-tags = ["sigstore","rekor","cosign","openssf","Software Supply Chain"]
+tags = ["sigstore","rekor","cosign","openssf","softwaresupplychain"]
 draft = false
 author = "sigstore"
 type = "post"

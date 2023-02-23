@@ -1,7 +1,7 @@
 +++
 title = "Using Sigstore to meet FedRAMP Compliance at Autodesk"
 date = "2022-11-23"
-tags = ["sigstore","cicd","software supply chain","security","autodesk"]
+tags = ["sigstore","cicd","softwaresupplychain","security","autodesk"]
 draft = false
 author = "Sigstore"
 type = "post"

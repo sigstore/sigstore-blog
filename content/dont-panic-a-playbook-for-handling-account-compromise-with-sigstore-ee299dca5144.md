@@ -2,7 +2,7 @@
 
 title = "Don’t Panic: A Playbook for Handling Account Compromise with Sigstore"
 date = "2022-04-25"
-tags = ["sigstore","cosign","Incident Response","supply chain security"]
+tags = ["sigstore","cosign","incidentresponse","supplychainsecurity"]
 draft = false
 author = "Zachary Newman"
 type = "post"

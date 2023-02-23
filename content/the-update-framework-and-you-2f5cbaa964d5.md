@@ -1,7 +1,7 @@
 +++
 title = "The Update Framework and You"
 date = "2021-05-18"
-tags = ["sigstore","infosec","open source","Security"]
+tags = ["sigstore","infosec","opensource","security"]
 draft = false
 author = "Dan Lorenc"
 type = "post"

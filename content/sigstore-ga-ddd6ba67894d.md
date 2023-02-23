@@ -1,7 +1,7 @@
 +++
 title = "Sigstore Announces General Availability for Rekor and Fulcio"
 date = "2022-10-25"
-tags = ["sigstore","python","sigstorecon","ga","Rekor"]
+tags = ["sigstore","python","sigstorecon","ga","rekor"]
 draft = false
 author = "Priya Wadhwa"
 type = "post"

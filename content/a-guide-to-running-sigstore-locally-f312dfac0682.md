@@ -1,7 +1,7 @@
 +++
 title = "A Guide to Running Sigstore Locally"
 date = "2023-01-24"
-tags = ["sigstore","Deployment","Helm"]
+tags = ["sigstore","deployment","helm"]
 draft = false
 author = "Felix Wolff"
 type = "post"

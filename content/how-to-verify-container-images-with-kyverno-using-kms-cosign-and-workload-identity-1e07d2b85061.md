@@ -2,7 +2,7 @@
 
 title = "How to verify container images with Kyverno using KMS, Cosign, and Workload Identity"
 date = "2022-04-25"
-tags = ["sigstore","cosign","workload Identity","kms","kyverno"]
+tags = ["sigstore","cosign","workloadidentity","kms","kyverno"]
 draft = false
 author = "developer-guy"
 type = "post"

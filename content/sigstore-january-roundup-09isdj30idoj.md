@@ -1,7 +1,7 @@
 +++
 title = "Sigstore January Roundup"
 date = "2023-02-01"
-tags = ["sigstore","security","software supply chain","supply chain security","update"]
+tags = ["sigstore","security","softwaresupplychain","supplychainsecurity","update"]
 draft = false
 author = "Sigstore"
 type = "post"

@@ -1,7 +1,7 @@
 +++
 title = "How to become the next Sigstore Evangelist?"
 date = "2022-12-20"
-tags = ["sigstore","cosign","sigstorecon","Evangelist","bestsigstoreevangelist"]
+tags = ["sigstore","cosign","sigstorecon","evangelist","bestsigstoreevangelist"]
 draft = false
 author = "developer-guy"
 type = "post"

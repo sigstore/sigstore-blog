@@ -2,7 +2,7 @@
 
 title = "A New Look for Sigstore"
 date = "2022-09-21"
-tags = ["sigstore","gitsign","software supply chain","secure software","cosign"]
+tags = ["sigstore","gitsign","softwaresupplychain","securesoftware","cosign"]
 draft = false
 author = "di_codes"
 type = "post"

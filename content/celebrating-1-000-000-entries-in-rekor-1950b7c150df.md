@@ -1,7 +1,7 @@
 +++
 title = "Celebrating 1,000,000 entries in Rekor"
 date = "2022-01-10"
-tags = ["sigstore","Software Supply Chain","Software Engineering"]
+tags = ["sigstore","softwaresupplychain","softwareengineering"]
 draft = false
 author = "Santiago Torres-Arias"
 type = "post"

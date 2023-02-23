@@ -1,7 +1,7 @@
 +++
 title = "Sigstore June Update!"
 date = "2021-06-30"
-tags = ["sigstore","Infosec","security","Kubernetes"]
+tags = ["sigstore","infosec","security","kubernetes"]
 draft = false
 author = "Dan Lorenc"
 type = "post"

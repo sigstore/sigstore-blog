@@ -1,7 +1,7 @@
 +++
 title = "It’s ten o’clock, do you know where your private keys are?"
 date = "2021-08-03"
-tags = ["sigstore","security","Open Source","Supply Chain"]
+tags = ["sigstore","security","opensource","softwaresupplychain"]
 draft = false
 author = "Asra Ali, Appu Goundan"
 type = "post"
