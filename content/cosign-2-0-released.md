@@ -32,7 +32,7 @@ The following is the list of breaking changes:
 Additionally, we've made the following improvements:
 
 * Blob attestation and verification is now supported with `cosign attest-blob` and `cosign verify-blob-attestation`.
-* You can now set flags via environment variables, for example instead of `--certificate-identity=email`, you can set an environment variable for `CERTIFICATE_IDENTITY=email`.
+* You can now set flags via environment variables, for example instead of `--certificate-identity=email`, you can set an environment variable for `COSIGN_CERTIFICATE_IDENTITY=email`.
 * `--offline=true` removes the fallback to the Rekor log when verifying an artifact. Previously, if you did not provide a bundle (a persisted response from Rekor), Cosign would fallback to querying Rekor. You can now skip this fallback for offline environments. Note that if the bundle fails to verify, Cosign will not fallback and will fail early.
 * A Fulcio certificate can now be issued for self-managed keys by providing `--issue-certificate=true` with a key, `--key`, or security key, `--sk`. This is useful when [adopting Sigstore incrementally](https://blog.sigstore.dev/adopting-sigstore-incrementally-1b56a69b8c15/).
 * Experimental support for trusted timestamping has been added. Timestamping leverages a third party to provide the timestamp that will be used to verify short-lived Fulcio certificates, which distributes trust. We will be writing more about this in an upcoming blog post!
