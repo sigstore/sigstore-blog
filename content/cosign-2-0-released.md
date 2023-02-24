@@ -28,6 +28,7 @@ The following is the list of breaking changes:
 * `verify-blob` no longer searches for a certificate. You must provide one with either `--certificate` or `--bundle`.
 * `cosign attest --type {custom|vuln}` (and `cosign verify-attestation`) will now use the RFC 3986 compliant URIs, adding `https://`, so that these predicate types are compliant with the in-toto specification.
 * The `CosignPredicate` envelope that wraps the predicates of SPDX and CycloneDX attestations has been removed, which was a violation of the schema specified via the `predicateType` field ([more information](https://github.com/sigstore/cosign/pull/2718)).
+* `--force` has been removed. To skip any prompts, use `--yes`.
 
 Additionally, we've made the following improvements:
 
