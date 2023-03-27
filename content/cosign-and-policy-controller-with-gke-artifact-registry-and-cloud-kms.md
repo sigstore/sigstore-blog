@@ -1,7 +1,7 @@
 +++
 title = "Sigstore’s cosign and policy-controller with GKE, Artifact Registry and KMS"
 date = "2023-02-10"
-tags = ["sigstore","security","kubernetes", "kms"]
+tags = ["cosign","sigstore","security","kubernetes","kms"]
 draft = false
 author = "Mathieu Benoit"
 type = "post"
@@ -166,7 +166,7 @@ gcloud container clusters create ${CLUSTER_NAME} \
     --region ${REGION} \
     --scopes "gke-default,https://www.googleapis.com/auth/cloudkms"
 ```
-_Note: we explicitly add the `https://www.googleapis.com/auth/cloudkms` scope needed by Sistore’s `policy-controller`. [`https://www.googleapis.com/auth/cloud-platform`](https://cloud.google.com/kubernetes-engine/docs/how-to/access-scopes) instead is fine too._
+_Note: we explicitly add the `https://www.googleapis.com/auth/cloudkms` scope needed by Sigstore’s `policy-controller`. [`https://www.googleapis.com/auth/cloud-platform`](https://cloud.google.com/kubernetes-engine/docs/how-to/access-scopes) instead is fine too._
 
 Install the [Sigstore’s `policy-controller` Helm chart](https://github.com/sigstore/helm-charts/tree/main/charts/policy-controller) in this GKE cluster:
 ```bash
