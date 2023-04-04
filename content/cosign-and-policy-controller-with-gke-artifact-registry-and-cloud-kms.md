@@ -179,7 +179,7 @@ gcloud artifacts repositories add-iam-policy-binding ${REGISTRY_NAME} \
     --role roles/artifactregistry.reader
 ```
 
-Install the [Policy-controller Helm chart](https://github.com/sigstore/helm-charts/tree/main/charts/policy-controller) in this GKE cluster:
+Install the [Policy-controller Helm chart](https://github.com/sigstore/helm-charts/tree/main/charts/policy-controller) in this GKE cluster by annotating the Policy-controller's `ServiceAccounts` to use Workload Identity:
 ```bash
 helm repo add sigstore https://sigstore.github.io/helm-charts
 helm repo update
