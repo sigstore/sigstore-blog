@@ -1,5 +1,5 @@
 +++
-title = "Sigstore’s cosign and policy-controller with GKE, Artifact Registry and KMS"
+title = "Cosign and Policy-controller with GKE, Artifact Registry and KMS"
 date = "2023-02-10"
 tags = ["cosign","sigstore","security","kubernetes","kms"]
 draft = false
