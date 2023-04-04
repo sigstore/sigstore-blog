@@ -109,7 +109,7 @@ TAG                                                                          IMA
 latest                                                                       ${REGION}-docker.pkg.dev/${PROJECT_ID}/${REGISTRY_NAME}/nginx  sha256:4c1c50d0ffc614f90b93b07d778028dc765548e823f676fb027f61d281ac380d
 sha256-4c1c50d0ffc614f90b93b07d778028dc765548e823f676fb027f61d281ac380d.sig  ${REGION}-docker.pkg.dev/${PROJECT_ID}/${REGISTRY_NAME}/nginx  sha256:f02d7fef0df5c264e34b995a4861590bbdd7001631f6e5f23250f34202359a56
 ```
-_Note: there is an [ongoing discussion](https://github.com/sigstore/cosign/issues/1397) to support the [reference types from the OCI spec](https://oras.land/cli/6_reference_types/) in order to just have the container image where the signature could be attached on._
+_Note: there is an [ongoing discussion](https://github.com/sigstore/cosign/issues/1397) to support the [reference types from the OCI spec](https://oras.land/cli/6_reference_types/) in order to just have the container image where the signature could be attached on. Since Cosign 2.0, that’s now an [experimental feature](https://github.com/sigstore/cosign/pull/2684)._
 
 Verify this signed container image:
 ```bash
