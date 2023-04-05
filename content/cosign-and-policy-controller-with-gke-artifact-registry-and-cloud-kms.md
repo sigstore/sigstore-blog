@@ -183,10 +183,8 @@ Install the [Policy-controller Helm chart](https://github.com/sigstore/helm-char
 ```bash
 helm repo add sigstore https://sigstore.github.io/helm-charts
 helm repo update
-helm upgrade policy-controller \
-    sigstore/policy-controller \   
-    --install \
-    -n cosign-system \
+helm install policy-controller \
+    -n cosign-system sigstore/policy-controller \
     --create-namespace \
     --set "policywebhook.serviceAccount.annotations.iam\.gke\.io/gcp-service-account=${PC_GSA_ID}" \
     --set "webhook.serviceAccount.annotations.iam\.gke\.io/gcp-service-account=${PC_GSA_ID}"
