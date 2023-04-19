@@ -26,3 +26,5 @@ Using Sigstore, npm will start to generate signed cryptographic provenance recor
 “It's amazing what GitHub and npm are doing to provide cryptographically-signed provenance metadata using Sigstore. Securing such a critical ecosystem like npm is not an easy task, let alone trailblazing in the software supply chain security space. I hope this integration sets the tone for the conversation to secure other ecosystems in the same way." Said Santiago Torres-Arias, creator of in-toto, "in a way, this not only benefits npm, but the broader open source ecosystem — leading by example"
 
 We're excited to see this public beta go live, and we're confident that the collaboration between these two open source projects will lead to even more innovations in the years to come.
+
+You can read more about the integration in the GitHub npm pubic beta announcement blog post [here](https://github.blog/2023-04-19-introducing-npm-package-provenance/).
