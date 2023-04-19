@@ -13,13 +13,13 @@ We're thrilled to announce that the npm project has launched a public beta, bund
 
 Sigstore is an OpenSSF project that enables developers to validate that the software they are using is exactly what it claims to be using cryptographic digital signatures and transparency log technologies. As the default package manager for the Node.js runtime, npm is the de facto standard for packaging and sharing code in the JavaScript ecosystem, and npmjs.com is the largest package registry on the internet by downloads-per-day. 
 
-npm CLI tool
+## npm CLI tool
 
 The CLI tool allows developers to construct, install, and manage packages that can be used in any Node.js project. It also includes features like version management, dependency tracking, and automated package installation, which make it easier for developers to manage their projects and share their code with others. In addition to Node.js packages, npm also supports the management of packages for front-end web development using tools like React, Angular, and Vue.js. npm is widely used by developers worldwide and hosts millions of packages in its registry.
 
 “It’s incredible to see this adoption play out and testament to how serious the npm community takes the ever increasing threats to software supply chains. The work the npm community has carried out to integrate sigstore is a gold standard level of implementation and this work should lighten the path for other communities wanting to adopt sigstore and improve their supply chain security resilience.” Luke Hinds, Sigstore Technical Steering Committee (TSC) Chair.
 
-Sigstore-signed Provenance
+## Sigstore-signed Provenance
 
 Using Sigstore, npm will start to generate signed cryptographic provenance records each time a package maintainer releases a new npm module. In turn users will be able to leverage the sigstore-signed provenance to verify the package is tamper free and generated from the correct source of origin.
 
