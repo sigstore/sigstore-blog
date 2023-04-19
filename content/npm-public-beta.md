@@ -2,7 +2,7 @@
 title = "Sigstore Support in NPM launches for Public Beta"
 date = "2023-04-19"
 tags = ["sigstore","npm","security","node"]
-draft = true
+draft = false
 author = "The Sigstore Techincal Steering Committee"
 type = "post"
 +++
