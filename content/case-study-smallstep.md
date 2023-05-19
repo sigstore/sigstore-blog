@@ -1,8 +1,8 @@
 +++
 title = "Bringing Privacy and Security Full Circle Through Automated Authentication"
-date = "2023-04-04"
+date = "2023-05-19"
 tags = ["sigstore","cosign","supply chain security","open source","devops"]
-draft = true
+draft = false
 author = "sigstore"
 type = "post"
 +++
