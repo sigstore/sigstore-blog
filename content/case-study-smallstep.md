@@ -9,7 +9,7 @@ type = "post"
 
 _This is a Sigstore case study contributed by Max Furman of [Smallstep](https://smallstep.com/)_
 
-![](/images/Case Study Smallsteps.png)
+![](/images/Case%20Study%20Smallsteps.png)
 
 No matter how well you think you secure your software supply chain, the possibility of a breach is always in the back of your mind. We recently had a moment of panic where we thought, “Did someone get access to some things we stored in secrets?” I wondered what damage they’d done and how quickly we could repair it. 
 
