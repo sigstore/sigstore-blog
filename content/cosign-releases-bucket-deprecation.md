@@ -17,7 +17,7 @@ We are deprecating the GCS bucket because we already use GitHub in the Sigstore 
 
 If you currently download Cosign releases from the GCS bucket, you will need to update your installation instructions to download releases from GitHub. You can find the latest Cosign releases on the Cosign GitHub releases page: https://github.com/sigstore/cosign/releases.
 
-In 90 days, on October 31, 2023, we will revoke public access to the `cosign-releases` GCS bucket.
+On October 31, 2023, we will revoke public access to the `cosign-releases` GCS bucket.
 
 You should inspect any scripts or instructions where you may be downloading releases via the following URLs:
 - `gs://cosign-releases/`
@@ -41,4 +41,4 @@ or
 uses: sigstore/cosign-installer@v3.1.1
 ```
 
-We apologize for any inconvenience this may cause. Thank you for your continued support of sigstore!
+We apologize for any inconvenience this may cause. Thank you for your continued support of Sigstore!
