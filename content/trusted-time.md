@@ -1,6 +1,6 @@
 +++
 title = "Trusted Time in Sigstore"
-date = "2023-04-20"
+date = "2023-08-02"
 tags = ["sigstore","timestamping","rekor"]
 draft = false
 author = "Hayden Blauzvern (Google), Meredith Lancaster (GitHub), Héctor Fernández (Chainguard)"
@@ -30,12 +30,10 @@ Instead, Sigstore relies on time provided by another service. When verifying the
 
 To mitigate this, Sigstore now supports [signed timestamps](https://en.wikipedia.org/wiki/Trusted_timestamping). Trusted Timestamp Authorities (TSAs) issue signed timestamps following the [RFC 3161](https://www.ietf.org/rfc/rfc3161.txt) specification. Since the timestamps are signed, the time becomes immutable and verifiable. During verification, verifiers will use the TSA's provided certificate chain to verify signed timestamps.
 
-Leveraging signed timestamps from TSAs also distributes trust. Anyone can operate a TSA. If you represent an ecosystem that would like to integrate with Sigstore and leverage the public good instance but would like to have control over a part of the trust root, you can operate a TSA whose signed timestamps will be used during verification.
+Leveraging signed timestamps from TSAs also distributes trust. Anyone can operate a TSA. If you represent an ecosystem that would like to integrate with Sigstore and leverage the public good instance but would like to have control over a part of the trust root, you can operate a TSA whose signed timestamps will be used during verification. Learn more [below](#more-information) on how to run a timestamp authority.
 
-You also have many options for public TSAs. This list below is an example of some, the first two operated by members of the Sigstore community:
+You also have options for public TSAs, such as:
 
-* GitHub
-* [Chainguard](https://www.chainguard.dev/unchained/how-to-sign-private-artifacts-securely)
 * [FreeTSA](https://freetsa.org/index_en.php)
 * [Digicert](https://knowledge.digicert.com/generalinformation/INFO4231.html)
 
