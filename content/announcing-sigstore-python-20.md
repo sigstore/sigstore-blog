@@ -7,7 +7,7 @@ author = "William Woodruff (Trail of Bits), Dustin Ingram (Google)"
 type = "post"
 +++
 
-We are delighted to announce the 2.0 release of [sigstore-python]!
+We are delighted to announce the 2.0 release of [sigstore-python], a Python client for signing and verifying Sigstore signatures!
 
 ```bash
 $ python -m pip install -U sigstore
