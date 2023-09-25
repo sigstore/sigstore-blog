@@ -24,14 +24,14 @@ Read on for a summary of our biggest changes, or check out our
 
 ## CLI changes
 
-* `sigstore verify` is **no longer** a backwards-compatible alias for
-  `sigstore verify identity`, as it was in the 1.x series. Users must now
-  invoke `sigstore verify identity` or `sigstore verify github` explicitly.
-
 * Sigstore's [bundle format] is now preferred throughout the CLI, and is
   the default input and output format! This means that
   `sigstore sign secret.txt` and `sigstore verify identity secret.txt` will now
   generate or verify `secret.txt.sigstore`, respectively.
+  
+* `sigstore verify` is **no longer** a backwards-compatible alias for
+  `sigstore verify identity`, as it was in the 1.x series. Users must now
+  invoke `sigstore verify identity` or `sigstore verify github` explicitly.
 
 * `sigstore sign` and `sigstore get-identity-token` now support the
   `--oauth-force-oob` flag, providing a CLI option for the pre-existing
