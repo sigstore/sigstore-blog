@@ -50,7 +50,7 @@ usage examples!
 * The `Signer` API is now two different APIs: `Signer` and `SigningContext`.
   This change better reflects sigstore-python's interior lifetimes and
   allows developers to reuse an ephemeral keypair across multiple inputs,
-  saving unnecessary network round-trips when signing multiple things!
+  saving unnecessary network round-trips!
 
 * Bundle generation is now exposed as part of the public API:
   `VerificationMaterials.to_bundle()` and `SigningResult.to_bundle()` can
