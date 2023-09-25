@@ -10,7 +10,7 @@ type = "post"
 We are delighted to announce the 2.0 release of [sigstore-python]!
 
 ```bash
-$ python -m pip install sigstore
+$ python -m pip install -U sigstore
 $ python -m sigstore --version
 sigstore 2.0.0
 ```
