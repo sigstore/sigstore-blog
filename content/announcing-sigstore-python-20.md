@@ -20,6 +20,11 @@ This release has been in the works for a while, and contains a number
 of significant improvements and breaking changes to both the `sigstore`
 CLI and Python APIs.
 
+We've also updated the official [`sigstore/gh-action-sigstore-python`] action
+to use the latest 2.0 release. You can use this action to join the
+[growing ecosystem] of projects producing Sigstore signatures through
+GitHub Actions!
+
 Read on for a summary of our biggest changes, or check out our
 [CHANGELOG] for additional details!
 
@@ -69,6 +74,16 @@ usage examples!
   Additionally, sigstore-python now comes with an initial baked-in
   copy of the trust bundle, to ease bootstrapping (and offline verification).
 
+## Exciting user: CPython
+
+We've been overjoyed to see both developers and end users join the Sigstore
+ecosystem through sigstore-python!
+
+As part of this announcement, we wanted to highlight the hard work of
+[Seth Larson] to prepare the CPython release process for sigstore-python 2.0:
+[Seth backfilled old signatures into the new bundle format] and updated
+[the documentation on python.org]
+
 ## Up next
 
 This 2.0 release of sigstore-python is filled with internal changes that
@@ -99,3 +114,13 @@ Jussi Kukkonen (Google), Jack Leightcap (Trail of Bits), and Andrew Pan
 ["full" offline verification support]: https://github.com/sigstore/sigstore-python/issues/483
 
 [additional "plumbing" CLI routines]: https://github.com/sigstore/sigstore-python/issues/718
+
+[`sigstore/gh-action-sigstore-python`]: https://github.com/sigstore/gh-action-sigstore-python
+
+[growing ecosystem]: https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/#signing-the-distribution-packages
+
+[Seth Larson]: https://sethmlarson.dev/
+
+[Seth backfilled old signatures into the new bundle format]: https://github.com/python/pythondotorg/issues/2300
+
+[the documentation on python.org]: https://www.python.org/download/sigstore/
