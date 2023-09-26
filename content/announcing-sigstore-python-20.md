@@ -7,7 +7,8 @@ author = "William Woodruff (Trail of Bits), Dustin Ingram (Google)"
 type = "post"
 +++
 
-We are delighted to announce the 2.0 release of [sigstore-python], a Python client for signing and verifying Sigstore signatures!
+We are delighted to announce the 2.0 release of [sigstore-python], a Python
+client for signing and verifying Sigstore signatures!
 
 ```bash
 $ python -m pip install -U sigstore
@@ -28,7 +29,7 @@ Read on for a summary of our biggest changes, or check out our
   the default input and output format! This means that
   `sigstore sign secret.txt` and `sigstore verify identity secret.txt` will now
   generate or verify `secret.txt.sigstore`, respectively.
-  
+
 * `sigstore verify` is **no longer** a backwards-compatible alias for
   `sigstore verify identity`, as it was in the 1.x series. Users must now
   invoke `sigstore verify identity` or `sigstore verify github` explicitly.
