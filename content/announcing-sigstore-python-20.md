@@ -74,15 +74,17 @@ usage examples!
   Additionally, sigstore-python now comes with an initial baked-in
   copy of the trust bundle, to ease bootstrapping (and offline verification).
 
-## Exciting user: CPython
+## Sigstore 🫶 CPython
 
 We've been overjoyed to see both developers and end users join the Sigstore
 ecosystem through sigstore-python!
 
 As part of this announcement, we wanted to highlight the hard work of
-[Seth Larson] to prepare the CPython release process for sigstore-python 2.0:
-[Seth backfilled old signatures into the new bundle format] and updated
-[the documentation on python.org]
+[Seth Larson] (Python Software Foundation) to prepare the CPython release
+process for sigstore-python 2.0:
+[he backfilled old signatures into the new bundle format] and updated
+[the documentation on python.org] to be compatible with the newest `sigstore`
+CLI. Thanks, Seth!
 
 ## Up next
 
@@ -121,6 +123,6 @@ Jussi Kukkonen (Google), Jack Leightcap (Trail of Bits), and Andrew Pan
 
 [Seth Larson]: https://sethmlarson.dev/
 
-[Seth backfilled old signatures into the new bundle format]: https://github.com/python/pythondotorg/issues/2300
+[he backfilled old signatures into the new bundle format]: https://github.com/python/pythondotorg/issues/2300
 
 [the documentation on python.org]: https://www.python.org/download/sigstore/
