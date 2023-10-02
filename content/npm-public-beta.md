@@ -1,5 +1,5 @@
 +++
-title = "Sigstore Support in NPM launches for Public Beta"
+title = "Sigstore Support in npm launches for Public Beta"
 date = "2023-04-19"
 tags = ["sigstore","npm","security","node"]
 draft = false
