@@ -16,7 +16,8 @@ It bears a lot of resemblance to Sigstore, so I thought it would be worth taking
 
 The major difference between OpenPubKey and Sigstore is that OpenPubKey eliminates the centralized, server-side components of Sigstore, namely the Transparency Log and Certificate Authority components.
 In this sense, it appears much simpler to use and operate.
-These systems are actually somewhat load-bearing in the Sigstore architecture, so they can’t simply be removed without some tradeoffs. It’s entirely possible these tradeoffs make sense for certain architectures, but they weren’t really discussed in the OpenPubKey paper so it’s hard to understand if they were considered.
+These systems are actually somewhat load-bearing in the Sigstore architecture, so they can’t simply be removed without some tradeoffs.
+It’s entirely possible these tradeoffs make sense for certain architectures, but they weren’t really discussed in the OpenPubKey paper so it’s hard to understand if they were considered.
 We did consider this architecture in Sigstore though, so I can explain why we didn’t feel it made sense for generic artifact signing.
 
 There are two main issues with the elimination of the Certificate Authority and Transparency Log (Fulcio and Rekor, respectively) - 1) publishing raw identity tokens (JWTs) introduces several privacy concerns with tracking identities over long periods of time, and across renames, and 2), relying directly on OIDC signing keys for verification introduces a large amount of complexity (and attack surface) on clients, who have to handle the key rotation aspects of OIDC providers.
@@ -44,8 +45,8 @@ When someone wants to verify the signature:
 
 1. They verify that the code signing certificate was signed correctly by Fulcio
 1. They verify the identity and issuer of the certificate match the identity and issuer they expect.
-1. They verify the signature against the artifact
-1. At this point, they know that the identity in the certificate signed the artifact, as vouched for by Fulcio (who checked the identity from the identity provider)
+1. They verify the signature against the artifact.
+1. At this point, they know that the identity in the certificate signed the artifact, as vouched for by Fulcio (who checked the identity from the identity provider).
 
 Note that the “keyless” flow in sigstore is optional, many other flows exist and are also supported, and these other flows may be better in some cases!
 The keyless flow is most comparable to that of OpenPubKey, so that’s what I’m explaining here.
@@ -67,7 +68,7 @@ In OpenPubKey, the user goes through a similar, albeit simpler flow:
 
 1. A user logs into their identity provider (Google, Github, Microsoft, etc.).
 1. The user requests an “identity token” from this provider, that they can use to assert their identity to a third party.
-*DIFFERENCE ALERT* As part of this step, the user embeds some information into the ‘nonce’ field of the request. This is an implementation detail of 1. the OIDC protocol. (more on this below)
+*DIFFERENCE ALERT* As part of this step, the user embeds some information into the ‘nonce’ field of the request. This is an implementation detail of the OIDC protocol. (more on this below).
 1. The identity provider hands back the signed token, including the signed nonce, which contains that special information.
 1. The user then uses this token directly as a certificate - the nonce field contains information about the user’s signing key, so it binds their identity to that key so they can sign artifacts right away!
 1. The user attaches this token alongside the signature, similar to a certificate.
@@ -116,7 +117,7 @@ If you’re already familiar with certificates and OIDC, you can probably skip t
 
 
 ### Certificates
-A certificate sounds complicated and intimidating, and all the nomenclature around x509 and PEM and DER encodings don’t help
+A certificate sounds complicated and intimidating, and all the nomenclature around x509 and PEM and DER encodings don’t help.
 But at their core, certificates are actually pretty simple.
 I love [this blog from SmallStep](https://smallstep.com/blog/everything-pki/) as a full primer on how they all work.
 It says that a certificate binds an identity to a public key.
@@ -196,10 +197,9 @@ You can’t remove or obfuscate any of the information in this token without inv
 These fields usually consist of things like [iss, sub, aud, exp, and iat](https://cloudentity.com/developers/basics/tokens/id-token/#:~:text=Typically%2C%20the%20ID%20token%20uses,be%20consumed%20by%20the%20client.), which are required to make the scheme work, but as you can see in this example they might contain things like “name”. Sigstore allows users to sign under any identity they want (typically an email address, but not always), and strips out any extra fields from the token as part of issuing the certificate.
 If the name is included in the token, sigstore sees it, but sigstore doesn’t pass it on to the certificate issued by Fulcio, so users verifying the signature have only the information they need.
 
-This isn’t just a privacy issue, ID tokens are commonly treated as bearer tokens for authentication systems
+This isn’t just a privacy issue, ID tokens are commonly treated as bearer tokens for authentication systems.
 Passing them around externally can pose a security risk! Relying parties are supposed to verify claims within the token to ensure the token received was generated specifically for that use case (so an ID Token for OpenPubKey shouldn’t be accepted to log into a social network), but that relies on the relying party to properly verify those claims, and security incidents due to improper claim verification [happen regularly](https://www.wired.com/story/china-backed-hackers-steal-microsofts-signing-key-post-mortem/).
-The OpenPubKey implementation (not the paper) has an [issue and a potential workaround](https://github.com/openpubkey/openpubkey/issues/7) to this by using zero-knowledge proofs - it looks promising but
-I’m not enough of an expert to know if it will work out.
+The OpenPubKey implementation (not the paper) has an [issue and a potential workaround](https://github.com/openpubkey/openpubkey/issues/7) to this by using zero-knowledge proofs - it looks promising but I’m not enough of an expert to know if it will work out.
 
 # Wrapping Up
 
