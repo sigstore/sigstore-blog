@@ -53,17 +53,16 @@ Even after this rollout, we’re not done: there are a few cryptographic compone
 
 The following table summarizes each component, its use of cryptography, whether the component is quantum-resistant, and the post-standardization plan:
 
-```csv
-Component,Cryptography,Quantum Resistant,Plan (after standardization)
-Signing/verifying artifacts (short/long-lived keys),Digital signatures (currently ECDSA),❌,Replace with PQ signature algorithms.
-Rekor append-only log,Merkle tree (currently SHA2 hash),✔️,
-"Fulcio/Rekor signatures on certificates, SETs, SCTs, and STHs",Digital signatures (currently ECDSA),❌,Replace with PQ signature algorithms.
-TUF: distributing Sigstore root certificates,Digital signatures (currently ECDSA),❌,Add PQ signature algorithms to TUF implementation.
-OIDC tokens for identity,Digital signatures (currently RSA),❌,OpenID Foundation should add (and require) PQ algorithms in OIDC.
-TLS: secure point-to-point communication,"Key exchange (ECDHE, DHE)",❌,IETF should update TLS to support PQ key exchange and signature algorithms.
-,"Signatures (RSA, ECDSA, EdDSA)",❌,
-,"Encryption (AES, ChaCha20/Poly1305)",✔️,
-```
+| Component                                                     | Cryptography                         | Quantum Resistant | Plan (after standardization)                                                     |
+|---------------------------------------------------------------|--------------------------------------|-------------------|----------------------------------------------------------------------------------|
+| Signing/verifying artifacts (short/long-lived keys)           | Digital signatures (currently ECDSA) | ❌                 | Replace with PQ signature algorithms.                                            |
+| Rekor append-only log                                         | Merkle tree (currently SHA2 hash)    | ✔️                |                                                                                  |
+| Fulcio/Rekor signatures on certificates, SETs, SCTs, and STHs | Digital signatures (currently ECDSA) | ❌                 | Replace with PQ signature algorithms.                                            |
+| TUF: distributing Sigstore root certificates                  | Digital signatures (currently ECDSA) | ❌                 | Add PQ signature algorithms to TUF implementation.                               |
+| OIDC tokens for identity                                      | Digital signatures (currently RSA)   | ❌                 | OpenID Foundation should add (and require) PQ algorithms in OIDC.                |
+| TLS: secure point-to-point communication                      | Key exchange (ECDHE, DHE)            | ❌                 | NIST/IETF should update TLS to support PQ key exchange and signature algorithms. |
+| TLS                                                           | Signatures (RSA, ECDSA, EdDSA)       | ❌                 | Pending NIST/IETF signature scheme standardization                               |
+| TLS                                                           | Encryption (AES, ChaCha20/Poly1305)  | ✔️                |                                                                                  |
 
 ### Conclusion
 
