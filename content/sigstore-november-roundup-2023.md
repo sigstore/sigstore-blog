@@ -78,6 +78,7 @@ Do check it out where there a lots of examples on using the library [see here](h
 ### In the News
 
 - JPMorgan’s Global CISO urges use of Sigstore, Alpha-Omega in open source security drive [read more](https://www.thestack.technology/jpmorgans-global-ciso-use-sigstore-alpha-omega/)
+- Sigstore: Simplifying Code Signing for Open Source Ecosystems [read more](https://openssf.org/blog/2023/11/21/sigstore-simplifying-code-signing-for-open-source-ecosystems/)
 - Stacklok Builds on Sigstore to Identify Safe Open Source Libraries [read more](https://thenewstack.io/stacklok-builds-on-sigstore-to-identify-safe-open-source-libraries/)
 - Wind River Further Expands VxWorks RTOS Containers Leadership with Cosign Support [read more](https://www.businesswire.com/news/home/20231101614010/en/)
 
