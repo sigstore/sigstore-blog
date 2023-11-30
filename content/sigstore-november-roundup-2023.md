@@ -13,7 +13,7 @@ Welcome to the November edition of the Sigstore Roundup! This is a regular summa
 
 ### Sigstore Google Season of Docs 2023 Case Study
  
-A very comprehisive case study has been published on the [Sigstore docs wiki](https://github.com/sigstore/docs/wiki/Sigstore-Google-Season-of-Docs-2023-Case-Study) about the Sigstore project's participation in the 2021 program.
+A very comprehisive case study has been published on the [Sigstore docs wiki](https://github.com/sigstore/docs/wiki/Sigstore-Google-Season-of-Docs-2023-Case-Study) about the Sigstore project's participation in the 2023 program.
 
 Thank you Lisa Tagliaferri for all your hard work on this and making it a success!
 
