@@ -1,7 +1,7 @@
 +++
 
 title = "Sigstore January Roundup"
-date = "2024-02-30"
+date = "2024-01-30"
 tags = ["sigstore","securesupplychain"]
 draft = false
 author = "Luke Hinds (TSC Chair)"
