@@ -54,14 +54,6 @@ Community member William Woodruff had this to say about the work:
 
 The original proposal can be found [here](https://docs.google.com/document/d/18vTKFvTQdRt3OGz6Qd1xf04o-hugRYSup-1EAOWn7MQ/edit#heading=h.op2lvfrgiugr)
 
-#### sigstore-go project
-
-A new implementation of the signing and verification logic in being developed
-within the sigstore-go library and we welcome all contributions or code review.
-
-Check out the issue tracker (https://github.com/sigstore/sigstore-go/issues) for
-starter issues
-
 #### sigstore-python: DSSE support has landed!
 
 Support for DSSE has been added to the sigstore-python library. This is a
@@ -82,14 +74,23 @@ A release will be made shortly.
 This month has not seen any major releases, but there have been a number of
 minor releases across the various Sigstore projects.
 
+#### sigstore-go v0.1.0
+
+The initial release of Initial sigstore-go has been shipped!!
+
+https://github.com/sigstore/sigstore-go/releases/tag/v0.1.0
+
 #### sigstore v1.8.1
 
-- Added kms support for AWS China region by @maaiika
+The sigstore library has been updated to v1.8.1.
+
+https://github.com/sigstore/sigstore/releases/tag/v1.8.1
 
 #### Timestamp v1.2.1
 
-- v1.2.1 includes a minor bug fix to set the SignedData version value
-in a timestamp response as per the RFC.
+The timestamp-authority library has been updated to v1.2.1.
+
+https://github.com/sigstore/timestamp-authority/releases/tag/v1.2.1
 
 ### User adoption
 
