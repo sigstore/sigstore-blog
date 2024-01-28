@@ -25,14 +25,14 @@ There are serveral Sigstore related talks and events planned for KubeCon Europe,
 
 #### FOSDEM 2024
 
-The next FOSDEM will be held in **3rd & 4th February 2024** along with a talk
-on Sigstore and SLSA by John Viega.
+The next FOSDEM will be held in Brussels, Belgium on the **3rd & 4th February 2024**
+along with a talk on Sigstore and SLSA by John Viega.
 
 - [Making it easy to get to SLSA level 2, John Viega](https://fosdem.org/2024/schedule/event/fosdem-2024-2877-making-it-easy-to-get-to-slsa-level-2/)
 
 #### Sigstore Community Meeting
 
-The last Sigstore Community Meeting was be held on **January 23rd**.
+The last Sigstore Community Meeting was held on the **January 23rd**.
 
 You can watch a recording of the meeting [here](https://www.youtube.com/watch?v=r4WQYk4KWqs)
 
@@ -44,9 +44,7 @@ To join the meeting, please see the [meeting details](https://calendar.google.co
 
 #### Cryptographic Agility
 
-Some very interesting work is happening in the Sigstore community around our
-signature algorithm agility work and the integration of post-quantum signatures
-schemes.
+Some very interesting work is happening in the Sigstore community around cryptographic agility. This includes support of further signature algorithms and the integration of post-quantum signatures schemes.
 
 Community member William Woodruff had this to say about the work:
 
