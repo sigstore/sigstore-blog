@@ -37,7 +37,7 @@ The last Sigstore Community Meeting was held on the **February 20th**.
 
 You can watch a recording of the meeting [here](https://www.youtube.com/watch?v=YJeKKPNpXf0)
 
-The next Sigstore Community Meeting will be held on **February 5th**.
+The next Sigstore Community Meeting will be held on **March 5th**.
 
 To join the meeting, please see the [meeting details](https://calendar.google.com/calendar/u/0/embed?src=fq4kgom2ce43hncnbcfja2ck20@group.calendar.google.com&ctz=America/New_York)
 
