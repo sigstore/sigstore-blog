@@ -17,18 +17,19 @@ Welcome to the February edition of the Sigstore Roundup! This is a regular summa
 
 The next KubeCon Europe will be held on **19th – 22nd March**.
 
-There are serveral Sigstore related talks and events planned for KubeCon Europe, including:
+There are several Sigstore related talks and events planned for KubeCon Europe, including:
 
 - [Securing the Supply Chain with Sigstore Artifacts Signatures at Scale - Dmitry Savintsev & Yonghe Zhao, Yahoo](https://kccnceu2024.sched.com/event/1YeNE)
 - [Navigating the Software Supply Chain Defense Landscape - Marina Moore & Aditya Sirish A Yelgundhalli, New York University](https://kccnceu2024.sched.com/event/1YeO3/navigating-the-software-supply-chain-defense-landscape-marina-moore-aditya-sirish-a-yelgundhalli-new-york-university)
 - [Contribfest: Enable Additional Signing Mechanisms for TUF and in-toto: No Cryptography Skills Required](https://kccnceu2024.sched.com/event/1YkRE/contribfest-enable-additional-signing-mechanisms-for-tuf-and-in-toto-no-cryptography-skills-required)
 
-#### FOSDEM 2024
+#### Open Source Summit North America 2024
 
-The next FOSDEM will be held in Brussels, Belgium on the **3rd & 4th February 2024**
-along with a talk on Sigstore and SLSA by John Viega.
+The next Open Source Summit North America will be held on **April 16th – 18th**
 
-- [Making it easy to get to SLSA level 2, John Viega](https://fosdem.org/2024/schedule/event/fosdem-2024-2877-making-it-easy-to-get-to-slsa-level-2/)
+One sigstore related talk is planned::
+
+- [Securing Git Repositories with Gittuf - Aditya Sirish A Yelgundhalli, New York University & Billy Lynch, Chainguard](https://sched.co/1aBPF)
 
 #### Sigstore Community Meeting
 
