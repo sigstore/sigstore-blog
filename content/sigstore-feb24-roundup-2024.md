@@ -27,9 +27,21 @@ There are several Sigstore related talks and events planned for KubeCon Europe, 
 
 The next Open Source Summit North America will be held on **April 16th – 18th**
 
-One sigstore related talk is planned::
+There are a few Sigstore related talks planned:
 
 - [Securing Git Repositories with Gittuf - Aditya Sirish A Yelgundhalli, New York University & Billy Lynch, Chainguard](https://sched.co/1aBPF)
+- [Public Sector + OpenSSF: Principles for Package Repository Security - Jack Cable, CISA & Zach Steindler, GitHub](https://sched.co/1aBOk)
+- [Panel Discussion: Improving Supply Chain Integrity with OpenSSF Technologies - Arnaud Le Hors, IBM; Jay White, Microsoft; Isaac Hepworth, Google; Michael Lieberman, Kusari; Marcela Melara, Intel Corporation](https://sched.co/1aBMw)
+
+#### SOSS Community Day North America 2024
+
+Previously called OpenSSF Day, SOSS Community Day North America will be held on **April 15th**
+
+There are several Sigstore talks planned:
+
+- [Sigstore: 2024 and Beyond - Hayden Blauzvern, Google](https://sched.co/1aNLh)
+- [Leveraging Sigstore Capabilities in a Local Environment - Chad Coleman, Lockheed Martin](https://sched.co/1aNLk)
+- [Build Provenance: Lessons (so Far) from Homebrew - Joe Sweeney, Trail of Bits](https://sched.co/1aNLt)
 
 #### Sigstore Community Meeting
 
@@ -73,14 +85,14 @@ hash algorithms in hashedrekords, additional DB unique index correction
 
 Read the release notes [here](https://github.com/sigstore/rekor/releases/tag/v1.3.5)
 
-#### sigstore-go v0.1.0
+#### sigstore-go v0.2.0
 
 v0.2.0 of sigstore-go includes an updated TUF client. This also updates
 verification to require specifying both the certificate issuer and SAN.
 
 Read the release notes [here](https://github.com/sigstore/sigstore-go/releases/tag/v0.2.0)
 
-#### sigstore v1.8.1
+#### sigstore v1.8.2
 
 The sigstore library has been updated to v1.8.2
 
@@ -103,7 +115,7 @@ Read the release notes [here](https://github.com/sigstore/timestamp-authority/re
 
 - Caleb Woodbine wrote a blog titled "Sign, Verify and Trust with Cosign" [read more](https://blog.calebwoodbine.com/sign-verify-and-trust-with-cosign/)
 
-- The Opensource Minder project on how they are using sigstore to verify 
+- The Opensource Minder project on how they are using Sigstore to verify 
 cryptographic provenance. [read more](https://stacklok.com/blog/4-ways-to-secure-your-software-artifacts-in-minder)
 
 - A stream was hosted by Viktor Farcic and Whitney Lee on "Signing Artifacts - Feat. Notary, Sigstore, and Open Policy Containers" [watch here](https://www.youtube.com/watch?v=p4M-ZdBsA7o)
