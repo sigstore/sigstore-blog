@@ -14,7 +14,7 @@ but it does update to the latest version of the TUF specification.
 This means that older clients may not be able to load it properly. The current compatibility is as follows:
 
 * Cosign
-   - **v2.2.0+** (Released Aug 31st 2023) works, older Cosign v2 clients will not work
+   - **Releases >= v2.2.0** (v2.2.0 released Aug 31st 2023) work. Older Cosign clients (< v2.2.0) will not work
    - **v1.x** will not work, though we are backporting support with an upcoming v1.13.3 release. We strongly encourage updating to Cosign v2 for the latest bug and security fixes
 * **sigstore-js**: no known issues
 * **sigstore-python**: no known issues
