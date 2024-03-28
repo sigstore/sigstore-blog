@@ -7,7 +7,7 @@ author = "mihaimaruseac"
 type = "post"
 +++
 
-In order to strengthen the supply chain of ML, we have adopted a new
+In order to strengthen the supply chain of ML, the Sigstore TSC voted to adopt a new
 repository,
 [model-transparency](https://github.com/sigstore/model-transparency). Incubated
 at Google, the project aims to offer solutions for signing ML models using
