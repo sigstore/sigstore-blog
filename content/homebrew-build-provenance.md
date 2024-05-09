@@ -16,6 +16,8 @@ attest to all bottles built in the official [Homebrew] CI. This follows
 last year's [npm provenance] feature, making Homebrew the second major
 packaging ecosystem to adopt Sigstore!
 
+![](/images/brew-verify.png)
+
 In other words, going forwards, each bottle built by Homebrew will come with
 a cryptographically verifiable statement binding the bottle’s content to the
 specific workflow and other build-time metadata that produced it.
