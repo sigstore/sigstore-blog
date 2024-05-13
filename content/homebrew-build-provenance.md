@@ -60,4 +60,4 @@ and how early adopters can begin to play with it!
 
 [Sigstore's mission]: https://github.com/sigstore/community/blob/main/ROADMAP.md#mission-aka-our-purpose
 
-[Trail of Bits blog]: TODO
+[Trail of Bits blog]: https://blog.trailofbits.com/2024/05/14/a-peek-into-build-provenance-for-homebrew/
