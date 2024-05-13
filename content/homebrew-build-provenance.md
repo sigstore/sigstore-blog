@@ -1,6 +1,6 @@
 +++
 title = "Homebrew's Sigstore-powered provenance is in beta"
-date = "2024-05-16"
+date = "2024-05-14"
 tags = ["sigstore", "security", "homebrew"]
 draft = false
 author = "William Woodruff (Trail of Bits), Hayden Blauzvern (Google)"
