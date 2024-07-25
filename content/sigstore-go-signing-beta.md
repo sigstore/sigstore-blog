@@ -9,7 +9,7 @@ draft = false
 
 # sigstore-go verification and signing now in beta
 
-[sigstore-go's v0.4.0 release](https://github.com/sigstore/sigstore-go/releases/tag/v0.4.0) includes [signing support](https://github.com/sigstore/sigstore-go/blob/main/docs/signing.md), as well moving both the verification and signing API from unstable to beta.
+Recent sigstore-go releases include [signing support](https://github.com/sigstore/sigstore-go/blob/main/docs/signing.md), as well moving both the verification and signing API from unstable to beta.
 
 sigstore-go is used in several open source projects like the [SLSA verifier](https://github.com/slsa-framework/slsa-verifier), the [GitHub CLI](https://github.com/cli/cli), and [Stacklok Minder](https://github.com/stacklok/minder).
 
