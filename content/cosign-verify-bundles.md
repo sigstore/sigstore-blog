@@ -7,7 +7,7 @@ type = "post"
 draft = false
 +++
 
-One of the feature of the [cosign v2.4.0 release](https://github.com/sigstore/cosign/releases/tag/v2.4.0) allows you to verify attestations in the bundle format used by npm provenance, GitHub Artifact Attestations, and Homebrew provenance.
+One of the feature of the [cosign v2.4.0 release](https://github.com/sigstore/cosign/releases/tag/v2.4.0) allows you to verify attestations in the [bundle format](https://github.com/sigstore/protobuf-specs/blob/main/protos/sigstore_bundle.proto) used by npm provenance, GitHub Artifact Attestations, and Homebrew provenance.
 
 We'll show how to perform that verification for each ecosystem, and along the way explain some of the details involved. You'll notice these examples follow the same general pattern of getting an artifact to verify, getting the bundle that contains the signed attestation about that artifact, and then providing a verification policy to cosign via command line flags.
 
@@ -27,12 +27,14 @@ Then we need the bundle associated with that artifact. npm returns the publish a
 $ curl https://registry.npmjs.org/-/npm/v1/attestations/semver@7.6.3 | jq '.attestations[]|select(.predicateType=="https://slsa.dev/provenance/v1").bundle' > npm-provenance.sigstore.json
 ```
 
-Now we're ready to verify! cosign assumes we're using the Sigstore public good instance, which is what npm provenance uses as well. We'll tell cosign what CI/CD system we're expecting built this artifact, via `--certificate-oidc-issuer`, as well as which repository we expect the artifact to come from (and in this case, also which workflow), via `--certificate-identity-regexp`:
+Now we're ready to verify! cosign assumes we're using the Sigstore public good instance, which is what npm provenance uses as well. We'll tell cosign we're using the new bundle format with `--new-bundle-format`, what CI/CD system we're expecting built this artifact via `--certificate-oidc-issuer`, as well as which repository we expect the artifact to come from (and in this case, also which workflow) via `--certificate-identity-regexp`:
 
 ```
 $ cosign verify-blob-attestation --bundle npm-provenance.sigstore.json --new-bundle-format --certificate-oidc-issuer="https://token.actions.githubusercontent.com" --certificate-identity-regexp="^https://github.com/npm/node-semver/.github/workflows/release-integration.yml.?" semver-7.6.3.tgz
 Verified OK
 ```
+
+There are many checks that take place as part of this verification, but broadly speaking this ensures the signed material came from the Sigstore instance we're expecting, refers to the artifact provided, and that the included provenance has the properties that we're expecting.
 
 ### GitHub Artifact Attestations
 
