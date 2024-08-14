@@ -7,9 +7,9 @@ type = "post"
 draft = false
 +++
 
-# Announcing SigstoreCon: Supply Chain Day!
-
 ![](/images/sigstorecon-2024-logo.svg)
+
+# Announcing SigstoreCon: Supply Chain Day!
 
 Join us for [SigstoreCon: Supply Chain Day](https://events.linuxfoundation.org/sigstorecon-supply-chain-day/)!
 Co-located with [Kubecon NA 2024 in Salt Lake City](https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/),
