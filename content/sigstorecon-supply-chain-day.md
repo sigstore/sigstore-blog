@@ -39,7 +39,7 @@ You do need to [register for SigstoreCon](https://events.linuxfoundation.org/sig
 
 ### How much is registration?
 
-The registration cost is $50.
+The registration cost is $50. This will include lunch, coffee and swag.
 
 ### When is the CFP deadline?
 
