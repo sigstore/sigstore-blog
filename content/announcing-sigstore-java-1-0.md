@@ -17,7 +17,7 @@ Today, thanks to the support of the community and work of our contributors, weâ€
 Thanks to the team at Sonatype, Sigstore signature bundles (`*.sigstore.json`) are an accepted signature format on Maven Central. So you can start signing your Maven Central artifacts with Sigstore today. To ensure existing verification workflows and tooling continue to work for Java workflows PGP signing is currently still required for publishing to Maven Central.
 
 ## Features
-The `sigstore-java` library is meant to provide a comprehensive API to sigstore infranstucture. Giving users access to both simple high level API while also making it possible to tweak the behavior according to your needs.
+The `sigstore-java` library is meant to provide a comprehensive API to sigstore infrastructure. It gives users access to both simple high level APIs while also making it possible to tweak the behavior according to your needs.
 
 The 1.0 ships with these features today
 - Programmatic signing and verifying using sigstore-java APIs
