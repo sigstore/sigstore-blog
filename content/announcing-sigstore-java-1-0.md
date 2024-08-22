@@ -28,7 +28,7 @@ The 1.0 ships with these features today
 The client is already in use by some early adopters, and we attach sigstore signature bundles to all our sigstore-java artifacts on Maven Central. Head over to our github page ([sigstore-java](https://github.com/sigstore/sigstore-java), [maven](https://github.com/sigstore/sigstore-java/tree/main/sigstore-maven-plugin), [gradle](https://github.com/sigstore/sigstore-java/tree/main/sigstore-gradle)) for further details on accessing the API or integrating directly with your Java builds.
 
 ## Development, Testing and Contributing
-Sigstore is an open source project developed directly on github and made possible by a dedicated and inclusive community.
+Sigstore is an open source project developed directly on GitHub and made possible by a dedicated and inclusive community.
 
 In addition to standard tests, sigstore-java is fuzzed with [oss-fuzz](https://github.com/sigstore/sigstore-java/tree/main/fuzzing) and tested with the [sigstore-conformance](https://github.com/sigstore/sigstore-conformance) test suite to ensure compatibility within the sigstore ecosystem and all other language clients.
 
