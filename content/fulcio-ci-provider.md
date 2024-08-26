@@ -1,5 +1,5 @@
 +++
-title = "Fulcio Streamlines Onboarding for Identity Providers, mainly CI providers"
+title = "Fulcio Streamlines Onboarding for CI Identity Providers"
 author = "Javan Lacerda (@javanlacerda)"
 date = "2024-08-26"
 draft = true
