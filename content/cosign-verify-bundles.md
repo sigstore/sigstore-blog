@@ -9,6 +9,8 @@ draft = false
 
 One of the features of the [cosign v2.4.0 release](https://github.com/sigstore/cosign/releases/tag/v2.4.0) allows you to verify attestations in the [bundle format](https://github.com/sigstore/protobuf-specs/blob/main/protos/sigstore_bundle.proto) used by npm provenance, GitHub Artifact Attestations, and Homebrew provenance.
 
+This is part of all Sigstore clients supporting the bundle format as outlined in the [community roadmap](https://github.com/sigstore/community/blob/main/ROADMAP.md#client-sdks).
+
 We'll show how to perform that verification for each ecosystem, and explain some of the details involved. You'll notice these examples follow the same general pattern of getting an artifact to verify, getting the bundle that contains the signed attestation about that artifact, and then providing a verification policy to cosign via command line flags.
 
 To run these examples you'll need up-to-date `curl`, `jq`, `gh`, `brew`, and (of course) `cosign`.
