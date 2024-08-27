@@ -1,7 +1,7 @@
 +++
 title = "cosign Verification of npm Provenance, GitHub Artifact Attestations, and Homebrew Provenance"
 author = "Zach Steindler (GitHub)"
-date = "2024-08-09"
+date = "2024-08-27"
 tags = ["sigstore", "cosign", "softwaresupplychain", "security"]
 type = "post"
 draft = false
