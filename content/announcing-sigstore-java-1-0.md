@@ -1,8 +1,8 @@
 +++
 title = "Announcing sigstore-java 1.0"
 author = "Appu Goundan (@loosebazooka)"
-date = "2024-09-00"
-draft = true
+date = "2024-08-28"
+draft = false
 type = "post"
 tags = ["sigstore","java","clients"]
 +++
