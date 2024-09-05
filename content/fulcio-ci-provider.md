@@ -1,7 +1,7 @@
 +++
 title = "Fulcio Streamlines Onboarding for CI Identity Providers"
 author = "Javan Lacerda (@javanlacerda)"
-date = "2024-08-26"
+date = "2024-09-05"
 draft = false
 type = "post"
 tags = ["sigstore","fulcio","identity"]
