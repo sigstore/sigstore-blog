@@ -16,7 +16,7 @@ a Python packaging standard that allows users to upload Sigstore-based
 attestations to the [Python Package Index].
 
 Today we're pleased to announce that attestation support on PyPI is
-**generally available**, meaning that package maintainers
+**generally available**, meaning that project maintainers
 can submit attestations for both PyPI and downstream users to verify.
 
 An important piece of the story for attestations on PyPI is
