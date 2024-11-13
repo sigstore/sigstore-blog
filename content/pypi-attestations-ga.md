@@ -32,7 +32,7 @@ Sigstore's key [transparency and auditability properties].
 
 Thanks to this default stance, adoption of attestations by publishers has been
 rapid: over 20,000 individual attestations have been uploaded to PyPI so far,
-and just over 5% of the top 360 packages are already publishing attestations:
+and just over 5% of the top 360 projects are already publishing attestations:
 
 ![](/images/pep740.png)
 
