@@ -10,7 +10,7 @@ type = "post"
 *Check out the [PyPI blog] and [Trail of Bits blog] for more user-facing and
 technical details, respectively!*
 
-Over the past year, the [Google Open Source Security Team]
+Over the past year, the Google Open Source Security Team
 and [Trail of Bits] have worked together to implement [PEP 740],
 a Python packaging standard that allows users to upload Sigstore-based
 attestations to the [Python Package Index].
@@ -37,8 +37,6 @@ release new, attested versions.
 [PyPI blog]: https://blog.pypi.org/posts/2024-11-13-pypi-now-supports-digital-attestations.md
 
 [Trail of Bits blog]: https://blog.trailofbits.com/2024/11/14/attestations-a-new-generation-of-signatures-on-pypi
-
-[Google Open Source Security Team]: TODO
 
 [Trail of Bits]: https://www.trailofbits.com/
 
