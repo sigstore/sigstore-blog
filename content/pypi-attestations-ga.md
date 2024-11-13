@@ -20,9 +20,9 @@ Today we're pleased to announce that attestation support on PyPI is
 can submit attestations for both PyPI and downstream users to verify.
 
 An important piece of the story for attestations on PyPI is
-**default enablement**: if a project uses [Trusted Publishing],
-simply upgrading to [`pypa/gh-action-pypi-publish`] [v1.11.0] or newer will result
-in attestation generation by default, with no changes required.
+**default enablement**: if a project uses [Trusted Publishing]
+and the [canonical GitHub Action] then they'll produce
+attestations by default, with no changes required.
 
 This works because Trusted Publishing already uses the same [OpenID Connect]
 building blocks as Sigstore, meaning that existing workflows can use
@@ -52,9 +52,7 @@ release new, attested versions.
 
 [Trusted Publishing]: https://docs.pypi.org/trusted-publishers/
 
-[`pypa/gh-action-pypi-publish`]: https://github.com/pypa/gh-action-pypi-publish
-
-[v1.11.0]: https://github.com/pypa/gh-action-pypi-publish/releases/tag/v1.11.0
+[canonical GitHub Action]: https://github.com/pypa/gh-action-pypi-publish
 
 [Are we PEP 740 yet?]: https://trailofbits.github.io/are-we-pep740-yet/
 
