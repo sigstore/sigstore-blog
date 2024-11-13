@@ -27,7 +27,7 @@ in attestation generation by default, with no changes required.
 This works because Trusted Publishing already uses the same [OpenID Connect]
 building blocks as Sigstore, meaning that existing workflows can use
 [keyless signing]. In other words: generating and uploading attestations
-requires **no key management by the package's maintainers**, and brings
+requires **no key management by the project's maintainers**, and brings
 Sigstore's key [transparency and auditability properties].
 
 Thanks to this default stance, adoption of attestations by publishers has been
