@@ -24,6 +24,12 @@ An important piece of the story for attestations on PyPI is
 simply upgrading to [`pypa/gh-action-pypi-publish`] [v1.11.0] or newer will result
 in attestation generation by default, with no changes required.
 
+This works because Trusted Publishing already uses the same [OpenID Connect]
+building blocks as Sigstore, meaning that existing workflows can use
+[keyless signing]. In other words: generating and uploading attestations
+requires **no key management by the package's maintainers**, and brings
+Sigstore's key [transparency and auditability properties].
+
 Thanks to this default stance, adoption of attestations by publishers has been
 rapid: over 20,000 individual attestations have been uploaded to PyPI so far,
 and just over 5% of the top 360 packages are already publishing attestations:
@@ -51,3 +57,9 @@ release new, attested versions.
 [v1.11.0]: https://github.com/pypa/gh-action-pypi-publish/releases/tag/v1.11.0
 
 [Are we PEP 740 yet?]: https://trailofbits.github.io/are-we-pep740-yet/
+
+[OpenID Connect]: https://openid.net/developers/how-connect-works/
+
+[keyless signing]: https://docs.sigstore.dev/cosign/signing/overview/
+
+[transparency and auditability properties]: https://docs.sigstore.dev/logging/overview/
