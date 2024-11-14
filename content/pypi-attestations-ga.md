@@ -40,9 +40,9 @@ To keep track of the ecosystem's overall progress, follow along with
 [Are we PEP 740 yet?], which is automatically updated as more top projects
 release new, attested versions.
 
-[PyPI blog]: https://blog.pypi.org/posts/2024-11-13-pypi-now-supports-digital-attestations.md
+[PyPI blog]: https://blog.pypi.org/posts/2024-11-14-pypi-now-supports-digital-attestations/
 
-[Trail of Bits blog]: https://blog.trailofbits.com/2024/11/14/attestations-a-new-generation-of-signatures-on-pypi
+[Trail of Bits blog]: https://blog.trailofbits.com/2024/11/14/attestations-a-new-generation-of-signatures-on-pypi/
 
 [Trail of Bits]: https://www.trailofbits.com/
 
