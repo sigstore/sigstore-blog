@@ -23,7 +23,7 @@ In the event that someone suspects that their account has been compromised, reko
 
 ## Demo
 
-To run rekor-monitor locally, one can use the CLI to run the corresponding \`cmd\` package and \`[main.go](http://main.go)\` file with their specified flags, including a server URL to query the transparency log of, a log checkpoint file to read from and write to, and options pertaining to the consistency check and identity monitor, such as what log indices to scan, given identities to monitor for, and any desired form of notification handling from among the supported notification platforms. 
+To run rekor-monitor locally, one can use the CLI to run the corresponding \`cmd\` package and \`main.go\` file with their specified flags, including a server URL to query the transparency log of, a log checkpoint file to read from and write to, and options pertaining to the consistency check and identity monitor, such as what log indices to scan, given identities to monitor for, and any desired form of notification handling from among the supported notification platforms. 
 
 One can also run rekor-monitor via the GitHub Actions reusable monitoring workflow, for which an example can be shown below:
 
