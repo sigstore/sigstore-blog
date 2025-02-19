@@ -30,7 +30,7 @@ The most exciting new feature (in my opinion) is the support for validating [Cue
 
 ### Rekor
 
-The last piece of work in [Rekor](http://github.com/sigstore/rekor) before declaring GA is temporal sharding of the log, which [Lily Sturman](https://github.com/lkatalin) has been driving. The log is close to 800k entries, including some important ones, like the provenance information generated during builds of the [Distroless](https://github.com/GoogleContainerTools/distroless) container images used to meet SLSA2. See the full blog post from [Priya Wadhwa](https://twitter.com/priyawadhwa16?lang=en) showing how to look these up and verify them [here](https://security.googleblog.com/2021/09/distroless-builds-are-now-slsa-2.html).
+The last piece of work in [Rekor](http://github.com/sigstore/rekor) before declaring GA is temporal sharding of the log, which [Lily Sturman](https://github.com/lkatalin) has been driving. The log is close to 800k entries, including some important ones, like the provenance information generated during builds of the [Distroless](https://github.com/GoogleContainerTools/distroless) container images used to meet SLSA2. See the full blog post from Priya Wadhwa showing how to look these up and verify them [here](https://security.googleblog.com/2021/09/distroless-builds-are-now-slsa-2.html).
 
 ### Sigstore
 

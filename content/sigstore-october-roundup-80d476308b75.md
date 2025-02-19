@@ -15,8 +15,6 @@ Thank you, Dan Lorenc, for your time on the Technical Steering Committee (TSC)! 
 
 We also want to give a big welcome to Priya Wadhwa who is replacing Dan on the TSC! We know you’ll also be great at moving Sigstore in the right direction.
 
-{{< tweet user="priyawadhwa16" id="1575646659836452864" >}}
-
 ### SigstoreCon
 
 The SigstoreCon [program has been announced](https://events.linuxfoundation.org/sigstorecon-north-america/program/schedule/)!
