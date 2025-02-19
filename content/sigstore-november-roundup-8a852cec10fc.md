@@ -20,8 +20,6 @@ Sigstore is excited to announce General Availability (GA) for the Rekor transpar
 
 SigstoreCon on October 25 in Detroit was Sigstore’s first-ever event and we’re so happy to say that it was a success!
 
-{{< tweet  user="danluhring" id="1584905237588054017" >}}
-
 Thank you everyone for the:
 
 - awesome talks; thank you to the speakers
@@ -66,8 +64,6 @@ Congratulations! 🎉 And thank you for everything you’ve done for the Sigstor
 ### Python Continues to Embrace Sigstore
 
 The new release of [Python 3.11](https://www.python.org/downloads/release/python-3110/) was one of the most exciting Python releases in a while, not just for the significant speed upgrades, but also it is one of the first new versions of Python to be signed with Sigstore by default. Read more on [Sigstore verification of Python Releases](https://www.python.org/download/sigstore/).
-
-{{< tweet user="8x5clPW2" id="1584633498455117824" >}}
 
 In addition, [sigstore-python](https://github.com/sigstore/sigstore-python) 0.7.0 was released this past month. This release now supports offline verification of Rekor entries, the ability to verify non-email identities, [and more](https://twitter.com/8x5clPW2/status/1588562179044691969?s=20&t=ZrxX9WmrfCbsc2z0unFYYA).
 

@@ -25,8 +25,6 @@ A peer-reviewed research paper called *Sigstore: Software Signing for Everybody*
 
 When this paper was drafted, 10 months ago, there were 2 million entries in the Rekor log; now there are over 7 million and counting!
 
-{{< tweet user="projectsigstore" id="1592150990001942531" >}}
-
 ### New Case Studies
 
 Many companies are adopting Sigstore and are excited to share their story. We published three new Sigstore case studies from Autodesk, DB Schenker, and Verizon since the last roundup!
