@@ -13,7 +13,7 @@ To enable such use-cases, we have implemented a new [plugin system](https://gith
 
 ### How it Works
 
-The Sigstore KMS plugins will be separate, installable programs. Users will invoke Cosign specifying their plugin with the key ref like `cosign sign … —key mykms://my-key-id`, where `mykms` refers to a plugin program `sigstore-kms-mykms` located on the system PATH. The existing key refs for the existing built-in KMS providers will continue to work the same and take precedence.
+The Sigstore KMS plugins will be separate, installable programs. Users will invoke Cosign specifying their plugin with the key ref like `cosign sign … -- key mykms://my-key-id`, where `mykms` refers to a plugin program `sigstore-kms-mykms` located on the system PATH. The existing key references for the existing built-in KMS providers will continue to work the same and take precedence.
 
 ### Plugin Development
 
