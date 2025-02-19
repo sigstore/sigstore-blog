@@ -7,7 +7,7 @@ type = "post"
 tags = ["sigstore","kms", "plugin"]
 +++
 
-Cosign and private deployments of Fulcio, and Rekor can use an external KMS provider. We currently have built-in support for AWS, Azure, GCP, and Hashicorp Vault KMSs. This has been a challenge for customers that require alternative or custom KMS solutions.
+Cosign and private deployments of Fulcio and Rekor can use a KMS-managed key for signing artifacts. We currently have built-in support for AWS, Azure, Google Cloud Platform, and Hashicorp Vault KMSs. This has been a challenge for customers that require alternative or custom KMS solutions.
 
 To enable such use-cases, we have implemented a new [plugin system](https://github.com/sigstore/sigstore/tree/main/pkg/signature/kms/cliplugin) for alternate KMS providers. Organizations can independently and privately develop & distribute their plugins without needing downstream updates to libraries to support additional KMS providers as build-time dependencies.
 
