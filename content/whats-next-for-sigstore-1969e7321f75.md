@@ -48,8 +48,6 @@ Full “keyless” / ephemeral signing using OpenID is still experimental, howev
 
 We already use cosign to sign our own releases, but we’re also integrating it into the release process of a few other important container images from outside the sigstore project. We’ll have some exciting updates coming here soon! If you maintain any important OSS images and are interested in trying out cosign early, we’d love to help! Please reach out via our [mailing list](https://groups.google.com/g/sigstore-dev) or slack.
 
-{{< tweet user="lorenc_dan" id="1375473410491420677" >}}
-
 Up next in cosign, we’re working on support for [Yubikeys](https://github.com/sigstore/cosign/issues/108) and other hardware keys, more build system and KMS integrations, and as well as figuring out our plans to move the other sigstore services out of experimental. We do expect that the signature, payload and OCI registry formats will change in future releases as we work upstream on the specifications we need, but we don’t anticipate these changes will be very disruptive.
 
 Going forward, we’re expanding our tooling support across the sigstore project with other signing tools designed for different language ecosystems. We’re just getting started on [maven](https://github.com/sigstore/sigstore-maven-plugin) and [ruby plugins](https://github.com/sigstore/), as well as an overall [sigstore](http://github.com/sigstore/sigstore) “kitchen sink” signing tool. Please let us know what you think about these integrations and how we can make the experience as seamless as possible!

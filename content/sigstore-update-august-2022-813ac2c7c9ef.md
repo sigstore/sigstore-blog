@@ -51,8 +51,6 @@ Read the post from January 10, 2021, when we hit [1 million](https://blog.sigsto
 
 With so much activity happening in the community the time was right to expand Sigstore’s Technical Steering Committee from 3 to 5 members. We are thrilled to welcome Trevor Rosen (GitHub) and Santiago Torres Arias (Purdue University) to the committee.
 
-{{< tweet user="projectsigstore" id="1555260592226799620" >}}
-
 ### New: Sigstore Office Hours
 
 We recently launched Sigstore Office Hours, which will take place every other Tuesday. Sigstore Office Hours feature demos from Sigstore users and language integrators as well as follow on discussions. They are open to folks new to the community who are interested in adopting Sigstore. The next one will be on August 16 at 12:30 EST. Follow the [Sigstore Calendar](https://t.co/RSd1uMg3sP) to get all the details.
