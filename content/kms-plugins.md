@@ -21,7 +21,7 @@ The out-of-tree Sigstore KMS plugins will be separate, installable programs. Use
 
 Like [kubectl](https://kubernetes.io/docs/tasks/extend-kubectl/kubectl-plugins/#writing-kubectl-plugins) plugins, Sigstore KMS plugins can be written in any language on any OS that can write programs that accept CLI arguments and stdin, and output to stdout. Plugin authors see more [details](https://github.com/sigstore/sigstore/tree/main/pkg/signature/kms/cliplugin) and can follow our [example](https://github.com/sigstore/sigstore/blob/main/test/cliplugin/localkms) plugin program as a guide.
 
-Developers that use sigstore/sigstore as a library can also use plugins with the `kms.Get()` function.
+Developers that use [sigstore/sigstore](https://github.com/sigstore/sigstore) as a library can also use plugins with the `kms.Get()` function.
 
 The Plugin program will:
 
