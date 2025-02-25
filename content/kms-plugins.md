@@ -11,7 +11,7 @@ Cosign and private deployments of Fulcio and Rekor can use a KMS-managed key for
 
 To enable such use-cases, we have implemented a new [plugin system](https://github.com/sigstore/sigstore/tree/main/pkg/signature/kms/cliplugin) for alternate KMS providers. Organizations can independently and privately develop & distribute their plugins without needing downstream updates to libraries to support additional KMS providers as build-time dependencies.
 
-[Alibaba KMS](https://github.com/mozillazg/sigstore-kms-alibabakms) support is now possible thanks to new plugin by community member @mozillazg.
+[Alibaba KMS](https://github.com/mozillazg/sigstore-kms-alibabakms) support is now possible thanks to a new plugin by community member @mozillazg.
 
 ### How it Works
 
