@@ -1,7 +1,7 @@
 +++
 title = "KMS Plugins for Sigstore"
 author = "Ramon Petgrave (@ramonpetgrave64)"
-date = "2025-02-19"
+date = "2025-04-07"
 draft = false
 type = "post"
 tags = ["sigstore","kms", "plugin"]
