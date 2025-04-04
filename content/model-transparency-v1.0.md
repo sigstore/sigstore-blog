@@ -79,7 +79,7 @@ in this work, join us in the [OpenSSF project meeting][openssf-notes].
 
 [cosai-rfc]: https://github.com/cosai-oasis/ws1-supply-chain/issues/4
 [cosai]: https://www.coalitionforsecureai.org/
-[demo-notebook]: https://colab.sandbox.google.com/drive/1nbn8lH_p0V6rYFfa1TedHY5NrQwBcJGh?usp=sharing#scrollTo=ucjisOT9A9TI
+[demo-notebook]: https://colab.sandbox.google.com/drive/18IB_uipduXYq0ohMxJv2xHfeihLIcGMT
 [hiddenlayer]: https://hiddenlayer.com/
 [huggingface]: https://huggingface.co/
 [kaggle]: https://kaggle.com/
