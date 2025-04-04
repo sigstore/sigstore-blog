@@ -20,7 +20,9 @@ Major changes include:
   [Trillian-Tessera](https://github.com/transparency-dev/trillian-tessera). Tile-based logs
   are cheaper to run and easier to deploy, maintain and scale. To learn more about the benefits
   of tile-based logs, read [this blog post](https://transparency.dev/articles/tile-based-logs/)
-* A redesigned and simplified API, using the learnings from operating public-good Rekor over the past 2 years
+* A redesigned and simplified API, using the
+  [learnings](https://docs.google.com/document/d/1Mi9OhzrucIyt-UCLk_FxO2_xSQZW9ow9U3Lv0ZB_PpM/edit?resourcekey=0-4rPbZPyCS7QDj26Hk0UyvA&tab=t.0#heading=h.cxdg93rjl4ww)
+  from operating public-good Rekor over the past 2 years
 * Stronger security guarantees that the log remains append-only by integrating
   [witnessing](https://blog.transparency.dev/can-i-get-a-witness-network) directly into Rekor (To be implemented)
 
