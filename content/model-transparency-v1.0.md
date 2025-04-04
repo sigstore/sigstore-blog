@@ -1,6 +1,6 @@
 +++
 title = "Taming the Wild West of ML: Practical Model Signing with Sigstore"
-date = "2025-03-31"
+date = "2025-04-04"
 tags = ["sigstore","artificial intelligence","model signing","machine learning"]
 draft = false
 author = "Mihai Maruseac, Google Open Source Security Team"
