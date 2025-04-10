@@ -7,7 +7,7 @@ author = "Hayden Blauzvern, Google"
 type = "post"
 +++
 
-We are very excited to announce the first release of Rekor v2!
+We are very excited to announce the alpha release of Rekor v2!
 
 [Rekor v2](https://github.com/sigstore/rekor-tiles) is a redesigned and modernized
 [Rekor](https://github.com/sigstore/rekor), Sigstore's signature transparency log,
