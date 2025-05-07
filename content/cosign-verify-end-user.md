@@ -1,5 +1,5 @@
 +++
-title = "Verifying Sigstore Budles as an End User"
+title = "Verifying Sigstore Bundles as an End User"
 author = "Zach Steindler (GitHub)"
 date = "2025-05-02"
 tags = ["sigstore", "cosign", "softwaresupplychain", "security"]
