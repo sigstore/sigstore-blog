@@ -9,6 +9,8 @@ draft = false
 
 In the coming years, systems will transition to post-quantum cryptographic algorithms (PQCA). There is some inherent tension in these transitions as we learn things through adoption, but making decisions too soon can saddle you with tech debt. The quick summary is that the Sigstore project wants to enable people to sign content with PQCA keys as soon as possible, and adopt PQCA in the Sigstore services (like Fulcio, Rekor, and a timestamp authority) when reliable and vetted PQCA is available in the Go ecosystem.
 
+![klystron gallery at Standford linear accelerator](/images/slac.jpg)
+
 This document will describe what's happening with PQCA outside of Sigstore, give an expected timeline for PQCA adoption in Sigstore, and talk about open questions raised by the transition.
 
 There's a [discussion in the sigstore/community repository](https://github.com/sigstore/community/discussions/591) where you can respond to the content in this post.
@@ -17,9 +19,9 @@ There's a [discussion in the sigstore/community repository](https://github.com/s
 
 Because this work is in progress, there are synonyms for the same concept coming from the academic community or writing a US government standard.
 
-ML-DSA (Module-Lattice-Based Digital Signature Standard) is used to sign and verify digital signatures; NIST standardized it in FIPS 204. It has a similar function to HMAC with a traditional asymmetric cryptographic algorithm, like RSA or elliptic curves. While RSA has public keys and signatures that are 100s of bytes and elliptic curves' are 10s of bytes, ML-DSA's are in the kilobyte range, making them much larger.
+ML-DSA (Module-Lattice-Based Digital Signature Algorithm) is used to sign and verify digital signatures; NIST standardized it in FIPS 204. It has a similar function to HMAC with a traditional asymmetric cryptographic algorithm, like RSA or elliptic curves. While RSA has public keys and signatures that are 100s of bytes and elliptic curves' are 10s of bytes, ML-DSA's are in the kilobyte range, making them much larger.
 
-SLH-DSA (Stateless Hash-Based Digital Signature Standard) is another way to sign and verify digital signatures; NIST standardized it in FIPS 205. It's an alternative to ML-DSA with smaller keys (10s of bytes) but a larger signature (10 kilobyte range).
+SLH-DSA (Stateless Hash-Based Digital Signature Algorithm) is another way to sign and verify digital signatures; NIST standardized it in FIPS 205. It's an alternative to ML-DSA with smaller keys (10s of bytes) but a larger signature (10 kilobyte range).
 
 ### Context
 
@@ -41,9 +43,7 @@ And here are things that are planned but have not yet happened, or are works in 
 | TBD | Upcoming FIPS publication by NIST will specify details for FALCON, another [digital signature finalist from the third round of the NIST competition](https://csrc.nist.gov/Projects/post-quantum-cryptography/post-quantum-cryptography-standardization/round-3-submissions).  |
 | Aug 2025 | Planned release of Go 1.25. This is the [earliest release that would support SLH-DSA / FIPS 205](https://github.com/golang/go/issues/64537#issuecomment-2445056004). |
 | Sep 2025 | Per [IR 8528](https://csrc.nist.gov/pubs/ir/8528/final), there is another NIST PQC Standardization Conference planned to evaluate any remaining of the 14 digital signature schemes from the [Round 2 Additional Signatures](https://csrc.nist.gov/Projects/pqc-dig-sig/round-2-additional-signatures) finalists. |
-| Feb 2026 | Planned release of Go 1.26. It's possible SLH-DSA won't be available before this release. |
-
-Note that there are not yet concrete plans for ML-DSA support in Go.
+| Feb 2026 | Planned release of Go 1.26. It's possible SLH-DSA won't be available before this release. This is the [earliest release that would support ML-DSA / FIPS 204](https://github.com/golang/go/issues/64537#issuecomment-2877714729). |
 
 ### Sigstore's Approach
 
