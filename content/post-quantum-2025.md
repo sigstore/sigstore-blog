@@ -17,7 +17,7 @@ There's a [discussion in the sigstore/community repository](https://github.com/s
 
 ### Definitions
 
-Because this work is in progress, there are synonyms for the same concept coming from the academic community or writing a US government standard.
+Because this work is in progress, there are synonyms for the same concept coming from the academic community or a US government standard.
 
 ML-DSA (Module-Lattice-Based Digital Signature Algorithm) is used to sign and verify digital signatures; NIST standardized it in FIPS 204. It has a similar function to HMAC with a traditional asymmetric cryptographic algorithm, like RSA or elliptic curves. While RSA has public keys and signatures that are 100s of bytes and elliptic curves' are 10s of bytes, ML-DSA's are in the kilobyte range, making them much larger.
 
