@@ -14,7 +14,7 @@ As machine learning becomes deeply embedded in critical infrastructure, the ques
 
 The OpenSSF AI/ML working group believes the answer can be found in signing AI models. A long-standing practice in traditional software distribution, signatures help end-users verify provenance: that software is authentic, has not been tampered with, and was authored by the expected developer. Extending this concept naturally provides a path to similar guarantees with AI models.
 
-The Sigstore [model transparency][modeltransperencyrepo] project ([blog post][blogmodelauthenticity]), one of the working group’s primary efforts, has been laying the groundwork to tackle these problems for over a year, and recently released version 1.0 ([blog post][bloglaunchv1-0]). This community-driven library and command-line interface (CLI) supports multiple signing and verification methods for AI models, ranging from traditional key pairs and certificates to modern identity-based signing and verification with Sigstore. This work will help make model signing approachable with modern tooling, bringing cryptographic integrity and transparency to ML models.
+The Sigstore [model transparency][repomodeltransparency] project ([blog post][blogmodelauthenticity]), one of the working group’s primary efforts, has been laying the groundwork to tackle these problems for over a year, and recently released version 1.0 ([blog post][bloglaunchv1-0]). This community-driven library and command-line interface (CLI) supports multiple signing and verification methods for AI models, ranging from traditional key pairs and certificates to modern identity-based signing and verification with Sigstore. This work will help make model signing approachable with modern tooling, bringing cryptographic integrity and transparency to ML models.
 But while these tools make signing and verifying models easier, they leave it up to the user to enforce these checks during deployment.
 
 The [model-validation-operator][repomodeloperator] runs in Kubernetes and automatically verifies AI models signed by the model-transparency CLI before they’re used by workloads in the cluster. Developed as an official Sigstore community project, it ensures that whether you’re running critical inference pipelines or deploying foundation models at scale, only authentic, trusted models are allowed to execute.
@@ -265,7 +265,6 @@ We welcome feedback and contributions from the community as we iterate. Our goal
 Do you have questions, ideas or feedback? Feel free to reach out on the Sigstore Slack or file an issue!
 
 
-[modeltransparencyrepo]: https://github.com/sigstore/model-transparency
 [blogmodelauthenticity]: https://next.redhat.com/2025/04/10/model-authenticity-and-transparency-with-sigstore/ 
 [bloglaunchv1-0]: https://openssf.org/blog/2025/04/04/launch-of-model-signing-v1-0-openssf-ai-ml-working-group-secures-the-machine-learning-supply-chain/
 [repomodeloperator]: https://github.com/sigstore/model-validation-operator
