@@ -1,7 +1,7 @@
 +++
 title = "Sigstore & Post-Quantum Cryptography (2025)"
 author = "Zach Steindler (GitHub)"
-date = "2025-05-15"
+date = "2025-06-06"
 tags = ["sigstore", "nist", "postquantumcryptography"]
 type = "post"
 draft = false
