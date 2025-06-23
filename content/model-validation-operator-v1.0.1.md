@@ -1,6 +1,6 @@
 +++
 title = "Trusting AI Models in Kubernetes: Introducing the Sigstore Model Validation Operator"
-date = "2025-02-06"
+date = "2025-23-06"
 tags = ["sigstore","artificial intelligence","model signing","machine learning", "operator"]
 draft = false
 author = "Nina Bongartz, Red Hat Trusted Artificat Signer Team"
