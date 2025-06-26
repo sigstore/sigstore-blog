@@ -9,7 +9,6 @@ type = "post"
 
 ---
 
-# Trusting AI Models in Kubernetes: Introducing the Sigstore Model Validation Operator
 As machine learning becomes deeply embedded in critical infrastructure, the question of trust in deployed models is increasingly critical. How can we be sure that an AI model running in a Kubernetes cluster is exactly what it claims to be?
 
 The [OpenSSF AI/ML working group][workinggroup] believes the answer can be found in signing AI models. A long-standing practice in traditional software distribution is to leverage cryptographic signatures to help end-users verify provenance: that software is authentic, has not been tampered with, and was authored by the expected creator. Extending this concept naturally provides a path to ensure similar guarantees with AI models.
@@ -22,7 +21,7 @@ The [model-validation-operator][repomodeloperator] is a Kubernetes native soluti
 
 In this post, we’ll walk through the workflow and architecture of the model-validation-operator and demonstrate how to deploy the operator into your own ML infrastructure - seamlessly enabling automatic verification of AI models.
 
-    ⚠️ Note: This post showcases an early proof-of-concept (PoC) version of the model-validation-operator, which was recently donated to the Sigstore GitHub organization. While the operator follows the same versioning as the model-transparency tools (currently at v1.0.1), it is still considered alpha and remains under active, fast-paced development.
+⚠️ Note: This post showcases an early proof-of-concept (PoC) version of the model-validation-operator, which was recently donated to the Sigstore GitHub organization. While the operator follows the same versioning as the model-transparency tools (currently at v1.0.1), it is still considered alpha and remains under active, fast-paced development.
 
 As adoption grows and the ecosystem matures, this operator is expected to become a foundational component of a trusted AI supply chain—enabling secure, policy-driven model usage directly within Kubernetes environments. Stay tuned, contribute, and help shape its future (more to come on that aspect later in this post).
 
@@ -39,7 +38,7 @@ The model-validation-operator brings the verification process into the Kubernete
 
 ## The Workflow: How It Comes Together 
 Here’s how a typical workflow that uses the model-validation-operator might look:
-![Model Validation Operator Workflow](/images/modmodel-validaiton-operator-workflow.png)
+![Model Validation Operator Workflow](/images/model-validation-operator-workflow.png)
 
 1. Start with a trained AI model
 
@@ -60,7 +59,7 @@ docker run -it --rm -v $(pwd)/testdata/tensorflow_saved_model:/tensorflow_saved_
 ```
 If no valid OIDC token is provided to the CLI tool via `--identity_token "$OIDC_TOKEN"`, a browser-based authentication flow will be initiated. You will be redirected to a page similar to the following:
 
-![Model Validation Operator Workflow](/images/modmodel-validaiton-operator-oidc.png)
+![Model Validation Operator Workflow](/images/model-validation-operator-oidc.png)
 
 
 This flow will:
