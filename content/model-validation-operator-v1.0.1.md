@@ -9,7 +9,6 @@ type = "post"
 
 ---
 
-# Trusting AI Models in Kubernetes: Introducing the Sigstore Model Validation Operator
 As machine learning becomes deeply embedded in critical infrastructure, the question of trust in deployed models is increasingly critical. How can we be sure that an AI model running in a Kubernetes cluster is exactly what it claims to be?
 
 The [OpenSSF AI/ML working group][workinggroup] believes the answer can be found in signing AI models. A long-standing practice in traditional software distribution is to leverage cryptographic signatures to help end-users verify provenance: that software is authentic, has not been tampered with, and was authored by the expected creator. Extending this concept naturally provides a path to ensure similar guarantees with AI models.
