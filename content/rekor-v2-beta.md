@@ -16,7 +16,7 @@ maintenance and lower operational costs. Learn more about Rekor v2 in our
 [previous blog post announcing alpha](https://blog.sigstore.dev/rekor-v2-alpha/).
 
 With the beta release, we have added support for Rekor v2 upload and verification to the
-[Go](https://github.com/sigstore/sigstore-go), [Python](https://github.com/sigstore/sigstore-python],
+[Go](https://github.com/sigstore/sigstore-go), [Python](https://github.com/sigstore/sigstore-python),
 and [Java](https://github.com/sigstore/sigstore-java) clients, and released a new version of
 [Cosign](https://github.com/sigstore/cosign) which will upload to and verify proofs from Rekor v2 logs.
 We have also released a new version of the
