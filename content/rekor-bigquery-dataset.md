@@ -1,6 +1,6 @@
 +++
 title = "Announcing the Sigstore Transparency Log Research Dataset"
-date = "2025-07-18"
+date = "2025-08-01"
 tags = ["sigstore","rekor","transparency-log"]
 draft = false
 author = "Hayden Blauzvern & Eve Martin-Jones, Google Open Source Security Team"
@@ -20,3 +20,5 @@ how artifacts are being signed with Sigstore, answering questions like "what is 
 or "how many artifacts are signed each month?".
 
 Sample queries can be found at the [BigQuery marketplace listing](https://console.cloud.google.com/marketplace/product/bigquery-public-data/rekor).
+
+If you have any questions or feedback, please contact us at rekor-dataset@google.com.
