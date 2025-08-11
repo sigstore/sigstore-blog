@@ -1,6 +1,6 @@
 +++
 title = "Announcing the Sigstore Transparency Log Research Dataset"
-date = "2025-08-01"
+date = "2025-08-15"
 tags = ["sigstore","rekor","transparency-log"]
 draft = false
 author = "Hayden Blauzvern & Eve Martin-Jones, Google Open Source Security Team"
