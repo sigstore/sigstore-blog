@@ -13,7 +13,9 @@ The `rekor` dataset is an easily-queryable mirror of the public good instance of
 As a reminder, signing events are recorded in Rekor, Sigstore's append-only transparency log.
 Software consumers rely on cryptographic proofs of log inclusion to verify that software artifacts are recorded to the log.
 Software producers can verify metadata in the log, verifying that the recorded signature metadata was produced as expected
-when their identities or keys were used to sign artifacts.
+when their identities or keys were used to sign artifacts, using a [Rekor monitor](https://github.com/sigstore/rekor-monitor).
+While software producers should monitor the log directly, researchers had to run similar monitoring tooling to ingest all entries,
+which added complexity and cost for research.
 
 This dataset will allow open source supply chain researchers and other interested parties to gather aggregate data on
 how artifacts are being signed with Sigstore, answering questions like "what is the most common CI provider used to sign artifacts?"
