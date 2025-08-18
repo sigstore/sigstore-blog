@@ -3,7 +3,7 @@ title = "Trusting AI Models in Kubernetes: Introducing the Sigstore Model Valida
 date = "2025-06-23"
 tags = ["sigstore","artificial intelligence","model signing","machine learning", "operator"]
 draft = false
-author = "Nina Bongartz, Red Hat Trusted Artificat Signer Team"
+author = "Nina Bongartz, Red Hat Trusted Artifact Signer Team"
 type = "post"
 +++
 
