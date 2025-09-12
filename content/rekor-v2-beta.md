@@ -24,7 +24,7 @@ We have also released a new version of the
 developers to test support for Rekor v2.
 
 To see Rekor v2 in action, follow this example, which will initialize Cosign to use the public instance's staging environment
-where we have deployed Rekor v2:
+where we have deployed Rekor v2. Be sure to update to the latest Cosign version v2.6.0 or greater!
 
 ```
 # Trust the staging instance
