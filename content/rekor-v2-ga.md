@@ -1,6 +1,6 @@
 +++
 title = "Rekor v2 GA - Cheaper to run, simpler to maintain"
-date = "2025-09-29"
+date = "2025-10-03"
 tags = ["sigstore","rekor","transparency"]
 draft = false
 author = "Hayden Blauzvern, Google"
