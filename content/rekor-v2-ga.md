@@ -41,8 +41,9 @@ cosign verify-blob --bundle sigstore.json --certificate-identity $EMAIL --certif
 The [bundles](https://github.com/sigstore/protobuf-specs/blob/main/protos/sigstore_bundle.proto)
 Cosign produces are verifiable by the latest Go, Java and Python clients as well. Support for JavaScript and Ruby will follow.
 
-If you have any questions or feedback, please reach out on Slack on the `#rekor` or `#clients` channels, and as you upgrade clients,
-please report any issues on GitHub.
+If you have any questions or feedback, please reach out on [Slack](https://www.sigstore.dev/community) on the
+`#rekor` or `#clients` channels, and as you upgrade clients, please report any issues on
+[GitHub](https://github.com/sigstore/rekor-tiles/issues).
 
 ## FAQ
 
@@ -87,16 +88,13 @@ needed to compute an inclusion proof given a log index.
 Unless you're monitoring the log for entries, we discourage using the read API for computing inclusion proofs. The log
 will return inclusion proofs on upload and these should be persisted alongside artifacts and their signatures.
 
-Note that the Rekor v2 server does expose a read API, but this is not currently implemented and will only be
-implemented for specific storage backends.
-
 ### What are the benefits of Rekor v2 over v1 as a user?
 
 Rekor v2 is more easily scalable so the public instance will support a higher QPS.
 
 Rekor v2 also will provide stronger security guarantees that the log remains append-only
 by integrating [witnessing](https://blog.transparency.dev/can-i-get-a-witness-network) directly into Rekor.
-This will be implemented soon - Reach out if you have more questions on this topic.
+This will be implemented soon - reach out if you have more questions on this topic.
 
 ### What are the benefits of Rekor v2 over v1 as a private operator?
 
@@ -104,17 +102,24 @@ You will see both a reduction in storage costs from the [tile-based backend](htt
 and infrastructure cost as you can turn down Trillian log server and log signer instances. You will also see a reduction
 in egress costs for any read requests since they're fully cacheable and can be served by a CDN.
 
-### What's been deprecated between v1 and v2?
+### What's been removed between v1 and v2?
 
 The log no longer returns signed timestamps with proofs. Sigstore clients will fetch
 a signed timestamp from a dedicated service. We've deployed a public instance timestamp authority,
 and users can configure their signing workflows to use other public or private timestamp authorities.
 
 The search index has been removed, since this was a best-effort service. This will be
-implemented as a dedicated service later on depending on the community's needs.
+implemented as a dedicated service backed by a
+[verifiable index](https://github.com/transparency-dev/incubator/tree/main/vindex)
+to simplify monitoring. Reach out if you need specific indexes besides signing identity.
 
 While this was already deprecated in v1, there is no attestation storage in v2. Users should persist
 attestations alongside artifacts. Many package registries now support Sigstore-signed attestations.
+
+Due to a lack of usage and to simplify the API, many of the entry types have been removed. The
+artifact `hashedrekord` entry type and the attestation `dsse` entry type are the two supported
+types in Rekor v2. `intoto`, `rekord`, `helm`, `tuf`, `rfc3161`, `jar`, `rpm`, `cose` and `alpine`
+have been removed.
 
 ### Is there any reason to not use Rekor v2?
 
@@ -127,7 +132,8 @@ with an older client. In that case, make sure to update your verification pipeli
 
 Rekor v2 batches requests, which enables the higher QPS and witnessing. We strongly believe this tradeoff
 of waiting a few seconds for log integration for stronger security guarantees and reliability outweighs
-the latency increase.
+the latency increase. When signing multiple artifacts, clients can parallelize generating signatures
+to minimize the latency increase.
 
 ### How do I monitor Rekor v2 entries?
 
