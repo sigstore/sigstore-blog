@@ -66,7 +66,7 @@ Upgrade to the latest Cosign version v3.0.1+ or v2.6.0+:
 
 ```
 # Sign an artifact, producing a bundle. The Rekor v2 URL is provided in the signing config. The trusted root to verify the signature will be fetched via TUF. 
-cosign sign-blob --signing-config rekor_v2_signing_config.json --bundle sigstore.json --yes README.md
+cosign sign-blob --signing-config rekor_v2_signing_config.json --bundle sigstore.json README.md
 
 # Inspect the Rekor v2 response and the uploaded entry
 cat sigstore.json| jq -r ".verificationMaterial.tlogEntries[0]"
