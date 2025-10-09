@@ -24,17 +24,55 @@ We have also released a new version of the
 [conformance test suite](https://github.com/sigstore/sigstore-conformance) for client
 developers to test support for Rekor v2.
 
-You can start using Rekor v2 by upgrading to the latest Cosign version v2.6.0 or later:
+We've begun to roll out the 2025 Rekor v2 log public key via TUF so that upgraded clients
+will automatically verify Rekor v2 entries. However, users signing artifacts will not
+automatically switch to Rekor v2 yet. We will not distribute the Rekor v2 URL via TUF
+until users have had adequate time to upgrade their verification clients. We will
+publish a blog post in a couple of months when we distribute the new log URL.
+
+If you would like to start using Rekor v2 today, you'll need to provide a
+[SigningConfig](https://github.com/sigstore/protobuf-specs/blob/8b671553427e6415ad4777683c45c1b0f25b6ee8/protos/sigstore_trustroot.proto#L185)
+that includes the 2025 Rekor v2 URL. Make a copy of the
+[TUF-distributed production SigningConfig](https://github.com/sigstore/root-signing/blob/main/targets/signing_config.v0.2.json),
+and change `rekorTlogUrls` to the following:
 
 ```
-# Sign an artifact, producing a bundle. The Rekor v2 URL is retrieved using a TUF-distributed signing configuration, which is a list of service URLs
-cosign sign-blob --use-signing-config --bundle sigstore.json --yes README.md
+  "rekorTlogUrls": [
+    {
+      "url": "https://log2025-1.rekor.sigstore.dev",
+      "majorApiVersion": 2,
+      "validFor": {
+        "start": "2025-10-06T00:00:00Z"
+      },
+      "operator": "sigstore.dev"
+    },
+    {
+      "url": "https://rekor.sigstore.dev",
+      "majorApiVersion": 1,
+      "validFor": {
+        "start": "2021-01-12T11:53:27.000Z"
+      },
+      "operator": "sigstore.dev"
+    }
+  ],
+```
+
+Save this file named `rekor_v2_signing_config.json`.
+
+**Note**: We will eventually turn down this 2025 Rekor v2 instance when we deploy a 2026 instance. We strongly
+advise against hardcoding this URL into any pipelines that cannot be easily updated.
+
+Upgrade to the latest Cosign version v3.0.1+ or v2.6.0+:
+
+```
+# Sign an artifact, producing a bundle. The Rekor v2 URL is provided in the signing config. The trusted root to verify the signature will be fetched via TUF. 
+cosign sign-blob --signing-config rekor_v2_signing_config.json --bundle sigstore.json --yes README.md
 
 # Inspect the Rekor v2 response and the uploaded entry
 cat sigstore.json| jq -r ".verificationMaterial.tlogEntries[0]"
 cat sigstore.json| jq -r ".verificationMaterial.tlogEntries[0].canonicalizedBody" | base64 -d | jq .
 
-# Verify the bundle. Replace $EMAIL and $ISSUER with your own identity
+# Verify the bundle. Replace $EMAIL and $ISSUER with your own identity. The trusted root to verify the signature will be fetched via TUF. 
 cosign verify-blob --bundle sigstore.json --certificate-identity $EMAIL --certificate-oidc-issuer $ISSUER --use-signed-timestamps README.md
 ```
 
