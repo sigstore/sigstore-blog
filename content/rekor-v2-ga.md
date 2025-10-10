@@ -65,6 +65,9 @@ advise against hardcoding this URL into any pipelines that cannot be easily upda
 Upgrade to the latest Cosign version v3.0.1+ or v2.6.0+:
 
 ```
+# Grab the latest TUF metadata
+cosign initialize
+
 # Sign an artifact, producing a bundle. The Rekor v2 URL is provided in the signing config. The trusted root to verify the signature will be fetched via TUF. 
 cosign sign-blob --signing-config rekor_v2_signing_config.json --bundle sigstore.json README.md
 
