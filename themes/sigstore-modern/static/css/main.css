@@ -450,6 +450,34 @@ pre code {
   color: inherit;
 }
 
+.post-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+
+.post-body th,
+.post-body td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border: 1px solid var(--border);
+}
+
+.post-body th {
+  background: rgba(0, 150, 204, 0.08);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.post-body tr:nth-child(even) {
+  background: rgba(0, 150, 204, 0.04);
+}
+
+.post-body tr:hover {
+  background: rgba(0, 150, 204, 0.08);
+}
+
 .site-footer {
   border-top: 1px solid var(--border);
   background: color-mix(in srgb, var(--surface), transparent 20%);
