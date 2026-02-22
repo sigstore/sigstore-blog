@@ -25,6 +25,11 @@ weight = 1
 angledQuotes = true
 hrefTargetBlank = true
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [indexes]
   category = "categories"
   tag = "tags"

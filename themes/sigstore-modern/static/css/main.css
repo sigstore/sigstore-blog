@@ -29,9 +29,7 @@ html {
 
 body {
   margin: 0;
-  background: radial-gradient(900px 700px at 10% -10%, rgba(0, 150, 204, 0.18), transparent 60%),
-    radial-gradient(700px 500px at 90% 0%, rgba(255, 85, 34, 0.12), transparent 55%),
-    var(--bg);
+  background: var(--bg);
   color: var(--ink);
   font-family: "IBM Plex Sans", "Space Grotesk", "Segoe UI", sans-serif;
   line-height: 1.6;
