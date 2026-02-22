@@ -1,0 +1,72 @@
+{{ define "main" }}
+  <section class="hero hero-compact">
+    <div class="container">
+      <p class="eyebrow">Search</p>
+      <h1>Find posts</h1>
+      <p class="lede">Search by title, summary, or tag.</p>
+    </div>
+  </section>
+
+  <section class="search">
+    <div class="container">
+      <div class="search-box">
+        <input id="search-input" type="search" placeholder="Search posts" autocomplete="off" />
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var input = document.getElementById("search-input");
+      var results = document.getElementById("search-results");
+      var data = [];
+
+      function render(items) {
+        if (!items.length) {
+          results.innerHTML = "<p class=\"search-empty\">No results.</p>";
+          return;
+        }
+        results.innerHTML = items
+          .map(function (item) {
+            var tags = (item.tags || [])
+              .map(function (tag) {
+                return "<a class=\"tag\" href=\"/tags/" + encodeURIComponent(tag.toLowerCase()) + "/\">" + tag + "</a>";
+              })
+              .join("");
+            return (
+              "<article class=\"post-card\">" +
+              "  <div class=\"post-card-body\">" +
+              "    <h3><a href=\"" + item.url + "\">" + item.title + "</a></h3>" +
+              "    <p class=\"post-meta\">" + item.date + "</p>" +
+              "    <p class=\"post-summary\">" + (item.summary || "") + "</p>" +
+              "    <div class=\"tag-row\">" + tags + "</div>" +
+              "  </div>" +
+              "</article>"
+            );
+          })
+          .join("");
+      }
+
+      function search(q) {
+        var query = q.trim().toLowerCase();
+        if (!query) {
+          results.innerHTML = "";
+          return;
+        }
+        var matches = data.filter(function (item) {
+          var haystack = [item.title, item.summary, (item.tags || []).join(" ")].join(" ").toLowerCase();
+          return haystack.indexOf(query) !== -1;
+        });
+        render(matches);
+      }
+
+      fetch("/index.json")
+        .then(function (r) { return r.json(); })
+        .then(function (json) { data = json; })
+        .catch(function () { results.innerHTML = "<p class=\"search-empty\">Search data unavailable.</p>"; });
+
+      input.addEventListener("input", function (e) { search(e.target.value); });
+    })();
+  </script>
+{{ end }}

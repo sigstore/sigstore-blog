@@ -8,14 +8,18 @@ contentDir             = "content"
 languageCode           = "en-us"
 layoutDir              = "layouts"
 publishDir             = "public"
-theme                  = "pixyll"
-title                  = "Sigstore Blog"
+theme                  = "sigstore-modern"
+title                  = "Sigstore Community Blog"
 enableEmoji            = true
 DefaultContentLanguage = "en"
+enableRobotsTXT        = true
 
 [Languages]
 [Languages.en]
 weight = 1
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
 
 [blackfriday]
 angledQuotes = true

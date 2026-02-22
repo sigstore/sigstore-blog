@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Page not found | {{ .Site.Title }}</title>
+    <link rel="stylesheet" href="{{ "css/main.css" | relURL }}" />
+  </head>
+  <body>
+    <div class="page">
+      <main class="content">
+        <section class="hero hero-compact">
+          <div class="container">
+            <p class="eyebrow">404</p>
+            <h1>Page not found</h1>
+            <p class="lede">The page you’re looking for doesn’t exist. Try the home page or search.</p>
+            <div class="cta-row">
+              <a class="page-link" href="{{ "/" | relURL }}">Go home</a>
+              <a class="page-link" href="{{ "/search/" | relURL }}">Search</a>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

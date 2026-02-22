@@ -1,0 +1,49 @@
+{{ define "main" }}
+  <article class="post">
+    <div class="container post-header">
+      <p class="eyebrow">{{ if eq .Type "post" }}Blog post{{ else }}Page{{ end }}</p>
+      <h1>{{ .Title }}</h1>
+      {{ if eq .Type "post" }}
+        <p class="post-meta">{{ .Date.Format "Jan 2, 2006" }}{{ with .Params.author }} · {{ . }}{{ end }}</p>
+        {{ with .Params.tags }}
+          <div class="tag-row">
+            {{ range . }}
+              <a class="tag" href="{{ (print "/tags/" (urlize .) "/") | relURL }}">{{ . }}</a>
+            {{ end }}
+          </div>
+        {{ end }}
+      {{ end }}
+    </div>
+    <div class="container post-body">
+      {{ .Content }}
+    </div>
+    {{ if eq .Type "post" }}
+      {{ $tags := .Params.tags | default (slice) }}
+      {{ if gt (len $tags) 0 }}
+        {{ $related := where .Site.RegularPages "Type" "post" }}
+        {{ $related = where $related "Permalink" "ne" .Permalink }}
+        {{ $related = where $related ".Params.tags" "intersect" $tags }}
+        {{ $related = first 3 (sort $related "Date" "desc") }}
+        {{ if gt (len $related) 0 }}
+          <div class="container related">
+            <h2>Related posts</h2>
+            <div class="related-list">
+              {{ range $related }}
+                <a class="related-item" href="{{ .RelPermalink }}">{{ .Title }}</a>
+              {{ end }}
+            </div>
+          </div>
+        {{ end }}
+      {{ end }}
+      <div class="container share">
+        <h2>Share</h2>
+        <div class="share-links">
+          {{ $shareUrl := .Permalink | urlquery }}
+          {{ $shareTitle := .Title | urlquery }}
+          <a class="page-link" href="https://x.com/intent/tweet?url={{ $shareUrl }}&text={{ $shareTitle }}" target="_blank" rel="noopener">Share on X</a>
+          <a class="page-link" href="https://www.linkedin.com/sharing/share-offsite/?url={{ $shareUrl }}" target="_blank" rel="noopener">Share on LinkedIn</a>
+        </div>
+      </div>
+    {{ end }}
+  </article>
+{{ end }}
