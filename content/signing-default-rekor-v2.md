@@ -7,7 +7,9 @@ author = "Jussi Kukkonen, Google"
 type = "post"
 +++
 
-_Sigstore Public Good instance on sigstore.dev switches to Rekor v2 as the default  signature transparency log before end of March 2026._
+_Sigstore Public Good instance on sigstore.dev is switching to Rekor v2 as the default signature transparency log before end of March 2026._
+
+<!--more-->
 
 sigstore.dev has been running the new Rekor v2 signature transparency log in parallel with the original Rekor v1 [for a few months now](https://blog.sigstore.dev/rekor-v2-ga/): The services seem to be running well and client support looks good. The next step is using Rekor v2 log entries in new Sigstore signatures by default. This post outlines the plan and addresses compatibility concerns inherent in changing signature content.
 
@@ -29,7 +31,9 @@ The best thing you can do is keep your client software up to date (see compatibi
 
 As an integrator (e.g., a package ecosystem), you have more control over the transition. You can choose to pin the Rekor version in your signing process to manage the switchover time. However, if you do this, you are responsible for switching to v2 shortly after the Sigstore defaults change.
 
-[!NOTE] Integrators must still prepare for more frequent log rotation in future: make sure your signing process does not hard code service URLs and instead uses SigningConfig (either via TUF or a more DIY mechanism)
+<div style="padding: 15px; margin-bottom: 20px; border-radius: 5px; border-left: 5px solid #007bff; background-color: #f0f7ff;">
+  <p style="margin: 0;"><strong>NOTE:</strong> Integrators must still prepare for more frequent log rotation in future: make sure your signing process does not hard code service URLs and instead uses `SigningConfig` (either via TUF or a more DIY mechanism)</p>
+</div>
 
 ### FAQ
 
@@ -41,19 +45,18 @@ SigningConfig was not always part of the Sigstore design (and as a result suppor
 
 This is an overview of the situation at time of writing: please refer to [Sigstore Conformance](https://github.com/sigstore/sigstore-conformance/) client Conformance Report for up-to-date conformance test results and the client projects documentation for details.
 
-| Compatible client or library | First version with Rekor v2 support |
-| :--- | :--- |
-| [sigstore/cosign](https://github.com/sigstore/cosign)[^1] | 3.05 |
-| [sigstore/sigstore-go](https://github.com/sigstore/sigstore-go) | 1.1.0 |
-| [sigstore/sigstore-java](https://github.com/sigstore/sigstore-java)[^2] | 2.0.0 |
-| [sigstore/sigstore-js](https://github.com/sigstore/sigstore-js) | 0.9 |
-| [sigstore/sigstore-python](https://github.com/sigstore/sigstore-python) | 4.0.0 |
-| [prefix-dev/sigstore-rust](https://github.com/prefix-dev/sigstore-rust) | 0.6.0 |
+Compatible clients and the first version with Rekor v2 support:
+* [sigstore/cosign](https://github.com/sigstore/cosign) 3.05[^1]
+* [sigstore/sigstore-go](https://github.com/sigstore/sigstore-go) 1.1.0
+* [sigstore/sigstore-java](https://github.com/sigstore/sigstore-java) 2.0.0[^2]
+* [sigstore/sigstore-js](https://github.com/sigstore/sigstore-js) 0.9
+* [sigstore/sigstore-python](https://github.com/sigstore/sigstore-python) 4.0.0
+* [prefix-dev/sigstore-rust](https://github.com/prefix-dev/sigstore-rust) 0.6.0
+
+Clients known to not have Rekor v2 support at time of writing:
+* [sigstore/sigstore-rs](https://github.com/sigstore/sigstore-rs)
+* [sigstore/sigstore-ruby](https://github.com/sigstore/sigstore-ruby)
 
 [^1]: Cosign supports Rekor v2 from 2.6.0 onwards but these earlier versions require additional flags: see `--use-signed-timestamps` and `--new-bundle-format`
 [^2]: sigstore-java 2.0.0 still requires enabling Rekor v2 support, see [README](https://github.com/sigstore/sigstore-java)
 
-| Clients known to not have Rekor v2 support at time of writing|
-| :--- | :--- |
-| [sigstore/sigstore-rs](https://github.com/sigstore/sigstore-rs) |
-| [sigstore/sigstore-ruby](https://github.com/sigstore/sigstore-ruby) |
