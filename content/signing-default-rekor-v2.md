@@ -29,11 +29,11 @@ The best thing you can do is keep your client software up to date (see compatibi
 
 **For Sigstore Integrators**
 
-As an integrator (e.g., a package ecosystem), you have more control over the transition. You can choose to pin the Rekor version in your signing process to manage the switchover time. However, if you do this, you are responsible for switching to v2 shortly after the Sigstore defaults change.
+As an integrator (e.g., a package ecosystem), you can have more control over the transition. You can choose to pin the Rekor version in your signing process to manage the switchover time. However, if you do this, you are responsible for switching to v2 shortly after the Sigstore defaults change.
 
-<div style="padding: 15px; margin-bottom: 20px; border-radius: 5px; border-left: 5px solid #007bff; background-color: #f0f7ff;">
-  <p style="margin: 0;"><strong>NOTE:</strong> Integrators must still prepare for more frequent log rotation in future: make sure your signing process does not hard code service URLs and instead uses `SigningConfig` (either via TUF or a more DIY mechanism)</p>
-</div>
+{{< note >}}
+Integrators must still prepare for more frequent log rotation in future: make sure your signing process does not hard code service URLs and instead uses `SigningConfig` (either via TUF or a more DIY mechanism)</p>
+{{< /note >}}
 
 ### FAQ
 
