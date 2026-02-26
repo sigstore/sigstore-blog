@@ -1,6 +1,6 @@
 +++
 title = "Signing defaults are changing: Rekor v2 used as transparency log"
-date = "2026-03-03"
+date = "2026-02-26"
 tags = ["sigstore","rekor"]
 draft = false
 author = "Jussi Kukkonen, Google"
