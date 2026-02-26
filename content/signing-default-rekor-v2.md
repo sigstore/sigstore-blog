@@ -39,7 +39,7 @@ Integrators must still prepare for more frequent log rotation in future: make su
 
 **Why not just hard code the log URL?**
 
-SigningConfig was not always part of the Sigstore design (and as a result support for it is not yet universal, especially in older client releases). It was added because dynamically discovering service URLs was found to be _very_ useful: it makes clients ready to support other Sigstore instances, enables adding entries in multiple logs, an allows instance maintainers to rotate transparency log instances without service disruption. Log rotation was always in the plans but has been avoided so far because of how disruptive it would have been -- because the log URL has been hard coded in so many places.
+SigningConfig was not always part of the Sigstore design (and as a result support for it is not yet universal, especially in older client releases). It was added because dynamically discovering service URLs was found to be _very_ useful: it makes clients ready to support other Sigstore instances, enables adding entries in multiple logs, and allows instance maintainers to rotate transparency log instances without service disruption. Log rotation was always in the plans but has been avoided so far because of how disruptive it would have been -- because the log URL has been hard coded in so many places.
 
 **Which clients exactly are compatible?**
 
