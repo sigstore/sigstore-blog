@@ -17,19 +17,17 @@ As mentioned, the v2 log is already running: we only need to change client confi
 
 By end of March 2026 the Rekor v2 URL will be added to the Public Good instance `SigningConfig`: this is a signal to Sigstore clients to start creating signature bundles that contain transparency log entries from the Rekor v2 service instead of Rekor v1. Sigstore clients can still keep using Rekor v1 if they are still working on supporting v2 or if the user explicitly requests v1 entries.
 
-### How does this impact users?
+### How Does This Impact You?
 
-Soon there will be Sigstore signature bundles out there containing Rekor v2 log entries. Current releases of most Sigstore clients will verify these new signature bundles without issues, but older clients will be unable to verify them.
+Soon, Sigstore signature bundles will start containing Rekor v2 log entries. While most current Sigstore clients can handle these new bundles, older clients will fail to verify them. Here’s what you need to do to prepare.
 
-**Advice to users of Sigstore CLIs such as cosign**
+**For Users of Sigstore CLIs (like Cosign)**
 
-The good news is that standard best practices will just work: Keep your Sigstore client software up to date (see end of post for specific client version information) and you should not notice a thing: existing workflows will keep working.
+The best thing you can do is keep your client software up to date (see compatibility table below for details). This will ensure your existing workflows continue to work without interruption. If you're using an older client, you'll still be able to verify and sign signatures with Rekor v1 entries, but you won't be able to verify signatures that use Rekor v2.
 
-If you are using a client that does not support Rekor v2 yet (see below for compatibility table), it can still be used to verify (and sign) signatures with Rekor v1 entries but cannot be used to verify signatures with Rekor v2 entries.
+**For Sigstore Integrators**
 
-**Advice to Sigstore integrators**
-
-Sigstore integrators (like package ecosystems) can choose to control the Rekor version switchover time by forcing the rekor version in their signing process: In this case the integrator is now responsible for switching to v2 soon after the Sigstore defaults change.
+As an integrator (e.g., a package ecosystem), you have more control over the transition. You can choose to pin the Rekor version in your signing process to manage the switchover time. However, if you do this, you are responsible for switching to v2 shortly after the Sigstore defaults change.
 
 [!NOTE] Integrators must still prepare for more frequent log rotation in future: make sure your signing process does not hard code service URLs and instead uses SigningConfig (either via TUF or a more DIY mechanism)
 
@@ -58,4 +56,4 @@ This is an overview of the situation at time of writing: please refer to [Sigsto
 | Clients known to not have Rekor v2 support at time of writing|
 | :--- | :--- |
 | [sigstore/sigstore-rs](https://github.com/sigstore/sigstore-rs) |
-| [sigstore/sigstore-ruby](https://github.com/sigstore/sigstore-rs) |
+| [sigstore/sigstore-ruby](https://github.com/sigstore/sigstore-ruby) |
