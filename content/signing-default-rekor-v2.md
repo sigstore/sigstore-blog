@@ -17,7 +17,7 @@ sigstore.dev has been running the new Rekor v2 signature transparency log in par
 
 As mentioned, the v2 log is already running: we only need to change client configuration to start using it. Doing this configuration in a smart way requires a bit of infrastructure: Signing clients get the service URLs they need via a `SigningConfig` json file, typically delivered automatically via TUF (The Update Framework) -- this is the same mechanism that verifying clients use to get the `TrustedRoot` file with the trusted public key material.
 
-By end of March 2026 the Rekor v2 URL will be added to the Public Good instance `SigningConfig`: this is a signal to Sigstore clients to start creating signature bundles that contain transparency log entries from the Rekor v2 service instead of Rekor v1. Sigstore clients can still keep using Rekor v1 if they are still working on supporting v2 or if the user explicitly requests v1 entries.
+By end of March 2026 the Rekor v2 URL will be added to the Public Good instance [`SigningConfig`](https://github.com/sigstore/root-signing/blob/main/targets/signing_config.v0.2.json): this is a signal to Sigstore clients to start creating signature bundles that contain transparency log entries from the Rekor v2 service instead of Rekor v1. Sigstore clients can still keep using Rekor v1 if they are still working on supporting v2 or if the user explicitly requests v1 entries.
 
 ### How Does This Impact You?
 
