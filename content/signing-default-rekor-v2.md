@@ -7,7 +7,7 @@ author = "Jussi Kukkonen, Google"
 type = "post"
 +++
 
-_Sigstore Public Good instance on sigstore.dev is switching to Rekor v2 as the default signature transparency log before end of March 2026._
+_Sigstore Public Good instance on sigstore.dev is switching to [Rekor v2](https://github.com/sigstore/rekor-tiles) as the default signature transparency log before end of March 2026._
 
 <!--more-->
 
