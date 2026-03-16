@@ -39,8 +39,6 @@
         <h2>Share</h2>
         <div class="share-links">
           {{ $shareUrl := .Permalink | urlquery }}
-          {{ $shareTitle := .Title | urlquery }}
-          <a class="page-link" href="https://x.com/intent/tweet?url={{ $shareUrl }}&text={{ $shareTitle }}" target="_blank" rel="noopener">Share on X</a>
           <a class="page-link" href="https://www.linkedin.com/sharing/share-offsite/?url={{ $shareUrl }}" target="_blank" rel="noopener">Share on LinkedIn</a>
         </div>
       </div>
