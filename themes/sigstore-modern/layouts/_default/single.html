@@ -18,23 +18,7 @@
       {{ .Content }}
     </div>
     {{ if eq .Type "post" }}
-      {{ $tags := .Params.tags | default (slice) }}
-      {{ if gt (len $tags) 0 }}
-        {{ $related := where .Site.RegularPages "Type" "post" }}
-        {{ $related = where $related "Permalink" "ne" .Permalink }}
-        {{ $related = where $related ".Params.tags" "intersect" $tags }}
-        {{ $related = first 3 (sort $related "Date" "desc") }}
-        {{ if gt (len $related) 0 }}
-          <div class="container related">
-            <h2>Related posts</h2>
-            <div class="related-list">
-              {{ range $related }}
-                <a class="related-item" href="{{ .RelPermalink }}">{{ .Title }}</a>
-              {{ end }}
-            </div>
-          </div>
-        {{ end }}
-      {{ end }}
+
       <div class="container share">
         <h2>Share</h2>
         <div class="share-links">
