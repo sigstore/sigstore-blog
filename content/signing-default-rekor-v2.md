@@ -1,5 +1,5 @@
 +++
-title = "Signing defaults are changing: Rekor v2 used as transparency log"
+title = "Sigstore Signing Is Evolving: Keep Your Verifiers Up to Date"
 date = "2026-02-26"
 tags = ["sigstore","rekor"]
 draft = false
@@ -7,7 +7,7 @@ author = "Jussi Kukkonen, Google"
 type = "post"
 +++
 
-_Sigstore Public Good instance on sigstore.dev is switching to [Rekor v2](https://github.com/sigstore/rekor-tiles) as the default signature transparency log before end of March 2026._
+_Sigstore Public Good instance on sigstore.dev is switching to [Rekor v2](https://github.com/sigstore/rekor-tiles) as its default transparency log in May 2026. While existing signatures remain valid, older clients may fail to verify signatures created after this switch.
 
 <!--more-->
 
@@ -17,7 +17,7 @@ sigstore.dev has been running the new Rekor v2 signature transparency log in par
 
 As mentioned, the v2 log is already running: we only need to change client configuration to start using it. Doing this configuration in a smart way requires a bit of infrastructure: Signing clients get the service URLs they need via a `SigningConfig` json file, typically delivered automatically via TUF (The Update Framework) -- this is the same mechanism that verifying clients use to get the `TrustedRoot` file with the trusted public key material.
 
-By end of March 2026 the Rekor v2 URL will be added to the Public Good instance [`SigningConfig`](https://github.com/sigstore/root-signing/blob/main/targets/signing_config.v0.2.json): this is a signal to Sigstore clients to start creating signature bundles that contain transparency log entries from the Rekor v2 service instead of Rekor v1. Sigstore clients can still keep using Rekor v1 if they are still working on supporting v2 or if the user explicitly requests v1 entries.
+In May 2026 the Rekor v2 URL will be added to the Public Good instance [`SigningConfig`](https://github.com/sigstore/root-signing/blob/main/targets/signing_config.v0.2.json): this is a signal to Sigstore clients to start creating signature bundles that contain transparency log entries from the Rekor v2 service instead of Rekor v1. Sigstore clients can still keep using Rekor v1 if they are still working on supporting v2 or if the user explicitly requests v1 entries.
 
 ### How Does This Impact You?
 
@@ -29,11 +29,53 @@ The best thing you can do is keep your client software up to date (see compatibi
 
 **For Sigstore Integrators**
 
-As an integrator (e.g., a package ecosystem), you can have more control over the transition. You can choose to pin the Rekor version in your signing process to manage the switchover time. However, if you do this, you are responsible for switching to v2 shortly after the Sigstore defaults change.
+Anyone integrating Sigstore verification should ensure they are using an implementation compatible with Rekor v2.
+
+The integrators (e.g. package ecosystems) that also control the signing process have more control over the transition. You can choose to pin the Rekor version in your signing process to manage the switchover time. However, if you do this, you are responsible for switching to v2 shortly after the Sigstore defaults change.
 
 **NOTE**: Integrators must still prepare for more frequent log rotation in future: make sure your signing process does not hard code service URLs and instead uses `SigningConfig` (either via TUF or a more DIY mechanism)
 
 ### FAQ
+
+**My Sigstore verification started failing, what now?**
+
+While we have been successful getting major ecosystems up to date, you may encounter environments that have not yet updated their tooling. If you think you have a valid signature but are encountering Rekor v2 related verification issues, you can manually confirm your signature is valid and then notify the owners of the verification flows that an update might be required.
+
+
+1. Install cosign 3.0.5+ (or another up-to-date client)
+```
+$ go install github.com/sigstore/cosign/v3/cmd/cosign@v3.0.5
+```
+
+2. Check if the bundle contains a Rekor v2 log entry by looking for `hashedrekord:0.0.2` or `dsse:0.0.2`
+```
+# for blobs
+$ cat <my-bundle> | jq '.verificationMaterial.tlogEntries[0].kindVersion'
+{
+  "kind": "hashedrekord",
+  "version": "0.0.2"
+}
+
+# for images
+$ cosign download signature <my-image> | jq '.verificationMaterial.tlogEntries[0].kindVersion'
+{
+  "kind": "dsse",
+  "version": "0.0.2"
+}
+```
+
+3. [Verify](https://docs.sigstore.dev/cosign/verifying/verify/) the signature.
+```
+# for blobs
+$ cosign verify-blob <artifact> --bundle=<bundle.sigstore.json> --certificate-identity=<identity> --certificate-oidc-issuer=<issuer>
+Verified OK
+
+# for images
+$ cosign verify <image> --certificate-identity=<identity> --certificate-oidc-issuer=<issuer>
+  ...
+```
+
+If you are verifying container images with older cosign clients, you may also encounter issues for signatures that use the [OCI referrers API](https://github.com/sigstore/cosign?tab=readme-ov-file#oci-artifacts). Ensure your clients are up to date to find OCI referrers signatures and handle new Sigstore signatures.
 
 **Why not just hard code the log URL?**
 
