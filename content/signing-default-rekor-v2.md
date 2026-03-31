@@ -17,11 +17,11 @@ sigstore.dev has been running the new Rekor v2 signature transparency log in par
 
 As mentioned, the v2 log is already running: we only need to change client configuration to start using it. Doing this configuration in a smart way requires a bit of infrastructure: Signing clients get the service URLs they need via a `SigningConfig` json file, typically delivered automatically via TUF (The Update Framework) -- this is the same mechanism that verifying clients use to get the `TrustedRoot` file with the trusted public key material.
 
-In May 2026 the Rekor v2 URL will be added to the Public Good instance [`SigningConfig`](https://github.com/sigstore/root-signing/blob/main/targets/signing_config.v0.2.json): this is a signal to Sigstore clients to start creating signature bundles that contain transparency log entries from the Rekor v2 service instead of Rekor v1. Sigstore clients can still keep using Rekor v1 if they are still working on supporting v2 or if the user explicitly requests v1 entries.
+In May 2026 the Rekor v2 URL will be added to the Public Good instance [`SigningConfig`](https://github.com/sigstore/root-signing/blob/main/targets/signing_config.v0.2.json). This will signal Sigstore clients to start creating signature bundles that contain transparency log entries from the Rekor v2 service instead of Rekor v1. Sigstore clients can still use Rekor v1 if they are still working on supporting v2 or if the user explicitly requests v1 entries.
 
 ### How Does This Impact You?
 
-Soon, Sigstore signature bundles will start containing Rekor v2 log entries. While most current Sigstore clients can handle these new bundles, older clients will fail to verify them. Here’s what you need to do to prepare.
+Soon, Sigstore signature bundles will contain Rekor v2 log entries. While most current Sigstore clients can handle these new bundles, older clients will fail to verify them. Here’s what you need to do to prepare.
 
 **For Users of Sigstore CLIs (like Cosign)**
 
@@ -33,13 +33,13 @@ Anyone integrating Sigstore verification should ensure they are using an impleme
 
 The integrators (e.g. package ecosystems) that also control the signing process have more control over the transition. You can choose to pin the Rekor version in your signing process to manage the switchover time. However, if you do this, you are responsible for switching to v2 shortly after the Sigstore defaults change.
 
-**NOTE**: Integrators must still prepare for more frequent log rotation in future: make sure your signing process does not hard code service URLs and instead uses `SigningConfig` (either via TUF or a more DIY mechanism)
+**NOTE**: Integrators must still prepare for more frequent log rotation in future. Make sure your signing process does not hard code service URLs and instead uses `SigningConfig` (either via TUF or a more DIY mechanism).
 
 ### FAQ
 
 **My Sigstore verification started failing, what now?**
 
-While we have been successful getting major ecosystems up to date, you may encounter environments that have not yet updated their tooling. If you think you have a valid signature but are encountering Rekor v2 related verification issues, you can manually confirm your signature is valid and then notify the owners of the verification flows that an update might be required.
+While we have been successful in getting major ecosystems up to date, you may encounter environments that have not yet updated their tooling. If you think you have a valid signature but are encountering Rekor v2 related verification issues, you can manually confirm your signature is valid and then notify the owners of the verification flows that an update is required.
 
 
 1. Install cosign 3.0.5+ (or another up-to-date client)
@@ -77,16 +77,16 @@ $ cosign verify <image> --certificate-identity=<identity> --certificate-oidc-iss
 
 If you are verifying container images with older cosign clients, you may also encounter issues for signatures that use the [OCI referrers API](https://github.com/sigstore/cosign?tab=readme-ov-file#oci-artifacts). Ensure your clients are up to date to find OCI referrers signatures and handle new Sigstore signatures.
 
-**Why not just hard code the log URL?**
+**Why not just hardcode the log URL?**
 
-SigningConfig was not always part of the Sigstore design (and as a result support for it is not yet universal, especially in older client releases). It was added because dynamically discovering service URLs was found to be _very_ useful: it makes clients ready to support other Sigstore instances, enables adding entries in multiple logs, and allows instance maintainers to rotate transparency log instances without service disruption. Log rotation was always in the plans but has been avoided so far because of how disruptive it would have been -- because the log URL has been hard coded in so many places.
+`SigningConfig` was not always part of the Sigstore design (and as a result support for it is not yet universal, especially in older client releases). It was added because dynamic discovery of service URLs allows clients to support other Sigstore instances, enables adding entries in multiple logs, and allows instance maintainers to rotate transparency log instances without service disruption. Log rotation was always planned but has been avoided so far because it would be disruptive, as the log URL is hardcoded in many places.
 
 **Which clients exactly are compatible?**
 
 This is an overview of the situation at time of writing: please refer to [Sigstore Conformance](https://github.com/sigstore/sigstore-conformance/) client Conformance Report for up-to-date conformance test results and the client projects documentation for details.
 
 Compatible clients and the first version with Rekor v2 support:
-* [sigstore/cosign](https://github.com/sigstore/cosign) 3.05[^1]
+* [sigstore/cosign](https://github.com/sigstore/cosign) 3.0.5[^1]
 * [sigstore/sigstore-go](https://github.com/sigstore/sigstore-go) 1.1.0
 * [sigstore/sigstore-java](https://github.com/sigstore/sigstore-java) 2.0.0[^2]
 * [sigstore/sigstore-js](https://github.com/sigstore/sigstore-js) 0.9
