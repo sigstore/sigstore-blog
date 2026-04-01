@@ -25,7 +25,7 @@ Soon, Sigstore signature bundles will contain Rekor v2 log entries. While most c
 
 **For Users of Sigstore CLIs (like Cosign)**
 
-The best thing you can do is keep your client software up to date (see compatibility table below for details). This will ensure your existing workflows continue to work without interruption. If you're using an older client, you'll still be able to verify and sign signatures with Rekor v1 entries, but you won't be able to verify signatures that use Rekor v2.
+The best thing you can do is keep your client software up to date (see [compatibility list](#which-clients-are-compatible) for details). This will ensure your existing workflows continue to work without interruption. If you're using an older client, you'll still be able to verify and sign signatures with Rekor v1 entries, but you won't be able to verify signatures that use Rekor v2.
 
 **For Sigstore Integrators**
 
@@ -37,7 +37,7 @@ Integrators (e.g. package ecosystems) that manage the signing process have more 
 
 ### FAQ
 
-**My Sigstore verification started failing, what now?**
+#### My Sigstore verification started failing, what now?
 
 While we have been successful in getting major ecosystems up to date, you may encounter environments that have not yet updated their tooling. If you think you have a valid signature but are encountering Rekor v2 related verification issues, you can manually confirm your signature is valid and then notify the owners of the verification flows that an update is required.
 
@@ -77,11 +77,11 @@ $ cosign verify <image> --certificate-identity=<identity> --certificate-oidc-iss
 
 If you are verifying container images with older cosign clients, you may also encounter issues for signatures that use the [OCI referrers API](https://github.com/sigstore/cosign?tab=readme-ov-file#oci-artifacts). Ensure your clients are up to date to find OCI referrers signatures and handle new Sigstore signatures.
 
-**Why not just hardcode the log URL?**
+#### Why not just hardcode the log URL?
 
 `SigningConfig` was not always part of the Sigstore design (and as a result support for it is not yet universal, especially in older client releases). It was added because dynamic discovery of service URLs allows clients to support other Sigstore instances, enables adding entries in multiple logs, and allows instance maintainers to rotate transparency log instances without service disruption. Log rotation was always planned but has been avoided so far because it would be disruptive, as the log URL is hardcoded in many places.
 
-**Which clients exactly are compatible?**
+#### Which clients are compatible?
 
 This is an overview of the situation at time of writing: please refer to [Sigstore Conformance](https://github.com/sigstore/sigstore-conformance/) client Conformance Report for up-to-date conformance test results and the client projects documentation for details.
 
