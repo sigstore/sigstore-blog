@@ -11,11 +11,11 @@ _Sigstore Public Good instance on sigstore.dev is switching to [Rekor v2](https:
 
 <!--more-->
 
-sigstore.dev has been running the new Rekor v2 signature transparency log in parallel with the original Rekor v1 [for a few months now](https://blog.sigstore.dev/rekor-v2-ga/): The services seem to be running well and client support looks good. The next step is using Rekor v2 log entries in new Sigstore signatures by default. This post outlines the plan and addresses compatibility concerns inherent in changing signature content.
+sigstore.dev has been running the new Rekor v2 signature transparency log in parallel with the original Rekor v1 [for a few months now](https://blog.sigstore.dev/rekor-v2-ga/). The services seem to be running well and client support looks good. The next step is using Rekor v2 log entries in new Sigstore signatures by default. This post outlines the plan and addresses compatibility concerns inherent in changing signature content.
 
 ### What changes?
 
-As mentioned, the v2 log is already running: we only need to change client configuration to start using it. Doing this configuration in a smart way requires a bit of infrastructure: Signing clients get the service URLs they need via a `SigningConfig` json file, typically delivered automatically via TUF (The Update Framework) -- this is the same mechanism that verifying clients use to get the `TrustedRoot` file with the trusted public key material.
+The v2 log is already running, we only need to change configuration to tell clients to to start using it. Doing this in a smart way requires a bit of infrastructure: Modern signing clients get the service URLs they need via a `SigningConfig` json file, delivered automatically via TUF (The Update Framework) -- this is the same mechanism that verifying clients use to get the `TrustedRoot` file with the trusted public key material.
 
 In May 2026 the Rekor v2 URL will be added to the Public Good instance [`SigningConfig`](https://github.com/sigstore/root-signing/blob/main/targets/signing_config.v0.2.json). This will signal Sigstore clients to start creating signature bundles that contain transparency log entries from the Rekor v2 service instead of Rekor v1. Sigstore clients can still use Rekor v1 if they are still working on supporting v2 or if the user explicitly requests v1 entries.
 
@@ -31,7 +31,7 @@ The best thing you can do is keep your client software up to date (see compatibi
 
 Anyone integrating Sigstore verification should ensure they are using an implementation compatible with Rekor v2.
 
-The integrators (e.g. package ecosystems) that also control the signing process have more control over the transition. You can choose to pin the Rekor version in your signing process to manage the switchover time. However, if you do this, you are responsible for switching to v2 shortly after the Sigstore defaults change.
+Integrators (e.g. package ecosystems) that manage the signing process have more control over the transition. You can choose to pin the Rekor version in your signing process to manage the switchover time. However, if you do this, you are responsible for switching to v2 shortly after the Sigstore defaults change.
 
 **NOTE**: Integrators must still prepare for more frequent log rotation in future. Make sure your signing process does not hard code service URLs and instead uses `SigningConfig` (either via TUF or a more DIY mechanism).
 
