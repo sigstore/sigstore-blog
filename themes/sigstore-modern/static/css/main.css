@@ -4,7 +4,7 @@
   --accent: #ff5522;
   --ink: #1b1f24;
   --muted: #5d6b75;
-  --bg: #f5f8fb;
+  --bg: #faf7f0;
   --surface: #ffffff;
   --border: #e2e9ef;
   --shadow: 0 18px 50px rgba(9, 26, 42, 0.08);
@@ -31,7 +31,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: "IBM Plex Sans", "Space Grotesk", "Segoe UI", sans-serif;
+  font-family: "Inter", "Segoe UI", sans-serif;
   line-height: 1.6;
 }
 
@@ -181,7 +181,7 @@ img {
   width: 18px;
   height: 18px;
   border-radius: 999px;
-  background: conic-gradient(from 90deg, #0e1a23 0 50%, #f5f8fb 50% 100%);
+  background: conic-gradient(from 90deg, #0e1a23 0 50%, #faf7f0 50% 100%);
   border: 1px solid color-mix(in srgb, var(--ink), transparent 60%);
 }
 
@@ -276,6 +276,10 @@ body[data-theme="dark"] .icon-link:hover {
 .post-summary {
   margin: 0 0 1rem;
   color: #2c343b;
+}
+
+body[data-theme="dark"] .post-summary {
+  color: #d3dde6;
 }
 
 .tag-row {
