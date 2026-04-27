@@ -25,7 +25,7 @@ This blog article will walk you through two main concepts:
 _Note: while learning and testing, it was also the opportunity for me to open my first issues and PRs in the `sigstore/docs` ([#63](https://github.com/sigstore/docs/pull/63)), `sigstore/policy-controller` ([#520](https://github.com/sigstore/policy-controller/pull/520)), and `sigstore/community` ([#220](https://github.com/sigstore/community/issues/220)) repos to fix some frictions I faced._
 
 Define the common bash variables used throughout this blog article:
-```bash
+```shell
 PROJECT_ID=FIXME-WITH-YOUR-EXISTING-PROJECT-ID
 gcloud config set project ${PROJECT_ID}
 REGION=northamerica-northeast1
@@ -41,12 +41,12 @@ In this section you will:
 - Sign this remote private container image
 
 Enable the Cloud KMS API in our current project:
-```bash
+```shell
 gcloud services enable cloudkms.googleapis.com
 ```
 
 Create a key in Cloud KMS:
-```bash
+```shell
 KEY_RING=cosign
 gcloud kms keyrings create ${KEY_RING} \
     --location ${REGION}
@@ -59,12 +59,12 @@ gcloud kms keys create ${KEY_NAME} \
 ```
 
 Enable the Artifact Registry API in our current project:
-```bash
+```shell
 gcloud services enable artifactregistry.googleapis.com
 ```
 
 Create a private Google Artifact Registry repository to store our container images:
-```bash
+```shell
 REGISTRY_NAME=containers
 gcloud artifacts repositories create ${REGISTRY_NAME} \
     --repository-format docker \
@@ -72,7 +72,7 @@ gcloud artifacts repositories create ${REGISTRY_NAME} \
 ```
 
 Push an `nginx` image in our own private Google Artifact Registry repository:
-```bash
+```shell
 docker pull nginx
 docker tag nginx ${REGION}-docker.pkg.dev/${PROJECT_ID}/${REGISTRY_NAME}/nginx
 gcloud auth configure-docker ${REGION}-docker.pkg.dev
@@ -81,7 +81,7 @@ SHA=$(docker push ${REGION}-docker.pkg.dev/${PROJECT_ID}/${REGISTRY_NAME}/nginx 
 _Note: we are grabbing the `SHA` of this remote container image in order to sign this container image later._
 
 Install [Cosign](https://docs.sigstore.dev/cosign/installation/) locally:
-```bash
+```shell
 COSIGN_VERSION=$(curl -s https://api.github.com/repos/sigstore/cosign/releases/latest | jq -r .tag_name)
 curl -LO https://github.com/sigstore/cosign/releases/download/${COSIGN_VERSION}/cosign-linux-amd64
 sudo mv cosign-linux-amd64 /usr/local/bin/cosign
@@ -89,7 +89,7 @@ chmod +x /usr/local/bin/cosign
 ```
 
 [Generage a key](https://docs.sigstore.dev/cosign/key-generation/#key-generation-and-management) and [sign](https://docs.sigstore.dev/cosign/sign/) this remote container image with Cloud KMS:
-```bash
+```shell
 gcloud auth application-default login
 cosign generate-key-pair \
     --kms gcpkms://projects/${PROJECT_ID}/locations/${REGION}/keyRings/${KEY_RING}/cryptoKeys/${KEY_NAME}
@@ -99,7 +99,7 @@ cosign sign \
 ```
 
 We could now see that our Google Artifact Registry repository has two entries, one for the actual container image and the other for the associate `.sig` signature:
-```bash
+```shell
 gcloud artifacts docker tags list ${REGION}-docker.pkg.dev/${PROJECT_ID}/${REGISTRY_NAME}/nginx
 ```
 Output similar to:
@@ -112,7 +112,7 @@ sha256-4c1c50d0ffc614f90b93b07d778028dc765548e823f676fb027f61d281ac380d.sig  ${R
 _Note: there is an [ongoing discussion](https://github.com/sigstore/cosign/issues/1397) to support the [reference types from the OCI spec](https://oras.land/cli/6_reference_types/) in order to just have the container image where the signature could be attached on. Since Cosign 2.0, that’s now an [experimental feature](https://github.com/sigstore/cosign/pull/2684)._
 
 Verify this signed container image:
-```bash
+```shell
 cosign verify \
     --key gcpkms://projects/${PROJECT_ID}/locations/${REGION}/keyRings/${KEY_RING}/cryptoKeys/${KEY_NAME} \
     ${REGION}-docker.pkg.dev/${PROJECT_ID}/${REGISTRY_NAME}/nginx@${SHA}
@@ -139,12 +139,12 @@ In this section you will:
 - Test this policy with both signed and unsigned container images
 
 Enable the GKE API in our current project:
-```bash
+```shell
 gcloud services enable container.googleapis.com
 ```
 
 Create a GKE cluster with Workload Identity:
-```bash
+```shell
 gcloud container clusters create ${CLUSTER_NAME} \
     --workload-pool=${PROJECT_ID}.svc.id.goog \
     --zone ${ZONE} \
@@ -153,7 +153,7 @@ gcloud container clusters create ${CLUSTER_NAME} \
 _Note: we explicitly add the `https://www.googleapis.com/auth/cloudkms` scope needed by Policy-controller. [`https://www.googleapis.com/auth/cloud-platform`](https://cloud.google.com/kubernetes-engine/docs/how-to/access-scopes) instead is fine too._
 
 Define a least privilege Google Service Account (GSA) for Policy-controller by granting the `cloudkms.viewer`, `cloudkms.verifier` and `artifactregistry.reader` roles and by enabling Workload Identity between the Kubernetes Service Account and the Google Service Account:
-```bash
+```shell
 PC_GSA_NAME=policy-controller-sa
 PC_GSA_ID=${PC_GSA_NAME}@${PROJECT_ID}.iam.gserviceaccount.com
 
@@ -180,7 +180,7 @@ gcloud artifacts repositories add-iam-policy-binding ${REGISTRY_NAME} \
 ```
 
 Install the [Policy-controller Helm chart](https://github.com/sigstore/helm-charts/tree/main/charts/policy-controller) in this GKE cluster by annotating the Policy-controller's `ServiceAccounts` to use Workload Identity:
-```bash
+```shell
 helm repo add sigstore https://sigstore.github.io/helm-charts
 helm repo update
 helm install policy-controller \
@@ -191,7 +191,7 @@ helm install policy-controller \
 ```
 
 Deploy a policy only allowing signed container images with our Cloud KMS key:
-```bash
+```shell
 cat << EOF | kubectl apply -f -
 apiVersion: policy.sigstore.dev/v1alpha1
 kind: ClusterImagePolicy
@@ -207,14 +207,14 @@ EOF
 ```
 
 Enfore this policy for the `test` namespace:
-```bash
+```shell
 kubectl create namespace test
 kubectl label namespace test policy.sigstore.dev/include=true
 ```
 _Note: you need to apply this label on the namespaces you want this policy to be enforced in._
 
 Test with an unsigned container image and see that it’s blocked:
-```bash
+```shell
 kubectl create deployment nginx \
     --image=nginx \
     -n test
@@ -226,7 +226,7 @@ index.docker.io/library/nginx@sha256:b8f2383a95879e1ae064940d9a200f67a6c79e710ed
 ```
 
 Test with our signed container image and see that it’s allowed:
-```bash
+```shell
 kubectl create deployment nginx \
     --image=${REGION}-docker.pkg.dev/${PROJECT_ID}/${REGISTRY_NAME}/nginx@${SHA} \
     -n test

@@ -43,14 +43,14 @@ Signed timestamps are associated with some value to bind the timestamp to the si
 
 Timestamp support has been added to [Cosign](https://github.com/sigstore/cosign). To use a TSA to fetch a signed timestamp during signing, pick a timestamp authority, and run:
 
-```
+```shell
 export TSA_URL=https://freetsa.org/tsr
 cosign sign --timestamp-server-url $TSA_URL <artifact>
 ```
 
 To verify, retrieve the TSA's certificate chain, which must contain the root CA certificate, any number of intermediate CA certificates, and the issuing leaf TSA certificate. The chain could come from a trusted source such as [TUF metadata](https://theupdateframework.io/), from the TSA documentation, or through an API, `/api/v1/timestamp/certchain`, if the TSA is an instance of [the service we've implemented](https://github.com/sigstore/timestamp-authority). Run the following:
 
-```
+```shell
 cosign verify --timestamp-certificate-chain ts_chain.pem <artifact>
 ```
 

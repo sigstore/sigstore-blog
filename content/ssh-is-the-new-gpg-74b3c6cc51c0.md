@@ -20,13 +20,13 @@ So why aren’t more people using this? I think it’s just gone overlooked beca
 
 Since early 2020, OpenSSH has supported creating and verifying file signatures natively in the `ssh-keygen` binary. You can create signatures with:
 
-```
+```shell
 ssh-keygen -Y sign -n file -f $HOME/.ssh/id_rsa.pub <FILE-TO-SIGN>
 ```
 
 This signs the file specified in <FILE-TO-SIGN> using your SSH public key at the standard location `$HOME/.ssh/id_rsa.pub` . The signature ends up at `<FILE-TO-SIGN>.sig` by default, and looks roughly like:
 
-```
+```shell
 -----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAAhcAAAAHc3NoLXJzYQAAAAMBAAEAAAIBAPDRlY/jNksQtIlV6dBN<...>
 -----END SSH SIGNATURE-----
@@ -34,13 +34,13 @@ U1NIU0lHAAAAAQAAAhcAAAAHc3NoLXJzYQAAAAMBAAEAAAIBAPDRlY/jNksQtIlV6dBN<...>
 
 If you have a signature, a file, and the SSH public key, you can verify it with `ssh-keygen` as well! First you have to create an `allowed_signers`file with the public key you want to verify against and a fake `Principal` name:
 
-```
+```shell
 echo "thesigner $(cat id_rsa.pub)" > allowed_signers
 ```
 
 Then, use that to verify:
 
-```
+```shell
 cat <FILE-TO-VERIFY> ssh-keygen -Y verify -n file -f allowed_signers -s <SIGNATURE> -I thesigner
 ```
 
@@ -56,7 +56,7 @@ To see them in `json` form for scripting, you can access: https://api.github.com
 
 The `allowed_signers` file from before basically contains a map of `Principal` to `Public Key`. Here, `Principal` is just a fancy word for “a string that represents a person”. So we can easily make an allowed_signers file that maps GitHub user names to public keys!
 
-```
+```shell
 USERNAME="dlorenc"
 curl https://github.com/${USERNAME}.keys | while read key; do
   echo "$USERNAME $key" >> allowed_signers.github
@@ -67,7 +67,7 @@ You can run this for any GitHub user, and append into your public key database f
 
 Then, to check a signature/file against a Github user:
 
-```
+```shell
 cat FILE | ssh-keygen -Y verify -n file -f allowed_signers.github -I USER -s FILE.sig
 ```
 

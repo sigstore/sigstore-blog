@@ -35,7 +35,7 @@ First, we want to make sure that the compromised identity can’t continue to de
 
 [In our setting](https://blog.chainguard.dev/cosign-verify-ecs/), we use an AWS Lambda function to enforce the verification policy. The Go code enforcing our validation policy might look something like the following:
 
-```
+```go
 func isValid(ctx context.Context, co CheckOpts, image string) bool {
     allowedDevs := [ "dev.a@example.com", "dev.b@example.com" ]
     for _, dev := range allowedDevs {
@@ -69,7 +69,7 @@ However, Sigstore makes this forensic phase much easier. It uses a [transparency
 
 We can query [Rekor](https://rekor.sigstore.dev/), Sigstore’s transparency log, to see all of the images the compromised account signed using [rekor-cli](https://docs.sigstore.dev/rekor/cli/) (below data is simulated based on a real query):
 
-```
+```shell
 $ rekor-cli search --email dev.a@example.com
 Found matching entries (listed by UUID):
 34254e36f153a41f0a9d74280215a5ed7a11f840c13615a61c08a1d23280410f
@@ -80,7 +80,7 @@ Found matching entries (listed by UUID):
 
 This gives Rekor UUIDs for all of developer A’s signatures. From there, we can investigate artifacts individually (output edited for concision):
 
-```
+```shell
 $ rekor-cli get --uuid 00<snip>bcd749c
 LogID: c0<snip>91801d
 Index: 1763200
@@ -116,7 +116,7 @@ The case where a single image is compromised is simpler, since we don’t need t
 
 Start by rebuilding and redeploying the image. This step isn’t quite sufficient: in addition, add the image (referenced by its [digest](https://docs.docker.com/engine/reference/commandline/images/#list-image-digests), the string beginning with `sha256:`) to a blocklist:
 
-```
+```go
 func isValid(image string) bool {
     blocklist := [ "sha256:c8<snip>009210" ]
     for _, badImage := range blocklist {

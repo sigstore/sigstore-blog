@@ -29,6 +29,12 @@ hrefTargetBlank = true
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+  [markup.highlight]
+    noClasses = false
+    guessSyntax = true
+    lineNos = false
+    codeFences = true
+    tabWidth = 2
 
 [indexes]
   category = "categories"

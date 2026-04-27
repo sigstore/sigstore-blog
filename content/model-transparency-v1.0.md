@@ -16,7 +16,7 @@ transparent signatures.  Today we are pleased to announce the launch of version
 `pip install model-signing`, users can use the CLI to sign and verify models,
 as per the following examples:
 
-```bash
+```shell
 # Sign model at S{MODEL_PATH} using Sigstore
 [...]$ model_signing sign ${MODEL_PATH}
 

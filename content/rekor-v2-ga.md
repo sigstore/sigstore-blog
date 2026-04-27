@@ -36,7 +36,7 @@ that includes the 2025 Rekor v2 URL. Make a copy of the
 [TUF-distributed production SigningConfig](https://github.com/sigstore/root-signing/blob/main/targets/signing_config.v0.2.json),
 and change `rekorTlogUrls` to the following:
 
-```
+```json
   "rekorTlogUrls": [
     {
       "url": "https://log2025-1.rekor.sigstore.dev",
@@ -64,7 +64,7 @@ advise against hardcoding this URL into any pipelines that cannot be easily upda
 
 Upgrade to the latest Cosign version v3.0.1+ or v2.6.0+:
 
-```
+```shell
 # Grab the latest TUF metadata
 cosign initialize
 

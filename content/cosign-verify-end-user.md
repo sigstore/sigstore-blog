@@ -67,7 +67,7 @@ Let's take what we've learned about verifying a Sigstore bundle as an end-user a
 
 First let's get our `.jar` and the corresponding Sigstore bundle:
 
-```
+```shell
 $ wget https://repo1.maven.org/maven2/org/leplus/ristretto/2.0.0/ristretto-2.0.0.jar
 ...
 $ wget https://repo1.maven.org/maven2/org/leplus/ristretto/2.0.0/ristretto-2.0.0.jar.sigstore.json
@@ -76,7 +76,7 @@ $ wget https://repo1.maven.org/maven2/org/leplus/ristretto/2.0.0/ristretto-2.0.0
 
 We're expecting the bundle to use the public good instance, so we can use cosign's defaults there. I want to make sure this `.jar` came from `https://github.com/leplusorg/ristretto`, which of course also means the identity provider is GitHub Actions. So now I have everything I need to call cosign to verify the bundle:
 
-```
+```shell
 $ cosign verify-blob --bundle ristretto-2.0.0.jar.sigstore.json --certificate-oidc-issuer https://token.actions.githubusercontent.com --certificate-identity-regexp='^https://github.com/leplusorg/ristretto/.+' ristretto-2.0.0.jar
 no --trusted-root specified; fetching public good instance verification material via TUF
 Verified OK

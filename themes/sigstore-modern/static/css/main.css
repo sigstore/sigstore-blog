@@ -442,6 +442,25 @@ pre {
   overflow-x: auto;
 }
 
+.highlight pre,
+pre.chroma {
+  padding: 1.1rem 1.2rem;
+  border-radius: 14px;
+  overflow-x: auto;
+  color: #1f2328;
+}
+
+body[data-theme="dark"] .highlight pre,
+body[data-theme="dark"] pre.chroma {
+  color: #e6edf3;
+}
+
+.highlight {
+  border-radius: 14px;
+  overflow: hidden;
+  margin: 1.2rem 0;
+}
+
 code {
   background: rgba(0, 150, 204, 0.12);
   padding: 0.1rem 0.3rem;
@@ -452,6 +471,11 @@ pre code {
   background: none;
   padding: 0;
   color: inherit;
+}
+
+.chroma code {
+  background: none;
+  padding: 0;
 }
 
 .post-body table {

@@ -30,7 +30,7 @@ While maintaining their own signing keys, developers can increase auditability o
 
 Developers can upload a signature to the transparency log during signing with `cosign sign-blob --key cosign.key artifact-path`. If developers would like to use their own signing infrastructure while still publishing to a transparency log, developers can use the Rekor [CLI](https://docs.sigstore.dev/rekor/CLI) or [API](https://github.com/sigstore/rekor/blob/143e9ec36296cd27c3c1d45495dc081741584a90/openapi.yaml). To upload an artifact and cryptographically verify its inclusion in the log using the Rekor CLI:
 
-```
+```shell
 rekor-cli upload --rekor_server https://rekor.sigstore.dev \
   --signature <artifact_signature> \
   --public-key <your_public_key> \
@@ -45,7 +45,7 @@ rekor-cli verify --rekor_server https://rekor.sigstore.dev \
 In addition to PEM-encoded certificates and public keys, Sigstore supports uploading many different key formats, including PGP, [Minisign](https://jedisct1.github.io/minisign/), SSH, PKCS#7, and [TUF](https://theupdateframework.io/). When uploading using the Rekor CLI, specify the `--pki-format` flag. For example, to upload an artifact signed with a PGP key:
 
 
-```
+```shell
 gpg --armor -u user@example.com --output signature.asc --detach-sig package.tar.gz
 
 gpg --export --armor "user@example.com" > public.key

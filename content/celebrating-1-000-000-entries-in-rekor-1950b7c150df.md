@@ -62,7 +62,7 @@ There we go! Still a healthy growth between all of them. In particular, RFC3161 
 
 It is hard to tell what is being signed, as not all the types can tell us information about the package itself. Either way, I took the liberty of checking the most popular hashes (Rekord), Artifact URI (in-toto) and package names (JAR/TUF/RPM/etc) to see how many signatures are over the same data:
 
-```
+```shell
 gcr.io/tekton-nightly/github.com/tektoncd/pipeline/cmd/controller: 70582
 2296748d375388175d182715bf4419c44ecc9cae30143097bf6e85dc47340bbf:  33770
 8d9e51a1485fbecd5c361452daf9fdeb5e75f90b7a824445d070572e4375d7bf:  33770
@@ -79,7 +79,7 @@ Ah, well the most signed type is tekton nightly releases (actually, there are a 
 
 We could, however, filter anything that looks like a hash to see more interesting info:
 
-```
+```shell
 gcr.io/.../github.com/tektoncd/pipeline/cmd/controller: 70582
 index.docker.io/myrepo/controller-...: 5371
 index.docker.io/concaf/kaniko-chains: 187
@@ -101,7 +101,7 @@ gcr.io/kg-image-registry/gajananan-akmebank-app-cl1:roles-stage: 9
 
 Last, but not least, let’s take a look at who is signing all of these entries. Below is a list of the top 10 users of Rekord (with some arbitrary redactions to be on the safe side).
 
-```
+```shell
  keyless@distroless.iam.gserviceaccount.com: 12658
  tekton-chains-controller@[redacted].iam.gserviceaccount.com: 487
  hir[redacted]ahara@gmail.com: 269
@@ -122,7 +122,7 @@ Last, but not least, let’s take a look at who is signing all of these entries.
 
 You could extend the question to what providers are being used to sign and, well, here it is:
 
-```
+```shell
 https://token.actions.githubusercontent.com: 17179
 https://accounts.google.com: 6930
 https://github.com/login/oauth: 316

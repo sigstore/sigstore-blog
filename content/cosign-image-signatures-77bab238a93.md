@@ -20,13 +20,13 @@ We’ll start with `cosign generate-key-pair` .
 
 This command creates an ECDSA-P256 key pair (a private and a public key). The public key bytes are encoded in a PKIX formatted file. The public key looks like this:
 
-```
+```shell
 — — -BEGIN PUBLIC KEY — — -MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEroVS8KdYXp5SSI5YDwwQymSByQAM7MDgk9po3wpp/hHZAzCLsu+j3axrJJ5nMet9tqX1eH8yk21G626Z8lrkQA==— — -END PUBLIC KEY — — -
 ```
 
 The private key is marshaled into PKCS8 formatted bytes which are then encrypted using a `nacl/secretbox` and passphrase using scrypt for the KDF, and written to disk in a PEM file with the header: `BEGIN ENCRYPTED COSIGN PRIVATE KEY`. A private key looks like this:
 
-```
+```shell
 — — -BEGIN ENCRYPTED COSIGN PRIVATE KEY — — -eyJrZGYiOnsibmFtZSI6InNjcnlwdCIsInBhcmFtcyI6eyJOIjozMjc2OCwiciI6OCwicCI6MX0sInNhbHQiOiJrSGE5Q1ozTzdFSUtubTNWbnh2WVdvY2k2RWNhcEFDZE9NbWxXRTV4YTY0PSJ9LCJjaXBoZXIiOnsibmFtZSI6Im5hY2wvc2VjcmV0Ym94Iiwibm9uY2UiOiJXcUxtcHZJaml5SklmWGt4YnJaUStXUzg3dFlBeUY1SiJ9LCJjaXBoZXJ0ZXh0IjoiR1BXMjB3Q1l6d09PeUt2aDMwUzFudnFmLyt0ZVBYSmtXM3F3TzFEMmwrdk1GQ3o2MHFKU1I1ZTF1UTRlcWxUaTdmdjNkYVlLcUJyNlltcnFGV1YxcnlDQ2gwMXhzOGFsd3BxSS85U0pTTjNVVnZXODkxc1hESHc2SEo5dkNIZHdNUldvWHVVTUdZb0FDd2dyUWZiK3lGNnFOYkQ3dEkrdExlWjRSb1owa3R3Q24zQVErd2hjU0h4ZjYvQmFNVUwzK1gyK3dnNENVM1dtb0E9PSJ9— — -END ENCRYPTED COSIGN PRIVATE KEY — — -
 ```
 
@@ -34,7 +34,7 @@ The private key is marshaled into PKCS8 formatted bytes which are then encrypted
 
 Next, we sign a container image with: `cosign sign -key cosign.key <image>`. First, `cosign` needs to know where to store the signature. To do this, cosign fetches metadata about the referenced image, including the digest. Cosign currently uses a fixed naming convention to decide the name for a separate image, at which we can store the signature. This can be shown with `cosign triangulate`:
 
-```
+```shell
 $ cosign triangulate dlorenc/signed-container:v0.0.1index.docker.io/dlorenc/signed-container:sha256-b5d83b473776186d1b3670433d759c786ec413aacf46c5fad606b11043d0368d.cosign
 ```
 

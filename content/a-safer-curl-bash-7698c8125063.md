@@ -22,31 +22,31 @@ Here’s how it all works:
 
 Upload your binary artifact to a registry:
 
-```
+```shell
 $ cosign upload-blob -f artifact gcr.io/dlorenc-vmtest2/artifactUploading file from [artifact] to [gcr.io/dlorenc-vmtest2/artifact:latest] with media type [text/plain; charset=utf-8]File is available directly at [us.gcr.io/v2/dlorenc-vmtest2/readme/blobs/sha256:b57400c0ad852a7c2f6f7da4a1f94547692c61f3e921a49ba3a41805ae8e1e99]us.gcr.io/dlorenc-vmtest2/readme@sha256:4aa3054270f7a70b4528f2064ee90961788e1e1518703592ae4463de3b889dec
 ```
 
 You get a normal URL your users can use to fetch it with curl or standard tooling if they want, and a built in digest to verify:
 
-```
+```shell
 $ curl -L gcr.io/v2/dlorenc-vmtest2/artifact/blobs/sha256:97f16c28f6478f3c02d7fff4c7f3c2a30041b72eb6852ca85b919fd85534ed4b > artifact$ curl -L gcr.io/v2/dlorenc-vmtest2/artifact/blobs/sha256:97f16c28f6478f3c02d7fff4c7f3c2a30041b72eb6852ca85b919fd85534ed4b | shasum -a 25697f16c28f6478f3c02d7fff4c7f3c2a30041b72eb6852ca85b919fd85534ed4b -
 ```
 
 As always you can sign with a key, a token or nothing at all!
 
-```
+```shell
 $ cosign sign -key cosign.key gcr.io/dlorenc-vmtest2/artifactEnter password for private key:Pushing signature to: gcr.io/dlorenc-vmtest2/artifact:sha256–3f612a4520b2c245d620d0cca029f1173f6bea76819dde8543f5b799ea3c696c.sig
 ```
 
 For automatic digest checking, signature verification and binary transparency, users can also use`sget` to fetch artifacts by digest using the OCI URL:
 
-```
+```shell
 $ sget us.gcr.io/dlorenc-vmtest2/readme@sha256:4aa3054270f7a70b4528f2064ee90961788e1e1518703592ae4463de3b889dec > artifact
 ```
 
 You can also use sget to fetch contents by tag. Fetching contents without verifying them is dangerous, so we require the artifact be signed in this case:
 
-```
+```shell
 $ sget gcr.io/dlorenc-vmtest2/artifact
 error: public key must be specified when fetching by tag, you must fetch by digest or supply a public key$ sget -key cosign.pub us.gcr.io/dlorenc-vmtest2/readme > fooVerification for us.gcr.io/dlorenc-vmtest2/readme —
 The following checks were performed on each of these signatures:

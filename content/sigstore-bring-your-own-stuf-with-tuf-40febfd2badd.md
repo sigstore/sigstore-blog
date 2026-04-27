@@ -50,7 +50,7 @@ Clone the [Fulcio repository](https://github.com/sigstore/fulcio/).
 
 For a simple deployment, you can run a lightweight, non-production instance of Fulcio without a Certificate Transparency (CT) log:
 
-```
+```shell
 go run main.go serve --port 5555 --ca ephemeralca --ct-log-url=""
 ```
 
@@ -91,7 +91,7 @@ To generate the TUF repository:
 2. `cd offline-root && tuf init — consistent-snapshot=false — This sets up a TUF repository.`
 3. `tuf gen-key root` — This generates a root key and creates the TUF root role. You will be prompted for a passphrase to encrypt the root key. Your structure should look like this:
 
-```
+```shell
 $ tree . # offline-root
  .
  ├── keys
@@ -105,7 +105,7 @@ $ tree . # offline-root
 4. `cd ../tuf-repository && tuf init — consistent-snapshot=false` again.
 5. `cp ../offline-root/staged/root.json staged/` — Copy the root metadata from the “air-gapped” folder into the staged TUF repository
 
-```
+```shell
 $ tree . # tuf-repository
  .
  ├── keys
@@ -121,7 +121,7 @@ $ tree . # tuf-repository
 9. `cp staged/root.json ../tuf-repository/staged && cd ../tuf-repository` — Copy `staged/root.json` back to the online directory. You can now begin to sign targets.
 10. `cp ../targets/* staged/targets` — Copy the Fulcio root certificate, Rekor public key and optional CT log public key to the staged targets folder. These are the minimum targets needed for Cosign.
 
-```
+```shell
 $ tree . # tuf-repository
  .
  ├── keys
@@ -141,7 +141,7 @@ $ tree . # tuf-repository
 12. `tuf snapshot` — Create a snapshot of the metadata.
 13. `tuf timestamp` — Create a timestamp of the snapshot. Your directory should now look like:
 
-```
+```shell
 $ tree .
  .
  ├── keys
@@ -162,7 +162,7 @@ $ tree .
 
 14. `tuf commit` — Move everything in the staged directory to the repository.
 
-```
+```shell
 $ tree .
  .
  ├── keys
@@ -195,7 +195,7 @@ First, we will host the TUF repository. This will be used by Cosign to download 
 
 You can choose to put all files in the repository folder created above, including all `.json` files and targets in the targets folder, in a GCS bucket. You can also use an HTTP server to serve the repository. For this example, we’ll use Python’s simple HTTP server. In the TUF repository `tuf-repository`, run:
 
-```
+```shell
 cd repository
 ls # You should see all all JSON metadata and a targets directory
 python3 -m http.server 8081
@@ -205,7 +205,7 @@ This will create a local server to access the TUF metadata.
 
 #### Use self-hosted instance with Cosign
 
-```
+```shell
 cosign initialize --mirror http://localhost:8081 --root path/to/root.json
 ```
 
@@ -217,19 +217,19 @@ When distributing your TUF root to other clients, they must have a trusted copy 
 
 When running an ephemeral instance of Fulcio with `go run`:
 
-```
+```shell
 COSIGN_EXPERIMENTAL=1 cosign sign --fulcio-url http://localhost:5555 --rekor-url http://localhost:3000 --insecure-skip-verify us-west1-docker.pkg.dev/project-id/docker-repo/image:tag1
 ```
 
 When running the production-ready instance of Fulcio with a CT log:
 
-```
+```shell
 COSIGN_EXPERIMENTAL=1 cosign sign --fulcio-url http://localhost:5555 --rekor-url http://localhost:3000 us-west1-docker.pkg.dev/project-id/docker-repo/image:tag1
 ```
 
 #### Verify
 
-```
+```shell
 COSIGN_EXPERIMENTAL=1 cosign verify --rekor-url http://localhost:3000 us-west1-docker.pkg.dev/project-id/docker-repo/image:tag1
 ```
 
@@ -240,7 +240,3 @@ Note that currently the only way to use your own TUF root is by running `cosign 
 For the same reason, if your local custom root expires, clients will detect that the TUF local cache has expired and fallback to using Cosign’s embedded TUF metadata. They must re-run the `cosign initialize` command to pull updates from the remote repository ([1289](https://github.com/sigstore/cosign/issues/1289)). Again, the Cosign client does not store state, specifically the location of the custom remote repository. We highly recommend users of BYO TUF to run `cosign initialize` as frequently as they can make the network calls to pull the latest updates!
 
 We are working on improving the UX for these features. You can track development progress on Github on issues [1288](https://github.com/sigstore/cosign/issues/1288) and [1289](https://github.com/sigstore/cosign/issues/1289).
-
-
-
-
