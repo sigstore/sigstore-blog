@@ -13,7 +13,7 @@ Why are we staying with Rekor v1? While Rekor v2 provides greater infrastructure
 
 ### Rekor v2 is Available (and Optimized)
 
-Even though we're not enabling signing by default, **Rekor v2 is running and available in production today**. It is also supported out-of-the-box by modern verifying clients. Ecosystems that manage their own signing processes can choose to opt into Rekor v2. The relevant `SigningConfig` needed by signing clients is available in [root-signing](https://github.com/sigstore/root-signing/blob/main/targets/signing_config_rekor_v2.v0.2.json).
+Even though we're not enabling signing by default, **Rekor v2 is running and available in production today**. It is also supported out-of-the-box by modern verifying clients. Ecosystems that manage their own signing processes can choose to opt into Rekor v2. These signing systems should use the up-to-date signing configuration from [root-signing](https://github.com/sigstore/root-signing/blob/main/targets/signing_config_rekor_v2.v0.2.json) (e.g. using a TUF client) instead of hard coding Rekor v2 URLs as the URLs will rotate more frequently.
 
 Rekor v2 has many infrastructure advantages, but recently a client advantage was added that may be interesting to some ecosystems: Rekor v2 is compatible with large DSSE envelopes, as the whole envelope is no longer sent over to the network to be processed by the log. Instead,
 the `hashedrekord` entry type is used for higher performance. For more technical details on this change, see the [Client Specification](https://github.com/sigstore/architecture-docs/blob/main/client-spec.md#44-transparency-log-entry) and the [Rekor v2 Specification](https://github.com/sigstore/architecture-docs/blob/main/rekor-v2-spec.md#43-types).
