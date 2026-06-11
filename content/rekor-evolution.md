@@ -9,7 +9,7 @@ type = "post"
 
 If you have been following the Sigstore project over the last year, you know we’ve been rolling out [version 2 of Rekor](https://github.com/sigstore/rekor-tiles/), Sigstore's transparency log. The intent was to enable signing with Rekor v2 by default, but there's been a change of plans: **the sigstore.dev public good instance will continue using Rekor v1 as the default log for the foreseeable future.**
 
-Why are we staying with Rekor v1? We are trying to avoid breaking changes for Sigstore users, and the industry-wide transition to Post-Quantum Cryptography (PQC) looks like it may result in one. Keeping the public good instance at Rekor v1 may allow us to minimize disruption—stay tuned for a separate post about the PQC plans.
+Why are we staying with Rekor v1? While Rekor v2 provides greater infrastructure resiliency, it introduces breaking changes in client behavior. The industry-wide transition to Post-Quantum Cryptography (PQC) may also result in breaking changes to clients. Keeping the public good instance at Rekor v1 may allow us to minimize disruption until absolutely necessary—stay tuned for a separate post about the PQC plans.
 
 ### Rekor v2 is Available (and Optimized)
 
