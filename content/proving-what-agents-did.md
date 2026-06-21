@@ -11,9 +11,9 @@ Most of what you see across the Sigstore landscape today — npm provenance, PyP
 
 This post is about a different but closely related question, one that comes up the moment you let an AI coding agent run unfettered on a machine: "what did the agent actually do, and can I prove it later?"
 
-[nono](https://github.com/always-further/nono), from the team that built Sigstore, is a capability-based sandbox for running agents like Claude Code, Opencode, Codex and more. The sandbox decides what an agent is *allowed* to do; sandboxing and recording are different roles. For incident review, compliance, or just debugging a weird session, you ideally want a tamper-evident record of what happened, one whose integrity you can check after the fact, provable with a signature.
+[nono](https://github.com/always-further/nono), from engineers who contributed to Sigstore, is a capability-based sandbox for running agents like Claude Code, Opencode, Codex and more. The sandbox decides what an agent is *allowed* to do; sandboxing and recording are different roles. For incident review, compliance, or just debugging a weird session, you ideally want a tamper-evident record of what happened, one whose integrity you can check after the fact, provable with a signature.
 
-The cleanest way to build that record is by using the exact primitives standardized by the Sigstore and in-toto communities: a Merkle tree formatted like a Rekor transparency log, an in-toto attestation, a DSSE envelope, and a Sigstore bundle.
+The cleanest way to build that record is by using the exact primitives standardized by the Sigstore and in-toto communities: a locally-verifiable, tamper-evident audit ledger with a Merkle tree commitment over session events, an in-toto attestation, a DSSE envelope, and a Sigstore bundle.
 
 This post walks through that audit trail end-to-end using real commands and output. The core, reusable concept here is applying Sigstore's foundational building blocks to a non-package artifact: the activity log of a process.
 
@@ -165,7 +165,7 @@ Here is the actual `audit-attestation.bundle` from the run above (the long `payl
 }
 ```
 
-`tlogEntries` is empty because this is a keyed bundle — the long-lived key is its own anchor, so there's no Rekor entry. (In nono's keyless flow, signing from CI via GitHub Actions OIDC, that array carries the Rekor inclusion proof and `verificationMaterial` carries a Fulcio certificate instead of a public-key hint.)
+`tlogEntries` is empty because audit attestations use long-lived keyed signing — the key is its own anchor, and there is no Rekor entry. Keyless signing (OIDC via GitHub Actions, Fulcio short-lived certificate, Rekor inclusion proof) is what nono uses for a different trust operation: signing the instruction files and packs an agent reads before it runs. For audit attestations, the trust anchor is the key you generated and pinned; for pack provenance, it's the identity recorded in the transparency log at publish time. Both use the same Sigstore bundle format, but with different `verificationMaterial`.
 
 If you decode that `payload` (it's base64url over the in-toto Statement), here is the actual statement — and notice the subject digest is the session's Merkle root (`48b9c38f…`, the same `Root:` from `audit show`):
 
@@ -208,9 +208,9 @@ If you decode that `payload` (it's base64url over the in-toto Statement), here i
 
 This is a nice illustration of what in-toto's subject/predicate split is for. The `subject` is the thing we're making a claim about — a session, identified by its Merkle root. The `predicate` is the claim — session metadata under our own `predicateType` URI. The `/alpha` suffix is deliberate: the predicate schema is still pre-1.0 and we expect it to evolve before we stabilize the format. A verifier checks the predicate type before it trusts the contents, exactly the way it checks the DSSE payload type. We didn't have to invent a container; we just minted a predicate type and reused the stack. (One supply-chain win: the `command` array is run through a best-effort redactor before signing, so tokens and `Authorization:` headers don't get baked into a signed artifact.)
 
-## The tree is Rekor-shaped
+## How the audit ledger is structured
 
-Nono's audit Merkle tree follows the same *shape* as Rekor's transparency log — a binary tree built bottom-up over ordered event leaves, with domain-separated hashing so leaf and interior digests cannot be swapped. The alpha audit scheme lives in `audit.rs`:
+Nono's audit trail is built from two interlocking structures. The first is a per-session Merkle tree over event leaves — a binary tree built bottom-up with domain-separated hashing so leaf and interior digests cannot be swapped. The alpha audit scheme lives in `audit.rs`:
 
 ```
 // crates/nono/src/audit.rs
@@ -223,9 +223,9 @@ pub const MERKLE_NODE_DOMAIN_ALPHA: &[u8] = b"nono.audit.merkle.alpha\n";
 // internal nodes are SHA-256(MERKLE_NODE_DOMAIN_ALPHA || left || right).
 ```
 
-Event leaves are hashed canonical JSON with a scheme-specific prefix; internal nodes pair siblings the same way Certificate Transparency and Rekor do. If you've read those internals, the tree walk is familiar — applied to audit-event leaves instead of log entries.
+Event leaves are hashed canonical JSON with a scheme-specific prefix; internal nodes pair siblings with the same domain-separated construction used in Certificate Transparency. The Merkle root is what gets dropped into the in-toto subject, making the session's entire event history a single verifiable digest.
 
-And the per-host `ledger.ndjson` is the other transparency-log primitive: an append-only, hash-chained log of *every* session, guarded by a file lock, where each new session commits its digest onto the chain. `nono audit verify` checks that a session is included in that chain and that the chain itself is intact — structurally, an inclusion proof against a local log.
+The second structure is the per-host `ledger.ndjson`: an append-only, hash-chained log of *every* session on the machine, guarded by a file lock, where each new session commits its digest onto the chain. `nono audit verify` checks that a session is included in that chain and that the chain itself is intact — an inclusion check against a locally-held, tamper-evident log. It's a local transparency log — the transparency guarantee holds (hash-chained, tamper-evident, supports inclusion checks) but verifiability is scoped to the host rather than being publicly witnessable. There's no external witness and no global verifiability, but you don't need them: if the host is compromised enough to undetectably forge the chain, the audit trail is the least of your problems.
 
 The attestation itself is built by the same signing path nono uses for everything else — there's no special-case audit signer, just a Merkle root dropped into an in-toto subject:
 
