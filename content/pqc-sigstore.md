@@ -9,7 +9,7 @@ type = "post"
 
 ## **Future-Proofing Software Supply Chain Security: Post-Quantum Cryptography for Sigstore**
 
-Post-quantum cryptography (PQC) is rapidly transitioning from a theoretical exploration to an immediate infrastructure necessity. With recent advancements accelerating the estimated arrival of cryptographically relevant quantum computers (CRQCs), industry leaders like Google and Cloudflare have expedited their migration timelines to 2029, and governments have pushed up timelines to 2030 as well.
+Post-quantum cryptography (PQC) is rapidly transitioning from a theoretical exploration to an immediate infrastructure necessity. With recent advancements accelerating the estimated arrival of cryptographically relevant quantum computers (CRQCs), industry leaders like [Google](https://blog.google/innovation-and-ai/technology/safety-security/cryptography-migration-timeline/) and [Cloudflare](https://blog.cloudflare.com/post-quantum-roadmap/) have expedited their migration timelines to 2029, and governments have pushed up timelines to 2030 as well.
 
 To stay ahead of this threat, Sigstore is adjusting our [timeline](https://blog.sigstore.dev/post-quantum-2025/) to support PQC algorithms immediately. Sigstore will not only integrate quantum-resistant algorithms but also seize this opportunity to fundamentally streamline its core architecture.
 
