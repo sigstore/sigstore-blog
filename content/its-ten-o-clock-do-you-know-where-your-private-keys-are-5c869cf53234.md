@@ -16,7 +16,7 @@ RFC 3161 is a protocol that allows for assigning tamper resistant timestamps to 
 
 To use Rekor’s timestamping service, you can generate a timestamp response with a simple request to the server.
 
-```
+```shell
 $ rekor-cli timestamp --artifact file.asc --out file.tsr
 ```
 
@@ -24,7 +24,7 @@ Given SigStore’s commitment to transparency, our timestamping service is also 
 
 Nevertheless, we want users to be able to use any TSA that they trust; this may be your own Rekor instance, the [public Rekor instance](https://github.com/sigstore/rekor#public-instance), or even an existing private or public TSA (like [freeTSA.org](https://www.freetsa.org/)). Rekor is designed to accept any valid RFC 3161 timestamp response in its transparency logs.
 
-```
+```shell
 $ rekor-cli upload --type rfc3161 --artifact file.tsr
 ```
 
@@ -42,7 +42,7 @@ The Roughtime protocol aims to achieve a rough time synchronization across serve
 
 To this end, we’ll be adding a searchable log entry type for Roughtime chains. To prevent log spam, only the designated time-agent that Rekor trusts will be able to upload chains. If a use case requires more accurate time or a certificate validity error was found, users can check the surrounding rough time posts when validating a timestamp type in the log.
 
-```
+```shell
 $ rekor-cli verify --artifact file.tsr --type rfc3161 --check-roughtimeCurrent Root Hash: ff0c8f22a58d941b435d8826d18bea45ad6f93addb823f097787e5ce8fb9d2a2
 Entry Hash: aa3f749245216a438003ded156219c452e4c6323e6fb22f925ac2df57f4546cc
 Entry Index: 4721
@@ -64,24 +64,24 @@ As a proof of concept, we timestamped the contents of this blog post above to pr
 
 To do this, hash the blog [contents](https://gist.githubusercontent.com/asraa/7459f474dfb447db05e21026248e675e/raw/3afa39712c6ef6cfac22e8118e2ca488ea4305bb/timestamp.md) posted as a public Gist.
 
-```
+```shell
 $ curl -fs0 https://gist.githubusercontent.com/asraa/4a0c380579e0adebad09eba6c94c4a52/raw/51551d487ab381799840597df6c4cffb5fa0523f/timestamp.md -o timestamp.md$ sha256sum timestamp.md
 ```
 
 Now retrieve the log entry from Rekor and base64 decode the `body`. The body contains a TSR log entry with [this](https://github.com/sigstore/rekor/blob/main/pkg/types/rfc3161/v0.0.1/rfc3161_v0_0_1_schema.json) schema.
 
-```
+```shell
 $ curl -fs0 https://rekor.sigstore.dev/api/v1/log/entries/f22468276f1b023c49bc983e5c598b68c4ca2c2fe5e5d3c530e069fab6715e75 -o logEntry.json$ jq '."f22468276f1b023c49bc983e5c598b68c4ca2c2fe5e5d3c530e069fab6715e75".body' logEntry.json | tr -d \" | base64 -d > body.json
 ```
 
 Extracting the `tsr.content` field will give the base64-encoded RFC 3161 timestamp response. Now, use OpenSSL to inspect the timestamp response and match the “Message data” against the hash of `timestamp.md`.
 
-```
+```shell
 $ jq '.spec.tsr.content' body.json | tr -d \" | base64 -d > entry.tsr$ openssl ts -reply -text -in entry.tsr
 ```
 
 You can also verify against Rekor’s timestamping certificate chain! You must extract the chain from the `certchain` endpoint.
 
-```
+```shell
 $ curl -fs0 https://rekor.sigstore.dev/api/v1/timestamp/certchain -o certchain.pem$ csplit -s -z -f cert- certchain.pem '/---BEGIN CERTIFICATE---/' '{1}'$ openssl ts -verify -in entry.tsr -data timestamp.md -CAfile cert-01
 ```

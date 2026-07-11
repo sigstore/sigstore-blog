@@ -15,7 +15,7 @@ You can get it installed and start signing containers in minutes. There are almo
 
 Public keys are stored in plain old PKIX files. They look like:
 
-```
+```shell
 -----BEGIN PUBLIC KEY-----
 MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEroVS8KdYXp5SSI5YDwwQymSByQAM
 7MDgk9po3wpp/hHZAzCLsu+j3axrJJ5nMet9tqX1eH8yk21G626Z8lrkQA==
@@ -24,7 +24,7 @@ MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEroVS8KdYXp5SSI5YDwwQymSByQAM
 
 Private keys are stored as encrypted PEM files (using `scrypt` and Golang’s `nacl/secretbox` implementation). They should be safe to put in a GitHub repo next to your code, so you can decrypt/sign with a password stored in a secret manager as part of your CI system. Here’s one of mine:
 
-```
+```shell
 -----BEGIN ENCRYPTED COSIGN PRIVATE KEY-----
 eyJrZGYiOnsibmFtZSI6InNjcnlwdCIsInBhcmFtcyI6eyJOIjozMjc2OCwiciI6
 OCwicCI6MX0sInNhbHQiOiJrSGE5Q1ozTzdFSUtubTNWbnh2WVdvY2k2RWNhcEFD

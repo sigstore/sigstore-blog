@@ -8,18 +8,33 @@ contentDir             = "content"
 languageCode           = "en-us"
 layoutDir              = "layouts"
 publishDir             = "public"
-theme                  = "pixyll"
-title                  = "Sigstore Blog"
+theme                  = "sigstore-modern"
+title                  = "Sigstore Community Blog"
 enableEmoji            = true
 DefaultContentLanguage = "en"
+enableRobotsTXT        = true
 
 [Languages]
 [Languages.en]
 weight = 1
 
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
 [blackfriday]
 angledQuotes = true
 hrefTargetBlank = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    noClasses = false
+    guessSyntax = true
+    lineNos = false
+    codeFences = true
+    tabWidth = 2
 
 [indexes]
   category = "categories"

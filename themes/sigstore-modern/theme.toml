@@ -1,0 +1,9 @@
+name = "Sigstore Modern"
+license = "MIT"
+licenselink = "https://opensource.org/licenses/MIT"
+description = "Modern light dev-blog theme for Sigstore"
+homepage = "https://blog.sigstore.dev"
+min_version = "0.80.0"
+
+[author]
+name = "Sigstore"

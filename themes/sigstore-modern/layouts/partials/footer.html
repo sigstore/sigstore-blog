@@ -1,0 +1,13 @@
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>Copyright © 2026 The Linux Foundation®. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our Trademark Usage page. Linux is a registered trademark of Linus Torvalds. Privacy Policy, Terms of Use, Hosted Project Tools Terms of Use and Immutable Record notice.</p>
+    <p class="footer-links">
+      <a href="{{ "/index.xml" | relURL }}">RSS</a>
+      <span>·</span>
+      <a href="https://www.linkedin.com/company/sigstore" target="_blank" rel="noopener">LinkedIn</a>
+    </p>
+  </div>
+</footer>
+{{ with .Site.Params.goatcounterid }}
+<script data-goatcounter="https://{{ . }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+{{ end }}

@@ -4,6 +4,7 @@ _site/
 .jekyll-metadata
 Gemfile.lock
 /vendor/
+public/
 *.gem
 *.sublime-project
 *.sublime-workspace

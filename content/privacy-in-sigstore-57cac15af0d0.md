@@ -15,7 +15,7 @@ Photo by [Tim Mossholder](https://unsplash.com/@timmossholder?utm_source=unsplas
 
 By default, the[ keyless signing flow](https://github.com/sigstore/cosign/blob/main/KEYLESS.md) for Sigstore exposes a user’s email:
 
-```
+```shell
 $ rekor-cli search --email zack@example.com \ # not my real email!
     | wc -l
 Found matching entries (listed by UUID):
@@ -107,7 +107,7 @@ If OIDC providers don’t tend to support PPIDs, we’re not stuck: we can make 
 
 Specifically, we can introduce an “OIDC anonymizing proxy.” This proxy would be both an OIDC relying party (to an “upstream” IdP) and an IdP itself. Its identities would be deterministically computed from the upstream identities, but look opaque: specifically, the identity would be something like
 
-```
+```shell
 H(<name of upstream IdP> || <upstream identity> || salt)
 ```
 

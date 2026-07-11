@@ -33,11 +33,11 @@ Instead, you can download Cosign releases from Cosign's GitHub repository. Pleas
 
 If you are using `cosign-installer`, our GitHub Action that installs Cosign, you may need to update the action __only if you are pinned by hash to a version earlier than v3.1.0__. The following example shows how to update the action:
 
-```
+```shell
 uses: sigstore/cosign-installer@6e04d228eb30da1757ee4e1dd75a0ec73a653e06 # v3.1.1
 ```
 or
-```
+```shell
 uses: sigstore/cosign-installer@v3.1.1
 ```
 

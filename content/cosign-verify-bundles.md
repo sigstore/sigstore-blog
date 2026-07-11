@@ -19,19 +19,19 @@ To run these examples you'll need up-to-date `curl`, `jq`, `gh`, `brew`, and (of
 
 [npm provenance](https://docs.npmjs.com/generating-provenance-statements) connects npm packages back to their source code and build instructions. Over 16,000 unique packages have published with provenance, so to start we'll pick one and get an artifact to verify:
 
-```
+```shell
 $ curl https://registry.npmjs.org/semver/-/semver-7.6.3.tgz > semver-7.6.3.tgz
 ```
 
 Then we need the bundle associated with that artifact. npm returns the publish attestations along with the provenance attestation, so we have to pull out just the SLSA provenance (I promise you, I didn't get this right on the first try):
 
-```
+```shell
 $ curl https://registry.npmjs.org/-/npm/v1/attestations/semver@7.6.3 | jq '.attestations[]|select(.predicateType=="https://slsa.dev/provenance/v1").bundle' > npm-provenance.sigstore.json
 ```
 
 Now we're ready to verify! cosign assumes we're using the Sigstore public good instance, which is what npm provenance uses as well. We'll tell cosign we're using the new bundle format with `--new-bundle-format`, what CI/CD system we're expecting built this artifact via `--certificate-oidc-issuer`, as well as which repository we expect the artifact to come from (and in this case, also which workflow) via `--certificate-identity-regexp`:
 
-```
+```shell
 $ cosign verify-blob-attestation --bundle npm-provenance.sigstore.json --new-bundle-format --certificate-oidc-issuer="https://token.actions.githubusercontent.com" --certificate-identity-regexp="^https://github.com/npm/node-semver/.github/workflows/release-integration.yml.?" semver-7.6.3.tgz
 Verified OK
 ```
@@ -44,7 +44,7 @@ There are many checks that take place as part of this verification, but broadly 
 
 Just like before, we start by getting the artifact we want to verify:
 
-```
+```shell
 $ curl -L https://github.com/cli/cli/releases/download/v2.54.0/gh_2.54.0_linux_armv6.tar.gz > gh_2.54.0_linux_armv6.tar.gz
 ```
 
@@ -52,14 +52,14 @@ Then we need the bundle containing SLSA provenance. Usually with Artifact Attest
 
 This release only publishes SLSA provenance, (i.e. it doesn't also publish a signed SBOM), so we can just get all the attestations with:
 
-```
+```shell
 $ gh attestation download --repo cli/cli gh_2.54.0_linux_armv6.tar.gz
 Wrote attestations to file sha256:cd53809273ad6011fdd98e0244c5c2276b15f3dd1294e4715627ebd4f9c6e0f1.jsonl.
 ```
 
 The verification command for public repositories is very similar to npm provenance, except of course we need to update the repository (and workflow) we expect the artifact to come from:
 
-```
+```shell
 $ cosign verify-blob-attestation --bundle sha256:cd53809273ad6011fdd98e0244c5c2276b15f3dd1294e4715627ebd4f9c6e0f1.jsonl --new-bundle-format --certificate-oidc-issuer="https://token.actions.githubusercontent.com" --certificate-identity-regexp="^https://github.com/cli/cli/.github/workflows/deployment.yml.?" gh_2.54.0_linux_armv6.tar.gz
 Verified OK
 ```
@@ -68,13 +68,13 @@ Of course, if you're using a private GitHub repository things are a bit differen
 
 So first we get the trusted root information for GitHub's internal Sigstore instance (I also didn't get this right on the first try):
 
-```
+```shell
 $ gh attestation trusted-root | jq '.|select(.certificateAuthorities[0].uri=="fulcio.githubapp.com")' > github-trusted-root.json
 ```
 
 And then we need to modify our verification command. We'll supply the correct trusted root, and we'll also tell cosign that we're using a signed timestamp instead of Rekor's Signed Certificate Timestamp (SCT). The flag is called `--insecure-ignore-sct` because it would be insecure if we weren't independently verifying the timestamp some other way. Here's what that verification command would look like:
 
-```
+```shell
 $ cosign verify-blob-attestation --trusted-root github-trusted-root.json --use-signed-timestamps --insecure-ignore-sct --bundle ...
 ```
 
@@ -86,21 +86,21 @@ Note that you need to be a GitHub Enterprise Cloud customer to use Artifact Atte
 
 By now you know we start by getting the artifact we want to verify:
 
-```
+```shell
 $ brew fetch jq
 Already downloaded: ... 33fa6f63828d3fdfa086250cef295785aff4290b792819148ea101a71a95fc91--jq--1.7.1.arm64_sonoma.bottle.1.tar.gz
 ```
 
 Under the hood Homebrew is using GitHub Artifact Attestations, so we can get the attestations the same way:
 
-```
+```shell
 $ gh attestation download -o homebrew 33fa6f63828d3fdfa086250cef295785aff4290b792819148ea101a71a95fc91--jq--1.7.1.arm64_sonoma.bottle.1.tar.gz
 Wrote attestations to file sha256:7d01bc414859db57e055c814daa10e9c586626381ea329862ad4300f9fee78ce.jsonl.
 ```
 
 Since Homebrew provenance uses the public good instance, our verification command should by now look quite familiar:
 
-```
+```shell
 $ cosign verify-blob-attestation --bundle sha256:7d01bc414859db57e055c814daa10e9c586626381ea329862ad4300f9fee78ce.jsonl --new-bundle-format --certificate-oidc-issuer="https://token.actions.githubusercontent.com" --certificate-identity="https://github.com/Homebrew/homebrew-core/.github/workflows/dispatch-rebottle.yml@refs/heads/master" 33fa6f63828d3fdfa086250cef295785aff4290b792819148ea101a71a95fc91--jq--1.7.1.arm64_sonoma.bottle.1.tar.gz
 Verified OK
 ```

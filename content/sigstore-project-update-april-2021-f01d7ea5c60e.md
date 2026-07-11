@@ -22,7 +22,7 @@ Let’s jump into some more project updates:
 
 As mentioned above, the Rekor binary transparency log now natively supports signed JARs. You can give this a try today with your favorite jars! Here’s an example of the latest stable Jenkins release!
 
-```
+```shell
 $ rekor-cli upload — artifact https://get.jenkins.io/war-stable/2.277.3/jenkins.war — type=jar — artifact-hash=3e22c7e8cd7c8ee1e92cbaa8d0d303a7b53e07bc2a152ddc66f8ce55caea91abCreated entry at index 3317, available at: https://api.rekor.dev/api/v1/log/entries/5bf721a65011f3c1273d728021cf669603e7b96b68d3e86249801a8eeb0a8c34
 ```
 

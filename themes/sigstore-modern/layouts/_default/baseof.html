@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ block "title" . }}{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}{{ end }}</title>
+    {{ with .Description }}<meta name="description" content="{{ . }}" />{{ end }}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="{{ "css/chroma-light.css" | relURL }}" />
+    <link rel="stylesheet" href="{{ "css/chroma-dark.css" | relURL }}" />
+    <link rel="stylesheet" href="{{ "css/main.css" | relURL }}" />
+    <link rel="alternate" type="application/rss+xml" href="{{ "index.xml" | relURL }}" title="{{ .Site.Title }}" />
+    {{ if .IsPage }}<link rel="canonical" href="{{ .Permalink }}" />{{ end }}
+  </head>
+  <body>
+    <div class="page">
+      {{ partial "header.html" . }}
+      <main class="content">
+        {{ block "main" . }}{{ end }}
+      </main>
+      {{ partial "footer.html" . }}
+    </div>
+    <script>
+      (function () {
+        var stored = localStorage.getItem("theme");
+        var preferred = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        var theme = stored || preferred;
+        document.body.setAttribute("data-theme", theme);
+
+        var toggle = document.getElementById("theme-toggle");
+        if (toggle) {
+          toggle.addEventListener("click", function () {
+            var current = document.body.getAttribute("data-theme") || "light";
+            var next = current === "dark" ? "light" : "dark";
+            document.body.setAttribute("data-theme", next);
+            localStorage.setItem("theme", next);
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

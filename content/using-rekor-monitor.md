@@ -29,7 +29,7 @@ One can also run rekor-monitor via the GitHub Actions reusable monitoring workfl
 
 1. First, set up a workflow that uses the rekor-monitor reusable monitoring workflow, as follows:
 
-````
+```shell
 name: Rekor log and identity monitor
 on:
   schedule:
@@ -44,12 +44,12 @@ jobs:
       issues: write # Needed if you set "file_issue: true"
       id-token: write # Needed to detect the current reusable repository and ref
     uses: sigstore/rekor-monitor/.github/workflows/reusable_monitoring.yaml@main
-````
+```
 
 2. This monitor, as set up, will run every hour and verify the transparency log consistency using the reusable monitoring workflow.  
 3. If you wish to monitor for given identities, you can input given identities into the created workflow configuration as follows:
 
-````
+```yaml
 name: Rekor log and identity monitor
 on:
   schedule:
@@ -89,7 +89,7 @@ jobs:
           repositoryName: rekor-log-monitor
           authenticationToken: <PAT with repo write and push access>
 
-````
+```
 
 This workflow configuration will monitor for any certificate identities containing a SAN (Subject Alternate Name) of either \`[user@domain.com](mailto:user@domain.com)\` or \`[otheruser@domain.com](mailto:otheruser@domain.com)\`, as well as looking for the issuers \`[https://accounts.google.com](https://acocunts.google.com)\` or \`[https://github.com/login](https://github.com/login)\`. For those who want to specifically monitor object identifiers, the configuration supports monitoring for object identifier extensions supported by Fulcio (in this case, any build config URI matching \`[https://example.com/owner/repository/build-config.yml](https://example.com/owner/repository/build-config.yml)\`), as well as custom provided object identifier extensions, for those who want to monitor custom OIDs, in the case of a private deployment (in this case, the custom object identifier is monitoring for the OID extension value matching the build config URI of \`[https://example.com/owner/repository/build-signer.yml](https://example.com/owner/repository/build-signer.yml)\`).
 

@@ -52,7 +52,7 @@ Use the [model-transparency tools][repomodeltransparency] to sign your model, ei
 
 A model snapshot for testing can be found in the [sigstore/model-validation-operator][repomodeloperator] repository and can be used to demonstrate signing a model:
 
-```bash
+```shell
 git clone git@github.com:sigstore/model-validation-operator.git
 cd model-validation-operator
 docker run -it --rm -v $(pwd)/testdata/tensorflow_saved_model:/tensorflow_saved_model:z -w /tensorflow_saved_model ghcr.io/sigstore/model-transparency-cli:v1.0.1 sign sigstore --signature="/tensorflow_saved_model/model.sig" /tensorflow_saved_model
@@ -74,7 +74,7 @@ Once authentication is complete, a verification code will be displayed in your b
 
 Go to the following link in your browser:
 
-```
+```shell
 https://oauth2.sigstore.dev/auth/auth?response_type=code&client_id=sigstore&client_secret=&scope=openid+email&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&code_challenge=ajfn5BIb10C-XuQ6V7iFOPfW4TYt1focj2q2a0Ubhho&code_challenge_method=S256&state=81e6bbc6-786e-4791-8aa6-f6385d43f0b6&nonce=56e5433a-ab81-421c-8c0e-b2f4f76e6ad0
 Enter verification code: 
 ```
@@ -121,7 +121,7 @@ spec:
 
 To create a Model Validation Custom resource, the Custom Resource Definition (CRD) and the model-validation-operator must be installed first. This step can be accomplished by running the following command:
 
-```bash
+```shell
 kubectl apply -f https://github.com/sigstore/model-validation-operator/releases/download/v1.0.1/manifests.yaml
 ```
 

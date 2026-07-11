@@ -1,0 +1,36 @@
+{{ define "main" }}
+  <section class="post-list">
+    <div class="container">
+      {{ $pages := where .Site.RegularPages "Type" "post" }}
+      {{ $paginator := .Paginate (sort $pages "Date" "desc") }}
+      {{ range $paginator.Pages }}
+        <article class="post-card">
+          <div class="post-card-body">
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            <p class="post-meta">{{ .Date.Format "Jan 2, 2006" }}{{ with .Params.author }} · {{ . }}{{ end }}</p>
+            <p class="post-summary">{{ .Summary }}</p>
+            {{ with .Params.tags }}
+              <div class="tag-row">
+                {{ range . }}
+                  <a class="tag" href="{{ (print "/tags/" (urlize .) "/") | relURL }}">{{ . }}</a>
+                {{ end }}
+              </div>
+            {{ end }}
+          </div>
+        </article>
+      {{ end }}
+
+      {{ if gt $paginator.TotalPages 1 }}
+        <nav class="pagination">
+          {{ if $paginator.HasPrev }}
+            <a class="page-link" href="{{ $paginator.Prev.URL }}">Newer</a>
+          {{ end }}
+          <span class="page-status">Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}</span>
+          {{ if $paginator.HasNext }}
+            <a class="page-link" href="{{ $paginator.Next.URL }}">Older</a>
+          {{ end }}
+        </nav>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}
