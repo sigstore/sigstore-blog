@@ -32,17 +32,18 @@ By deprecating under-utilized entry types, we:
 
 The Sigstore public deployment will exclusively support the following entry types:
 
-1. hashedrekord: The standard format representing a hashed artifact and its signature.
-2. dsse: Used for in-toto attestation signing.
-3. intoto (versions v0.0.1 and v0.0.2): A previous revision of the `dsse` type, still supported by older clients.  
-4. helm: Supporting [Helm chart provenance](https://github.com/sigstore/helm-sigstore).
+1. `hashedrekord`: The standard format representing a hashed artifact and its signature.
+2. `dsse`: Used for in-toto attestation signing.
+3. `intoto` (versions v0.0.1 and v0.0.2): A previous revision of the `dsse` type, still supported by older clients.  
+4. `helm`: Supporting [Helm chart provenance](https://github.com/sigstore/helm-sigstore). Please reach out if you're relying on this plugin or open to contributing changes to make it conformant with other clients.
 
-### **SDK Recommendation for Developers**
+## **SDK Recommendation for Developers**
 
-If you are developing or maintaining a Sigstore client or integration, **your implementation should exclusively generate** hashedrekord **and** dsse **entries.**
-These two types represent the well-supported path for the vast majority of signing use cases, including container signing, blob signing, and general attestation envelopes.
+If you are developing or maintaining a Sigstore client or integration, **your implementation should exclusively generate** `hashedrekord` **entries**.
+This type represents the well-supported path for the vast majority of signing use cases, including container signing, blob signing, and general attestation envelopes.
+Optionally, when integrating with Rekor v1, your implementation may generate `dsse` entries for server-side payload generation, although large attestations are unsupported.
 
-Furthermore, for newer integrations, we recommend [leveraging Rekor v2](https://blog.sigstore.dev/rekor-evolution/), which is well-optimized for all client payloads, including large attestations.
+For newer integrations, we recommend [leveraging Rekor v2](https://blog.sigstore.dev/rekor-evolution/), which is well-optimized for all client payloads, including large attestations.
 
 **What Does This Mean for You?**
 
