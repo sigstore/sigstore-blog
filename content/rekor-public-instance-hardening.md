@@ -12,6 +12,8 @@ type = "post"
 To harden our public-good infrastructure, reduce attack surfaces, and ensure seamless interoperability
 across the developer ecosystem, **we are reducing the number of supported entry types on the Sigstore public deployment transparency log.**
 
+**90 days from now, we will disable entry types that are unsupported by Sigstore client tooling.**
+
 This change will have **no impact** for users of Cosign and Sigstore SDKs, as well as integrators using these client libraries.
 
 This decision is driven by a lack of client support and adoption for several older or experimental entry types.
