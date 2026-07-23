@@ -9,16 +9,14 @@ type = "post"
 
 # **Hardening Sigstore Public Infrastructure**
 
-As Sigstore has grown to secure software production worldwide, our focus has increasingly shifted
-toward hardening our public-good infrastructure, reducing attack surfaces, and ensuring seamless interoperability
-across the developer ecosystem.
-To achieve this, **we are reducing the number of supported entry types on the Sigstore public deployment.**
+To harden our public-good infrastructure, reduce attack surfaces, and ensure seamless interoperability
+across the developer ecosystem, **we are reducing the number of supported entry types on the Sigstore public deployment transparency log.**
+
+This change will have **no impact** for users of Cosign and Sigstore SDKs, as well as integrators using these client libraries.
 
 This decision is driven by a lack of client support and adoption for several older or experimental entry types.
 By narrowing our focus to a core set of highly adopted, well-supported schemas, we can deliver a more secure,
 performant, and reliable transparency log for everyone.
-
-This change will have **no impact** for users of Cosign and Sigstore SDKs, as well as integrators using these client libraries.
 
 **Why Streamline Entry Types?**
 
