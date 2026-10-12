@@ -13,7 +13,7 @@ Post-quantum cryptography (PQC) is rapidly transitioning from a theoretical expl
 
 To stay ahead of this threat, Sigstore is adjusting our [timeline](https://blog.sigstore.dev/post-quantum-2025/) to support PQC algorithms immediately. Sigstore will not only integrate quantum-resistant algorithms but also seize this opportunity to fundamentally streamline its core architecture.
 
-To learn more, [review the design document](https://docs.google.com/document/d/1g3WQk4JSwQ26MGwB-Kkhu8ylrPF5JnE4v62d2tDC2xY/edit?tab=t.0) (join [sigstore-dev](https://groups.google.com/g/sigstore-dev) to view).
+To learn more, [review the design document](https://github.com/sigstore/architecture-docs/blob/main/pqc-design.md), and to leave feedback, please file an issue on [architecture-docs](https://github.com/sigstore/architecture-docs/issues).
 
 We will be publishing more blog posts in the coming months as we continue to make progress.
 If you have any questions, please reach out on [Slack](https://sigstore.slack.com) or create an issue or
