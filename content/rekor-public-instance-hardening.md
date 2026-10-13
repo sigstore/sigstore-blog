@@ -26,8 +26,9 @@ The Sigstore public deployment will exclusively support the following entry type
 
 1. `hashedrekord`: The standard format representing a hashed artifact and its signature.
 2. `dsse`: Used for in-toto attestation signing.
-3. `intoto` (versions v0.0.1 and v0.0.2): A previous revision of the `dsse` type, still supported by older clients.  
-4. `helm`: Supporting [Helm chart provenance](https://github.com/sigstore/helm-sigstore). Please reach out if you're relying on this plugin or open to contributing changes to make it conformant with other clients.
+3. `intoto` (versions v0.0.1 and v0.0.2): A previous revision of the `dsse` type, still supported by older clients.
+4. `rekord`: Used in older versions of Cosign and Rekor's CLI that sends the full payload to Rekor. `hashedrekord` should always be used instead.
+5. `helm`: Supporting [Helm chart provenance](https://github.com/sigstore/helm-sigstore). Please reach out if you're relying on this plugin or open to contributing changes to make it conformant with other clients.
 
 ## **SDK Recommendation for Developers**
 
