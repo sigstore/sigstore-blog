@@ -1,6 +1,6 @@
 +++
 title = "Rekor Public-Good Instance Hardening"
-date = "2026-10-16"
+date = "2026-11-02"
 tags = ["sigstore","rekor"]
 draft = false
 author = "Hayden Blauzvern (Google)"
