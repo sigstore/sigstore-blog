@@ -1,6 +1,6 @@
 +++
 title = "Rekor Public-Good Instance Hardening"
-date = "2026-11-02"
+date = "2026-11-20"
 tags = ["sigstore","rekor"]
 draft = false
 author = "Sigstore Public Infrastructure Maintainers"
